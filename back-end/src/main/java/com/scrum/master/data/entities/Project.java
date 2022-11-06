@@ -18,7 +18,8 @@ public class Project extends BaseEntity {
     @ManyToOne
     private Organization organization;
 
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "project_id")
     private List<ProjectMember> members;
 
     @Transient

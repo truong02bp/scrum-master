@@ -1,0 +1,700 @@
+[2022-11-06 23:23:32.032][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][55]Starting Application using Java 17.0.3 on 192.168.2.174 with PID 47978 (/Users/mac/Documents/software-development/scrum-master/back-end/target/classes started by mac in /Users/mac/Documents/software-development/scrum-master/back-end)
+[2022-11-06 23:23:32.032][INFO ][org.springframework.boot.SpringApplication][restartedMain][640]No active profile set, falling back to 1 default profile: "default"
+[2022-11-06 23:23:32.032][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-11-06 23:23:32.032][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-11-06 23:23:33.033][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-06 23:23:33.033][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][201]Finished Spring Data repository scanning in 54 ms. Found 5 JPA repository interfaces.
+[2022-11-06 23:23:34.034][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][108]Tomcat initialized with port(s): 8080 (http)
+[2022-11-06 23:23:34.034][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:23:34.034][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting service [Tomcat]
+[2022-11-06 23:23:34.034][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting Servlet engine: [Apache Tomcat/9.0.58]
+[2022-11-06 23:23:34.034][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing Spring embedded WebApplicationContext
+[2022-11-06 23:23:34.034][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][restartedMain][290]Root WebApplicationContext: initialization completed in 1326 ms
+[2022-11-06 23:23:34.034][INFO ][org.hibernate.jpa.internal.util.LogHelper][restartedMain][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-06 23:23:34.034][INFO ][org.hibernate.Version][restartedMain][44]HHH000412: Hibernate ORM core version 5.6.5.Final
+[2022-11-06 23:23:34.034][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][restartedMain][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-06 23:23:34.034][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][110]HikariPool-1 - Starting...
+[2022-11-06 23:23:34.034][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][123]HikariPool-1 - Start completed.
+[2022-11-06 23:23:34.034][INFO ][org.hibernate.dialect.Dialect][restartedMain][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[2022-11-06 23:23:35.035][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][restartedMain][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-06 23:23:35.035][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:23:35.035][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][restartedMain][219]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-06 23:23:36.036][INFO ][org.springframework.security.web.DefaultSecurityFilterChain][restartedMain][52]Will not secure any request
+[2022-11-06 23:23:36.036][WARN ][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer][restartedMain][61]Unable to start LiveReload server
+[2022-11-06 23:23:36.036][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:23:36.036][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2022-11-06 23:23:36.036][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Starting...
+[2022-11-06 23:23:36.036][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6faa84d0]]
+[2022-11-06 23:23:36.036][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Started.
+[2022-11-06 23:23:36.036][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][61]Started Application in 4.872 seconds (JVM running for 5.272)
+[2022-11-06 23:24:18.018][INFO ][org.apache.juli.logging.DirectJDKLog][http-nio-8080-exec-1][173]Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-11-06 23:24:18.018][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-1][525]Initializing Servlet 'dispatcherServlet'
+[2022-11-06 23:24:18.018][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-1][547]Completed initialization in 12 ms
+[2022-11-06 23:24:19.019][WARN ][org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver][http-nio-8080-exec-7][208]Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'organizationId' for method parameter type Long is not present]
+[2022-11-06 23:24:36.036][INFO ][org.springframework.web.socket.config.WebSocketMessageBrokerStats][MessageBroker-1][128]WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+[2022-11-06 23:25:14.014][WARN ][org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver][http-nio-8080-exec-10][208]Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'organizationId' for method parameter type Long is not present]
+[2022-11-06 23:27:51.051][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopping...
+[2022-11-06 23:27:51.051][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@6faa84d0]]
+[2022-11-06 23:27:51.051][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopped.
+[2022-11-06 23:27:51.051][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][SpringApplicationShutdownHook][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:27:51.051][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][350]HikariPool-1 - Shutdown initiated...
+[2022-11-06 23:27:51.051][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][352]HikariPool-1 - Shutdown completed.
+[2022-11-06 23:27:54.054][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][55]Starting Application using Java 17.0.3 on 192.168.2.174 with PID 48640 (/Users/mac/Documents/software-development/scrum-master/back-end/target/classes started by mac in /Users/mac/Documents/software-development/scrum-master/back-end)
+[2022-11-06 23:27:54.054][INFO ][org.springframework.boot.SpringApplication][restartedMain][640]No active profile set, falling back to 1 default profile: "default"
+[2022-11-06 23:27:54.054][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-11-06 23:27:54.054][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-11-06 23:27:54.054][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-06 23:27:54.054][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][201]Finished Spring Data repository scanning in 20 ms. Found 5 JPA repository interfaces.
+[2022-11-06 23:27:54.054][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][108]Tomcat initialized with port(s): 8080 (http)
+[2022-11-06 23:27:54.054][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:27:54.054][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting service [Tomcat]
+[2022-11-06 23:27:54.054][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting Servlet engine: [Apache Tomcat/9.0.58]
+[2022-11-06 23:27:54.054][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing Spring embedded WebApplicationContext
+[2022-11-06 23:27:54.054][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][restartedMain][290]Root WebApplicationContext: initialization completed in 536 ms
+[2022-11-06 23:27:54.054][INFO ][org.hibernate.jpa.internal.util.LogHelper][restartedMain][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-06 23:27:54.054][INFO ][org.hibernate.Version][restartedMain][44]HHH000412: Hibernate ORM core version 5.6.5.Final
+[2022-11-06 23:27:54.054][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][restartedMain][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-06 23:27:54.054][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][110]HikariPool-1 - Starting...
+[2022-11-06 23:27:54.054][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][123]HikariPool-1 - Start completed.
+[2022-11-06 23:27:54.054][INFO ][org.hibernate.dialect.Dialect][restartedMain][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[2022-11-06 23:27:55.055][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][restartedMain][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-06 23:27:55.055][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:27:55.055][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][restartedMain][219]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-06 23:27:56.056][INFO ][org.springframework.security.web.DefaultSecurityFilterChain][restartedMain][52]Will not secure any request
+[2022-11-06 23:27:56.056][WARN ][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer][restartedMain][61]Unable to start LiveReload server
+[2022-11-06 23:27:56.056][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:27:56.056][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2022-11-06 23:27:56.056][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Starting...
+[2022-11-06 23:27:56.056][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@62910c18]]
+[2022-11-06 23:27:56.056][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Started.
+[2022-11-06 23:27:56.056][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][61]Started Application in 2.384 seconds (JVM running for 2.632)
+[2022-11-06 23:28:01.001][INFO ][org.apache.juli.logging.DirectJDKLog][http-nio-8080-exec-2][173]Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-11-06 23:28:01.001][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-2][525]Initializing Servlet 'dispatcherServlet'
+[2022-11-06 23:28:01.001][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-2][547]Completed initialization in 1 ms
+[2022-11-06 23:28:55.055][INFO ][org.springframework.web.socket.config.WebSocketMessageBrokerStats][MessageBroker-1][128]WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+[2022-11-06 23:31:37.037][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopping...
+[2022-11-06 23:31:37.037][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@62910c18]]
+[2022-11-06 23:31:37.037][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopped.
+[2022-11-06 23:31:37.037][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][SpringApplicationShutdownHook][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:31:37.037][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][350]HikariPool-1 - Shutdown initiated...
+[2022-11-06 23:31:37.037][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][352]HikariPool-1 - Shutdown completed.
+[2022-11-06 23:31:39.039][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][55]Starting Application using Java 17.0.3 on 192.168.2.174 with PID 49124 (/Users/mac/Documents/software-development/scrum-master/back-end/target/classes started by mac in /Users/mac/Documents/software-development/scrum-master/back-end)
+[2022-11-06 23:31:39.039][INFO ][org.springframework.boot.SpringApplication][restartedMain][640]No active profile set, falling back to 1 default profile: "default"
+[2022-11-06 23:31:39.039][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-11-06 23:31:39.039][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-11-06 23:31:40.040][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-06 23:31:40.040][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][201]Finished Spring Data repository scanning in 26 ms. Found 5 JPA repository interfaces.
+[2022-11-06 23:31:40.040][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][108]Tomcat initialized with port(s): 8080 (http)
+[2022-11-06 23:31:40.040][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:31:40.040][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting service [Tomcat]
+[2022-11-06 23:31:40.040][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting Servlet engine: [Apache Tomcat/9.0.58]
+[2022-11-06 23:31:40.040][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing Spring embedded WebApplicationContext
+[2022-11-06 23:31:40.040][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][restartedMain][290]Root WebApplicationContext: initialization completed in 523 ms
+[2022-11-06 23:31:40.040][INFO ][org.hibernate.jpa.internal.util.LogHelper][restartedMain][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-06 23:31:40.040][INFO ][org.hibernate.Version][restartedMain][44]HHH000412: Hibernate ORM core version 5.6.5.Final
+[2022-11-06 23:31:40.040][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][restartedMain][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-06 23:31:40.040][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][110]HikariPool-1 - Starting...
+[2022-11-06 23:31:40.040][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][123]HikariPool-1 - Start completed.
+[2022-11-06 23:31:40.040][INFO ][org.hibernate.dialect.Dialect][restartedMain][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[2022-11-06 23:31:41.041][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][restartedMain][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-06 23:31:41.041][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:31:41.041][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][restartedMain][219]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-06 23:31:42.042][INFO ][org.springframework.security.web.DefaultSecurityFilterChain][restartedMain][52]Will not secure any request
+[2022-11-06 23:31:42.042][WARN ][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer][restartedMain][61]Unable to start LiveReload server
+[2022-11-06 23:31:42.042][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:31:42.042][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2022-11-06 23:31:42.042][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Starting...
+[2022-11-06 23:31:42.042][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3b033857]]
+[2022-11-06 23:31:42.042][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Started.
+[2022-11-06 23:31:42.042][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][61]Started Application in 2.333 seconds (JVM running for 2.641)
+[2022-11-06 23:31:48.048][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopping...
+[2022-11-06 23:31:48.048][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3b033857]]
+[2022-11-06 23:31:48.048][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopped.
+[2022-11-06 23:31:48.048][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][SpringApplicationShutdownHook][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:31:48.048][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][350]HikariPool-1 - Shutdown initiated...
+[2022-11-06 23:31:48.048][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][352]HikariPool-1 - Shutdown completed.
+[2022-11-06 23:32:14.014][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][55]Starting Application using Java 17.0.3 on 192.168.2.174 with PID 49201 (/Users/mac/Documents/software-development/scrum-master/back-end/target/classes started by mac in /Users/mac/Documents/software-development/scrum-master/back-end)
+[2022-11-06 23:32:14.014][INFO ][org.springframework.boot.SpringApplication][restartedMain][640]No active profile set, falling back to 1 default profile: "default"
+[2022-11-06 23:32:14.014][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-11-06 23:32:14.014][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-11-06 23:32:14.014][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-06 23:32:14.014][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][201]Finished Spring Data repository scanning in 20 ms. Found 5 JPA repository interfaces.
+[2022-11-06 23:32:15.015][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][108]Tomcat initialized with port(s): 8080 (http)
+[2022-11-06 23:32:15.015][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:32:15.015][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting service [Tomcat]
+[2022-11-06 23:32:15.015][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting Servlet engine: [Apache Tomcat/9.0.58]
+[2022-11-06 23:32:15.015][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing Spring embedded WebApplicationContext
+[2022-11-06 23:32:15.015][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][restartedMain][290]Root WebApplicationContext: initialization completed in 535 ms
+[2022-11-06 23:32:15.015][INFO ][org.hibernate.jpa.internal.util.LogHelper][restartedMain][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-06 23:32:15.015][INFO ][org.hibernate.Version][restartedMain][44]HHH000412: Hibernate ORM core version 5.6.5.Final
+[2022-11-06 23:32:15.015][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][restartedMain][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-06 23:32:15.015][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][110]HikariPool-1 - Starting...
+[2022-11-06 23:32:15.015][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][123]HikariPool-1 - Start completed.
+[2022-11-06 23:32:15.015][INFO ][org.hibernate.dialect.Dialect][restartedMain][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[2022-11-06 23:32:15.015][WARN ][org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl][restartedMain][27]GenerationTarget encountered exception accepting command : Error executing DDL "alter table projects_members add constraint FKca0fxgvkaxvhjuwi82owoxu92 foreign key (members_id) references project_member" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table projects_members add constraint FKca0fxgvkaxvhjuwi82owoxu92 foreign key (members_id) references project_member" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:581)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:526)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:452)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:263)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:123)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:192)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:693)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:510)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:374)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:134)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1707)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1452)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:212)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:175)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:170)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:155)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:260)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:234)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5219)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:263)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:927)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:478)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:182)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:160)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.scrum.master.Application.main(Application.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.postgresql.util.PSQLException: ERROR: insert or update on table "projects_members" violates foreign key constraint "fkca0fxgvkaxvhjuwi82owoxu92"
+  Detail: Key (members_id)=(1) is not present in table "project_member".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2675)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2365)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:355)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:329)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:315)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:291)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:286)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 119 common frames omitted
+[2022-11-06 23:32:15.015][WARN ][org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl][restartedMain][27]GenerationTarget encountered exception accepting command : Error executing DDL "alter table projects_members add constraint FKkv2pepk8xy0u74k3l61if6efq foreign key (project_id) references projects" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table projects_members add constraint FKkv2pepk8xy0u74k3l61if6efq foreign key (project_id) references projects" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:581)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:526)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applyForeignKeys(AbstractSchemaMigrator.java:452)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:263)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:123)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:192)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:81)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:335)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:471)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1498)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:409)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:396)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1863)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1800)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveReference(BeanDefinitionValueResolver.java:330)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:113)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveConstructorArguments(ConstructorResolver.java:693)
+	at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:510)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1352)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1195)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveInnerBean(BeanDefinitionValueResolver.java:374)
+	at org.springframework.beans.factory.support.BeanDefinitionValueResolver.resolveValueIfNecessary(BeanDefinitionValueResolver.java:134)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyPropertyValues(AbstractAutowireCapableBeanFactory.java:1707)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1452)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:619)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1389)
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1309)
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:213)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.getOrderedBeansOfType(ServletContextInitializerBeans.java:212)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:175)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAsRegistrationBean(ServletContextInitializerBeans.java:170)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.addAdaptableBeans(ServletContextInitializerBeans.java:155)
+	at org.springframework.boot.web.servlet.ServletContextInitializerBeans.<init>(ServletContextInitializerBeans.java:87)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.getServletContextInitializerBeans(ServletWebServerApplicationContext.java:260)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.selfInitialize(ServletWebServerApplicationContext.java:234)
+	at org.springframework.boot.web.embedded.tomcat.TomcatStarter.onStartup(TomcatStarter.java:53)
+	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:5219)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919)
+	at org.apache.catalina.core.StandardHost.startInternal(StandardHost.java:835)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1396)
+	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:1386)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at org.apache.tomcat.util.threads.InlineExecutorService.execute(InlineExecutorService.java:75)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:145)
+	at org.apache.catalina.core.ContainerBase.startInternal(ContainerBase.java:919)
+	at org.apache.catalina.core.StandardEngine.startInternal(StandardEngine.java:263)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardService.startInternal(StandardService.java:432)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.core.StandardServer.startInternal(StandardServer.java:927)
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:183)
+	at org.apache.catalina.startup.Tomcat.start(Tomcat.java:486)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.initialize(TomcatWebServer.java:123)
+	at org.springframework.boot.web.embedded.tomcat.TomcatWebServer.<init>(TomcatWebServer.java:104)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getTomcatWebServer(TomcatServletWebServerFactory.java:478)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:211)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:182)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:160)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:577)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:145)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:740)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:415)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1312)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1301)
+	at com.scrum.master.Application.main(Application.java:23)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:49)
+Caused by: org.postgresql.util.PSQLException: ERROR: insert or update on table "projects_members" violates foreign key constraint "fkkv2pepk8xy0u74k3l61if6efq"
+  Detail: Key (project_id)=(3) is not present in table "projects".
+	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2675)
+	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2365)
+	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:355)
+	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:490)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:408)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:329)
+	at org.postgresql.jdbc.PgStatement.executeCachedSql(PgStatement.java:315)
+	at org.postgresql.jdbc.PgStatement.executeWithFlags(PgStatement.java:291)
+	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:286)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 119 common frames omitted
+[2022-11-06 23:32:15.015][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][restartedMain][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-06 23:32:15.015][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:32:16.016][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][restartedMain][219]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-06 23:32:16.016][INFO ][org.springframework.security.web.DefaultSecurityFilterChain][restartedMain][52]Will not secure any request
+[2022-11-06 23:32:16.016][WARN ][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer][restartedMain][61]Unable to start LiveReload server
+[2022-11-06 23:32:16.016][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:32:16.016][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2022-11-06 23:32:16.016][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Starting...
+[2022-11-06 23:32:16.016][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@57d036a9]]
+[2022-11-06 23:32:16.016][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Started.
+[2022-11-06 23:32:16.016][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][61]Started Application in 2.203 seconds (JVM running for 2.511)
+[2022-11-06 23:32:58.058][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopping...
+[2022-11-06 23:32:58.058][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@57d036a9]]
+[2022-11-06 23:32:58.058][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopped.
+[2022-11-06 23:32:58.058][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][SpringApplicationShutdownHook][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:32:58.058][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][350]HikariPool-1 - Shutdown initiated...
+[2022-11-06 23:32:58.058][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][352]HikariPool-1 - Shutdown completed.
+[2022-11-06 23:33:00.000][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][55]Starting Application using Java 17.0.3 on 192.168.2.174 with PID 49309 (/Users/mac/Documents/software-development/scrum-master/back-end/target/classes started by mac in /Users/mac/Documents/software-development/scrum-master/back-end)
+[2022-11-06 23:33:00.000][INFO ][org.springframework.boot.SpringApplication][restartedMain][640]No active profile set, falling back to 1 default profile: "default"
+[2022-11-06 23:33:00.000][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-11-06 23:33:00.000][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-11-06 23:33:01.001][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-06 23:33:01.001][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][201]Finished Spring Data repository scanning in 22 ms. Found 5 JPA repository interfaces.
+[2022-11-06 23:33:01.001][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][108]Tomcat initialized with port(s): 8080 (http)
+[2022-11-06 23:33:01.001][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:33:01.001][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting service [Tomcat]
+[2022-11-06 23:33:01.001][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting Servlet engine: [Apache Tomcat/9.0.58]
+[2022-11-06 23:33:01.001][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing Spring embedded WebApplicationContext
+[2022-11-06 23:33:01.001][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][restartedMain][290]Root WebApplicationContext: initialization completed in 571 ms
+[2022-11-06 23:33:01.001][INFO ][org.hibernate.jpa.internal.util.LogHelper][restartedMain][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-06 23:33:01.001][INFO ][org.hibernate.Version][restartedMain][44]HHH000412: Hibernate ORM core version 5.6.5.Final
+[2022-11-06 23:33:01.001][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][restartedMain][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-06 23:33:01.001][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][110]HikariPool-1 - Starting...
+[2022-11-06 23:33:01.001][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][123]HikariPool-1 - Start completed.
+[2022-11-06 23:33:01.001][INFO ][org.hibernate.dialect.Dialect][restartedMain][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[2022-11-06 23:33:02.002][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][restartedMain][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-06 23:33:02.002][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:33:03.003][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][restartedMain][219]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-06 23:33:03.003][INFO ][org.springframework.security.web.DefaultSecurityFilterChain][restartedMain][52]Will not secure any request
+[2022-11-06 23:33:03.003][WARN ][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer][restartedMain][61]Unable to start LiveReload server
+[2022-11-06 23:33:03.003][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:33:03.003][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2022-11-06 23:33:03.003][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Starting...
+[2022-11-06 23:33:03.003][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@ec28937]]
+[2022-11-06 23:33:03.003][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Started.
+[2022-11-06 23:33:03.003][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][61]Started Application in 2.998 seconds (JVM running for 3.3)
+[2022-11-06 23:33:11.011][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopping...
+[2022-11-06 23:33:11.011][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@ec28937]]
+[2022-11-06 23:33:11.011][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopped.
+[2022-11-06 23:33:11.011][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][SpringApplicationShutdownHook][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:33:11.011][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][350]HikariPool-1 - Shutdown initiated...
+[2022-11-06 23:33:11.011][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][352]HikariPool-1 - Shutdown completed.
+[2022-11-06 23:33:13.013][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][55]Starting Application using Java 17.0.3 on 192.168.2.174 with PID 49339 (/Users/mac/Documents/software-development/scrum-master/back-end/target/classes started by mac in /Users/mac/Documents/software-development/scrum-master/back-end)
+[2022-11-06 23:33:13.013][INFO ][org.springframework.boot.SpringApplication][restartedMain][640]No active profile set, falling back to 1 default profile: "default"
+[2022-11-06 23:33:13.013][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-11-06 23:33:13.013][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-11-06 23:33:13.013][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-06 23:33:13.013][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][201]Finished Spring Data repository scanning in 21 ms. Found 5 JPA repository interfaces.
+[2022-11-06 23:33:13.013][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][108]Tomcat initialized with port(s): 8080 (http)
+[2022-11-06 23:33:13.013][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:33:13.013][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting service [Tomcat]
+[2022-11-06 23:33:13.013][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting Servlet engine: [Apache Tomcat/9.0.58]
+[2022-11-06 23:33:13.013][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing Spring embedded WebApplicationContext
+[2022-11-06 23:33:13.013][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][restartedMain][290]Root WebApplicationContext: initialization completed in 507 ms
+[2022-11-06 23:33:13.013][INFO ][org.hibernate.jpa.internal.util.LogHelper][restartedMain][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-06 23:33:13.013][INFO ][org.hibernate.Version][restartedMain][44]HHH000412: Hibernate ORM core version 5.6.5.Final
+[2022-11-06 23:33:13.013][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][restartedMain][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-06 23:33:14.014][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][110]HikariPool-1 - Starting...
+[2022-11-06 23:33:14.014][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][123]HikariPool-1 - Start completed.
+[2022-11-06 23:33:14.014][INFO ][org.hibernate.dialect.Dialect][restartedMain][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[2022-11-06 23:33:14.014][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][restartedMain][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-06 23:33:14.014][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:33:14.014][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][restartedMain][219]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-06 23:33:15.015][INFO ][org.springframework.security.web.DefaultSecurityFilterChain][restartedMain][52]Will not secure any request
+[2022-11-06 23:33:15.015][WARN ][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer][restartedMain][61]Unable to start LiveReload server
+[2022-11-06 23:33:15.015][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:33:15.015][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2022-11-06 23:33:15.015][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Starting...
+[2022-11-06 23:33:15.015][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@66d5b92f]]
+[2022-11-06 23:33:15.015][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Started.
+[2022-11-06 23:33:15.015][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][61]Started Application in 2.248 seconds (JVM running for 2.585)
+[2022-11-06 23:33:29.029][INFO ][org.apache.juli.logging.DirectJDKLog][http-nio-8080-exec-2][173]Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-11-06 23:33:29.029][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-2][525]Initializing Servlet 'dispatcherServlet'
+[2022-11-06 23:33:29.029][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-2][547]Completed initialization in 1 ms
+[2022-11-06 23:33:42.042][WARN ][org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver][http-nio-8080-exec-6][208]Resolved [org.springframework.web.HttpRequestMethodNotSupportedException: Request method 'POST' not supported]
+[2022-11-06 23:34:05.005][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopping...
+[2022-11-06 23:34:05.005][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@66d5b92f]]
+[2022-11-06 23:34:05.005][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopped.
+[2022-11-06 23:34:05.005][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][SpringApplicationShutdownHook][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:34:05.005][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][350]HikariPool-1 - Shutdown initiated...
+[2022-11-06 23:34:05.005][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][352]HikariPool-1 - Shutdown completed.
+[2022-11-06 23:34:08.008][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][55]Starting Application using Java 17.0.3 on 192.168.2.174 with PID 49446 (/Users/mac/Documents/software-development/scrum-master/back-end/target/classes started by mac in /Users/mac/Documents/software-development/scrum-master/back-end)
+[2022-11-06 23:34:08.008][INFO ][org.springframework.boot.SpringApplication][restartedMain][640]No active profile set, falling back to 1 default profile: "default"
+[2022-11-06 23:34:08.008][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-11-06 23:34:08.008][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-11-06 23:34:08.008][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-06 23:34:08.008][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][201]Finished Spring Data repository scanning in 21 ms. Found 5 JPA repository interfaces.
+[2022-11-06 23:34:08.008][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][108]Tomcat initialized with port(s): 8080 (http)
+[2022-11-06 23:34:08.008][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:34:08.008][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting service [Tomcat]
+[2022-11-06 23:34:08.008][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting Servlet engine: [Apache Tomcat/9.0.58]
+[2022-11-06 23:34:08.008][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing Spring embedded WebApplicationContext
+[2022-11-06 23:34:08.008][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][restartedMain][290]Root WebApplicationContext: initialization completed in 551 ms
+[2022-11-06 23:34:08.008][INFO ][org.hibernate.jpa.internal.util.LogHelper][restartedMain][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-06 23:34:08.008][INFO ][org.hibernate.Version][restartedMain][44]HHH000412: Hibernate ORM core version 5.6.5.Final
+[2022-11-06 23:34:09.009][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][restartedMain][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-06 23:34:09.009][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][110]HikariPool-1 - Starting...
+[2022-11-06 23:34:09.009][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][123]HikariPool-1 - Start completed.
+[2022-11-06 23:34:09.009][INFO ][org.hibernate.dialect.Dialect][restartedMain][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[2022-11-06 23:34:09.009][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][restartedMain][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-06 23:34:09.009][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:34:10.010][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][restartedMain][219]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-06 23:34:10.010][INFO ][org.springframework.security.web.DefaultSecurityFilterChain][restartedMain][52]Will not secure any request
+[2022-11-06 23:34:10.010][WARN ][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer][restartedMain][61]Unable to start LiveReload server
+[2022-11-06 23:34:10.010][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:34:10.010][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2022-11-06 23:34:10.010][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Starting...
+[2022-11-06 23:34:10.010][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@737e3b99]]
+[2022-11-06 23:34:10.010][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Started.
+[2022-11-06 23:34:10.010][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][61]Started Application in 2.448 seconds (JVM running for 2.783)
+[2022-11-06 23:34:18.018][INFO ][org.apache.juli.logging.DirectJDKLog][http-nio-8080-exec-1][173]Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-11-06 23:34:18.018][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-1][525]Initializing Servlet 'dispatcherServlet'
+[2022-11-06 23:34:18.018][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-1][547]Completed initialization in 1 ms
+[2022-11-06 23:34:18.018][INFO ][org.hibernate.engine.jdbc.batch.internal.AbstractBatchImpl][http-nio-8080-exec-2][208]HHH000010: On release of batch it still contained JDBC statements
+[2022-11-06 23:34:18.018][ERROR][org.apache.juli.logging.DirectJDKLog][http-nio-8080-exec-2][175]Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is org.springframework.dao.InvalidDataAccessApiUsageException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.scrum.master.data.entities.ProjectMember; nested exception is java.lang.IllegalStateException: org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.scrum.master.data.entities.ProjectMember] with root cause
+org.hibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing: com.scrum.master.data.entities.ProjectMember
+	at org.hibernate.engine.internal.ForeignKeys.getEntityIdentifierIfNotUnsaved(ForeignKeys.java:347)
+	at org.hibernate.type.EntityType.getIdentifier(EntityType.java:507)
+	at org.hibernate.type.EntityType.nullSafeSet(EntityType.java:280)
+	at org.hibernate.persister.collection.AbstractCollectionPersister.writeElement(AbstractCollectionPersister.java:925)
+	at org.hibernate.persister.collection.AbstractCollectionPersister.recreate(AbstractCollectionPersister.java:1347)
+	at org.hibernate.persister.collection.OneToManyPersister.recreate(OneToManyPersister.java:187)
+	at org.hibernate.action.internal.CollectionRecreateAction.execute(CollectionRecreateAction.java:50)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:604)
+	at org.hibernate.engine.spi.ActionQueue.lambda$executeActions$1(ActionQueue.java:478)
+	at java.base/java.util.LinkedHashMap.forEach(LinkedHashMap.java:721)
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:475)
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:344)
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:40)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:107)
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1402)
+	at org.hibernate.internal.SessionImpl.managedFlush(SessionImpl.java:493)
+	at org.hibernate.internal.SessionImpl.flushBeforeTransactionCompletion(SessionImpl.java:3285)
+	at org.hibernate.internal.SessionImpl.beforeTransactionCompletion(SessionImpl.java:2420)
+	at org.hibernate.engine.jdbc.internal.JdbcCoordinatorImpl.beforeTransactionCompletion(JdbcCoordinatorImpl.java:449)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.beforeCompletionCallback(JdbcResourceLocalTransactionCoordinatorImpl.java:183)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl.access$300(JdbcResourceLocalTransactionCoordinatorImpl.java:40)
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:281)
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101)
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:743)
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:711)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:654)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:407)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:186)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:753)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:698)
+	at com.scrum.master.service.impl.ProjectServiceImpl$$EnhancerBySpringCGLIB$$15cf29a7.create(<generated>)
+	at com.scrum.master.controller.ProjectController.create(ProjectController.java:25)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:895)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:808)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1067)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:963)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:909)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:681)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:764)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:227)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:111)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:327)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:115)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:122)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:126)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:81)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:109)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:149)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at com.scrum.master.common.filter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:39)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:103)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:89)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:110)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:80)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:55)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:336)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:211)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:183)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:354)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:267)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:117)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:189)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:162)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:197)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:97)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:540)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:135)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:78)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:359)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:399)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:889)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1735)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+[2022-11-06 23:34:43.043][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopping...
+[2022-11-06 23:34:43.043][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@737e3b99]]
+[2022-11-06 23:34:43.043][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopped.
+[2022-11-06 23:34:43.043][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][SpringApplicationShutdownHook][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:34:43.043][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][350]HikariPool-1 - Shutdown initiated...
+[2022-11-06 23:34:43.043][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][352]HikariPool-1 - Shutdown completed.
+[2022-11-06 23:34:46.046][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][55]Starting Application using Java 17.0.3 on 192.168.2.174 with PID 49526 (/Users/mac/Documents/software-development/scrum-master/back-end/target/classes started by mac in /Users/mac/Documents/software-development/scrum-master/back-end)
+[2022-11-06 23:34:46.046][INFO ][org.springframework.boot.SpringApplication][restartedMain][640]No active profile set, falling back to 1 default profile: "default"
+[2022-11-06 23:34:46.046][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-11-06 23:34:46.046][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-11-06 23:34:46.046][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-06 23:34:46.046][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][201]Finished Spring Data repository scanning in 23 ms. Found 5 JPA repository interfaces.
+[2022-11-06 23:34:46.046][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][108]Tomcat initialized with port(s): 8080 (http)
+[2022-11-06 23:34:46.046][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:34:46.046][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting service [Tomcat]
+[2022-11-06 23:34:46.046][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting Servlet engine: [Apache Tomcat/9.0.58]
+[2022-11-06 23:34:46.046][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing Spring embedded WebApplicationContext
+[2022-11-06 23:34:46.046][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][restartedMain][290]Root WebApplicationContext: initialization completed in 604 ms
+[2022-11-06 23:34:46.046][INFO ][org.hibernate.jpa.internal.util.LogHelper][restartedMain][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-06 23:34:46.046][INFO ][org.hibernate.Version][restartedMain][44]HHH000412: Hibernate ORM core version 5.6.5.Final
+[2022-11-06 23:34:46.046][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][restartedMain][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-06 23:34:46.046][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][110]HikariPool-1 - Starting...
+[2022-11-06 23:34:46.046][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][123]HikariPool-1 - Start completed.
+[2022-11-06 23:34:46.046][INFO ][org.hibernate.dialect.Dialect][restartedMain][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[2022-11-06 23:34:47.047][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][restartedMain][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-06 23:34:47.047][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-06 23:34:47.047][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][restartedMain][219]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-06 23:34:48.048][INFO ][org.springframework.security.web.DefaultSecurityFilterChain][restartedMain][52]Will not secure any request
+[2022-11-06 23:34:48.048][WARN ][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer][restartedMain][61]Unable to start LiveReload server
+[2022-11-06 23:34:48.048][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting ProtocolHandler ["http-nio-8080"]
+[2022-11-06 23:34:48.048][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2022-11-06 23:34:48.048][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Starting...
+[2022-11-06 23:34:48.048][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@ec28937]]
+[2022-11-06 23:34:48.048][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Started.
+[2022-11-06 23:34:48.048][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][61]Started Application in 2.598 seconds (JVM running for 2.957)
+[2022-11-06 23:35:47.047][INFO ][org.springframework.web.socket.config.WebSocketMessageBrokerStats][MessageBroker-1][128]WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+[2022-11-06 23:37:21.021][INFO ][org.apache.juli.logging.DirectJDKLog][http-nio-8080-exec-1][173]Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-11-06 23:37:21.021][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-1][525]Initializing Servlet 'dispatcherServlet'
+[2022-11-06 23:37:21.021][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-1][547]Completed initialization in 13 ms

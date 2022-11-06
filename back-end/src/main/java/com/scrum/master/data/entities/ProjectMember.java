@@ -13,6 +13,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+
 public class ProjectMember extends BaseEntity {
 
     @ManyToOne
@@ -24,5 +25,6 @@ public class ProjectMember extends BaseEntity {
     @JsonIgnore
     private Project project;
 
+    @Enumerated(EnumType.STRING)
     private ProjectRole role;
 }

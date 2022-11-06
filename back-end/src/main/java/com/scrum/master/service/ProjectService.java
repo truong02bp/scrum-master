@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ProjectService {
 
-    List<Project> getAll(Long organizationId);
+    List<Project> getAll();
 
     Project create(Project project);
 

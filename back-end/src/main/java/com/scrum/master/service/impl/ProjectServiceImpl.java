@@ -2,7 +2,9 @@ package com.scrum.master.service.impl;
 
 import com.scrum.master.common.enums.ProjectRole;
 import com.scrum.master.common.exceptions.BusinessException;
+import com.scrum.master.common.utils.SecurityUtils;
 import com.scrum.master.data.dto.MyUserDetails;
+import com.scrum.master.data.entities.Organization;
 import com.scrum.master.data.entities.Project;
 import com.scrum.master.data.entities.ProjectMember;
 import com.scrum.master.data.entities.User;
@@ -27,14 +29,15 @@ public class ProjectServiceImpl implements ProjectService {
     private final ProjectRepository projectRepository;
 
     @Override
-    public List<Project> getAll(Long organizationId) {
-        return projectRepository.findByOrganization(organizationId).stream().peek(project -> {
+    public List<Project> getAll() {
+        Organization organization = SecurityUtils.getCurrentOrganization();
+        return projectRepository.findByOrganization(organization.getId()).stream().peek(project -> {
             List<ProjectMember> members = project.getMembers();
             for (ProjectMember member : members) {
                 if (member.getRole().equals(ProjectRole.LEADER)) {
                     project.setProjectLeader(member.getUser());
                 }
-                if (member.getRole().equals(ProjectRole.PROJECT_OWNER)) {
+                if (member.getRole().equals(ProjectRole.OWNER)) {
                     project.setOwner(member.getUser());
                 }
             }
@@ -59,7 +62,7 @@ public class ProjectServiceImpl implements ProjectService {
 
         members.add(ProjectMember.builder()
             .user(user)
-            .role(ProjectRole.PROJECT_OWNER)
+            .role(ProjectRole.OWNER)
             .build());
 
         project.setMembers(members);

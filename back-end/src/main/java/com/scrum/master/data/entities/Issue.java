@@ -18,6 +18,7 @@ public class Issue extends BaseEntity {
     private String title;
     private String description;
     private String label;
+    @Enumerated(EnumType.STRING)
     private IssueType type;
     private Integer estimate;
 

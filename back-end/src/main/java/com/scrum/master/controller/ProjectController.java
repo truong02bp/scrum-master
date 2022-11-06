@@ -16,11 +16,11 @@ public class ProjectController {
     private final ProjectService projectService;
 
     @GetMapping("/projects")
-    public ResponseEntity<List<Project>> findByOrganization(@RequestParam("organizationId") Long organizationId) {
-        return ResponseEntity.ok(projectService.getAll(organizationId));
+    public ResponseEntity<List<Project>> findByOrganization() {
+        return ResponseEntity.ok(projectService.getAll());
     }
 
-    @PutMapping("/project")
+    @PostMapping("/project")
     public ResponseEntity<Project> create(@RequestBody Project project) {
         return ResponseEntity.ok(projectService.create(project));
     }

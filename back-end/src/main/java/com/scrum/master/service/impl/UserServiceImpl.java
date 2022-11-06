@@ -1,6 +1,7 @@
 package com.scrum.master.service.impl;
 
 import com.scrum.master.common.exceptions.*;
+import com.scrum.master.common.utils.SecurityUtils;
 import com.scrum.master.common.utils.Validator;
 import com.scrum.master.data.dto.ActiveUserRequest;
 import com.scrum.master.data.dto.MediaDto;
@@ -80,14 +81,14 @@ public class UserServiceImpl implements UserService {
         String folder = "/" + time + "/";
         minioService.upload(folder, mediaDto.getName(), new ByteArrayInputStream(mediaDto.getBytes()));
         String url = folder + mediaDto.getName();
-        User user = getCurrentUser();
+        User user = SecurityUtils.getCurrentUser();
         user.setAvatarUrl(url);
         return userRepository.save(user);
     }
 
     @Override
     public List<User> findAll() {
-        Organization organization = getCurrentOrganization();
+        Organization organization = SecurityUtils.getCurrentOrganization();
         return userRepository.findByOrganization(organization.getId());
     }
 
@@ -112,7 +113,7 @@ public class UserServiceImpl implements UserService {
         if (existedUser != null) {
             return existedUser;
         }
-        user.setOrganization(getCurrentOrganization());
+        user.setOrganization(SecurityUtils.getCurrentOrganization());
         user.setAvatarUrl("/anonymous.png");
         return userRepository.save(user);
     }
@@ -140,13 +141,4 @@ public class UserServiceImpl implements UserService {
         return userRepository.save(user);
     }
 
-    private User getCurrentUser() {
-        MyUserDetails myUserDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return myUserDetails.getUser();
-    }
-
-    private Organization getCurrentOrganization() {
-        MyUserDetails myUserDetails = (MyUserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-        return myUserDetails.getUser().getOrganization();
-    }
 }
