@@ -1,6 +1,6 @@
 part of 'project_bloc.dart';
 
-enum ProjectStatus { initial, getUsersSuccess, createProjectSuccess }
+enum ProjectStatus { initial,getProjectsSuccess, getUsersSuccess, createProjectSuccess }
 
 class ProjectState {
   BuildContext? context;

@@ -9,6 +9,10 @@ class ProjectEventInitial extends ProjectEvent {
     ProjectEventInitial(this.context);
 }
 
+class GetListProject extends ProjectEvent {
+
+}
+
 class GetListUser extends ProjectEvent {
 
 }

@@ -22,13 +22,19 @@ class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
       // TODO: implement event handler
       state.context = event.context;
 
+      add(GetListProject());
+
+      emit(state.clone(ProjectStatus.initial));
+    });
+
+    on<GetListProject>((event, emit) async {
       List<Project>? projects = await projectRepository.findAll();
       if (projects != null) {
         state.projects = projects;
       }
-
-      emit(state.clone(ProjectStatus.initial));
+      emit(state.clone(ProjectStatus.getProjectsSuccess));
     });
+
 
     on<GetListUser>((event, emit) async {
       List<User>? users = await userRepository.findAll();
@@ -42,6 +48,7 @@ class ProjectBloc extends Bloc<ProjectEvent, ProjectState> {
           event.name, event.projectKey, event.projectLeader);
       if (project != null) {
         emit(state.clone(ProjectStatus.createProjectSuccess));
+        add(GetListProject());
         showSuccessAlert("Create project success", state.context!);
       }
     });
