@@ -13,11 +13,18 @@ import java.util.List;
 public class Project extends BaseEntity {
 
     private String name;
+    private String key;
 
     @ManyToOne
     private Organization organization;
 
-    @ManyToMany
-    @JoinTable(name = "project_user", joinColumns = @JoinColumn(name = "project_id"), inverseJoinColumns = @JoinColumn(name = "user_id"))
-    private List<User> users;
+    @OneToMany
+    private List<ProjectMember> members;
+
+    @Transient
+    private User owner;
+
+    @Transient
+    private User projectLeader;
+
 }

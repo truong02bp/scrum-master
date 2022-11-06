@@ -4,11 +4,9 @@ import com.scrum.master.common.enums.SprintStatus;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "sprints")
@@ -23,4 +21,7 @@ public class Sprint extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;
+
+    @OneToMany
+    private List<Issue> issues;
 }
