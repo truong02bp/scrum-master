@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scrum_master_front_end/pages/active_user/active_user_screen.dart';
+import 'package:scrum_master_front_end/pages/board/board_screen.dart';
+import 'package:scrum_master_front_end/pages/dash_board/dash_board_screen.dart';
+import 'package:scrum_master_front_end/pages/issues/issue_screen.dart';
+import 'package:scrum_master_front_end/pages/profile/profile_screen.dart';
+import 'package:scrum_master_front_end/pages/project/project_screen.dart';
+import 'package:scrum_master_front_end/pages/settings/setting_screen.dart';
 
 class SideMenu extends StatelessWidget {
-
-  Function callBack;
-
-  SideMenu({required this.callBack});
 
   @override
   Widget build(BuildContext context) {
@@ -20,42 +22,42 @@ class SideMenu extends StatelessWidget {
             title: "Dashboard",
             svgSrc: "assets/icons/menu_dashbord.svg",
             press: () {
-              callBack(0);
+              Navigator.pushNamed(context, DashBoardScreen.routeName);
             },
           ),
           DrawerListTile(
             title: "Projects",
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
-              callBack(1);
+              Navigator.pushNamed(context, ProjectScreen.routeName);
             },
           ),
           DrawerListTile(
             title: "Boards",
             svgSrc: "assets/icons/menu_doc.svg",
             press: () {
-              callBack(2);
+              Navigator.pushNamed(context, BoardScreen.routeName);
             },
           ),
           DrawerListTile(
             title: "Issues",
             svgSrc: "assets/icons/menu_task.svg",
             press: () {
-              callBack(3);
+              Navigator.pushNamed(context, IssueScreen.routeName);
             },
           ),
           DrawerListTile(
             title: "Profile",
             svgSrc: "assets/icons/menu_profile.svg",
             press: () {
-              callBack(4);
+              Navigator.pushNamed(context, ProfileScreen.routeName);
             },
           ),
           DrawerListTile(
             title: "Settings",
             svgSrc: "assets/icons/menu_setting.svg",
             press: () {
-              callBack(5);
+              Navigator.pushNamed(context, SettingScreen.routeName);
             },
           ),
           DrawerListTile(

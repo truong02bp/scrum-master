@@ -6,7 +6,7 @@ import 'package:scrum_master_front_end/constants/theme.dart';
 import 'package:scrum_master_front_end/pages/active_user/bloc/active_bloc.dart';
 
 class ActiveUserScreen extends StatelessWidget {
-  static final String routeName = "/active-user";
+  static const String routeName = "/active-user";
 
   @override
   Widget build(BuildContext context) {

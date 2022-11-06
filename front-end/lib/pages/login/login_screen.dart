@@ -4,7 +4,7 @@ import 'package:scrum_master_front_end/pages/login/bloc/login_bloc.dart';
 import 'package:scrum_master_front_end/pages/login/components/login_form.dart';
 
 class LoginScreen extends StatelessWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+  static const String routeName = "/login";
 
   @override
   Widget build(BuildContext context) {

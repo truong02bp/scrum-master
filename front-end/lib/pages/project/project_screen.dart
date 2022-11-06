@@ -4,17 +4,18 @@ import 'package:scrum_master_front_end/constants/theme.dart';
 import 'package:scrum_master_front_end/pages/project/bloc/project_bloc.dart';
 import 'package:scrum_master_front_end/pages/project/components/project_card.dart';
 import 'package:scrum_master_front_end/pages/project/components/project_title.dart';
+import 'package:scrum_master_front_end/widgets/base_screen.dart';
 import 'package:scrum_master_front_end/widgets/loading_icon.dart';
 
 class ProjectScreen extends StatelessWidget {
-  const ProjectScreen({Key? key}) : super(key: key);
+  static const String routeName = "/project";
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
+    return BaseScreen(BlocProvider(
       create: (context) => ProjectBloc()..add(ProjectEventInitial(context)),
       child: Builder(builder: (context) => _buildView(context)),
-    );
+    ));
   }
 
   Widget _buildView(BuildContext buildContext) {
@@ -40,7 +41,7 @@ class ProjectScreen extends StatelessWidget {
                 runSpacing: 40,
                 children: List.generate(
                   state.projects.length,
-                      (index) => ProjectCard(state.projects[index]),
+                  (index) => ProjectCard(state.projects[index]),
                 ),
               );
             }
