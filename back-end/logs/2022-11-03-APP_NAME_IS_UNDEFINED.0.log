@@ -1,0 +1,47 @@
+[2022-11-03 00:05:12.012][INFO ][org.springframework.web.socket.config.WebSocketMessageBrokerStats][MessageBroker-2][128]WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 6, active threads = 1, queued tasks = 0, completed tasks = 5]
+[2022-11-03 00:10:14.014][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopping...
+[2022-11-03 00:10:14.014][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@334dc6d7]]
+[2022-11-03 00:10:14.014][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopped.
+[2022-11-03 00:10:14.014][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][SpringApplicationShutdownHook][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-03 00:10:14.014][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][350]HikariPool-1 - Shutdown initiated...
+[2022-11-03 00:10:14.014][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][352]HikariPool-1 - Shutdown completed.
+[2022-11-03 00:10:25.025][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][55]Starting Application using Java 17.0.3 on 192.168.2.2 with PID 13902 (/Users/mac/Library/CloudStorage/OneDrive-Personal/scrum_master/scrum-master-backend/target/classes started by mac in /Users/mac/Library/CloudStorage/OneDrive-Personal/scrum_master/scrum-master-backend)
+[2022-11-03 00:10:25.025][INFO ][org.springframework.boot.SpringApplication][restartedMain][640]No active profile set, falling back to 1 default profile: "default"
+[2022-11-03 00:10:25.025][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-03 00:10:25.025][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][201]Finished Spring Data repository scanning in 13 ms. Found 5 JPA repository interfaces.
+[2022-11-03 00:10:25.025][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][108]Tomcat initialized with port(s): 8080 (http)
+[2022-11-03 00:10:25.025][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2022-11-03 00:10:25.025][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting service [Tomcat]
+[2022-11-03 00:10:25.025][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting Servlet engine: [Apache Tomcat/9.0.58]
+[2022-11-03 00:10:25.025][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing Spring embedded WebApplicationContext
+[2022-11-03 00:10:25.025][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][restartedMain][290]Root WebApplicationContext: initialization completed in 213 ms
+[2022-11-03 00:10:25.025][INFO ][org.hibernate.jpa.internal.util.LogHelper][restartedMain][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-03 00:10:25.025][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][110]HikariPool-7 - Starting...
+[2022-11-03 00:10:25.025][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][123]HikariPool-7 - Start completed.
+[2022-11-03 00:10:25.025][INFO ][org.hibernate.dialect.Dialect][restartedMain][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[2022-11-03 00:10:25.025][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][restartedMain][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-03 00:10:25.025][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-03 00:10:25.025][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][restartedMain][219]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-03 00:10:25.025][WARN ][org.springframework.context.support.AbstractApplicationContext][restartedMain][591]Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'projectController' defined in file [/Users/mac/Library/CloudStorage/OneDrive-Personal/scrum_master/scrum-master-backend/target/classes/com/scrum/master/controller/ProjectController.class]: Unsatisfied dependency expressed through constructor parameter 0; nested exception is org.springframework.beans.factory.NoSuchBeanDefinitionException: No qualifying bean of type 'com.scrum.master.service.ProjectService' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+[2022-11-03 00:10:25.025][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-03 00:10:25.025][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][350]HikariPool-7 - Shutdown initiated...
+[2022-11-03 00:10:25.025][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][352]HikariPool-7 - Shutdown completed.
+[2022-11-03 00:10:25.025][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Stopping service [Tomcat]
+[2022-11-03 00:10:25.025][INFO ][org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener][restartedMain][136]
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[2022-11-03 00:10:25.025][ERROR][org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter][restartedMain][40]
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Parameter 0 of constructor in com.scrum.master.controller.ProjectController required a bean of type 'com.scrum.master.service.ProjectService' that could not be found.
+
+
+Action:
+
+Consider defining a bean of type 'com.scrum.master.service.ProjectService' in your configuration.
+
