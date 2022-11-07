@@ -8,6 +8,7 @@ import com.scrum.master.data.entities.Organization;
 import com.scrum.master.data.entities.Project;
 import com.scrum.master.data.entities.ProjectMember;
 import com.scrum.master.data.entities.User;
+import com.scrum.master.data.repositories.ProjectMemberRepository;
 import com.scrum.master.data.repositories.ProjectRepository;
 import com.scrum.master.service.ProjectService;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,7 @@ import java.util.stream.Collectors;
 public class ProjectServiceImpl implements ProjectService {
 
     private final ProjectRepository projectRepository;
+    private final ProjectMemberRepository projectMemberRepository;
 
     @Override
     public List<Project> getAll() {
@@ -68,5 +70,36 @@ public class ProjectServiceImpl implements ProjectService {
         project.setMembers(members);
         project.setOrganization(user.getOrganization());
         return projectRepository.save(project);
+    }
+
+    @Override
+    public ProjectMember addMember(Long id, ProjectMember member) {
+        Project project = findById(id);
+        for (ProjectMember mem : project.getMembers()) {
+            if (mem.getUser().getId().equals(member.getUser().getId())) {
+                return null;
+            }
+        }
+        member.setProject(project);
+        return projectMemberRepository.save(member);
+    }
+
+    @Override
+    public ProjectMember removeMember(Long id, ProjectMember member) {
+        Project project = findById(id);
+        for (ProjectMember mem : project.getMembers()) {
+            if (mem.getUser().getId().equals(member.getUser().getId())) {
+                project.getMembers().remove(mem);
+                projectRepository.save(project);
+                return mem;
+            }
+        }
+        return null;
+    }
+
+    private Project findById(Long id) {
+        return projectRepository.findById(id).orElseThrow(() -> {
+            throw BusinessException.builder().status(HttpStatus.BAD_REQUEST).message("Project not available").build();
+        });
     }
 }

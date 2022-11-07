@@ -1,6 +1,7 @@
 package com.scrum.master.data.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.scrum.master.common.enums.ProjectRole;
 import lombok.*;
 
@@ -13,7 +14,7 @@ import javax.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-
+@JsonIgnoreProperties(ignoreUnknown = true)
 public class ProjectMember extends BaseEntity {
 
     @ManyToOne

@@ -1,6 +1,7 @@
 package com.scrum.master.controller;
 
 import com.scrum.master.data.entities.Project;
+import com.scrum.master.data.entities.ProjectMember;
 import com.scrum.master.service.ProjectService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -23,5 +24,17 @@ public class ProjectController {
     @PostMapping("/project")
     public ResponseEntity<Project> create(@RequestBody Project project) {
         return ResponseEntity.ok(projectService.create(project));
+    }
+
+    @PutMapping("/project/{id}/member")
+    public ResponseEntity<ProjectMember> addMember(@PathVariable Long id,
+                                                   @RequestBody ProjectMember projectMember) {
+        return ResponseEntity.ok(projectService.addMember(id, projectMember));
+    }
+
+    @DeleteMapping("/project/{id}/member")
+    public ResponseEntity<ProjectMember> deleteMember(@PathVariable Long id,
+                                                   @RequestBody ProjectMember projectMember) {
+        return ResponseEntity.ok(projectService.removeMember(id, projectMember));
     }
 }
