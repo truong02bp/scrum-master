@@ -80,6 +80,7 @@ class ApiRepository {
     try {
       final res = await http.delete(
           Uri.parse(model.url).replace(queryParameters: model.params),
+          body: jsonEncode(model.body),
           headers: model.headers);
       return parseResponse(res: res, model: model);
     } catch (exception) {

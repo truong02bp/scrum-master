@@ -12,7 +12,6 @@ class ProjectMember {
   User? user;
   String? role;
 
-
   ProjectMember(this.id, this.user, this.role);
 
   factory ProjectMember.fromJson(Map<String, dynamic> json) =>

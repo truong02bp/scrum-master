@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:scrum_master_front_end/constants/host_api.dart';
 import 'package:scrum_master_front_end/model/project.dart';
+import 'package:scrum_master_front_end/pages/project_members/project_members.dart';
 import 'package:scrum_master_front_end/widgets/avatar.dart';
 
 class ProjectCard extends StatelessWidget {
@@ -13,7 +14,9 @@ class ProjectCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       borderRadius: BorderRadius.circular(15),
-      onTap: () {},
+      onTap: () {
+        Navigator.push(context, MaterialPageRoute(builder: (context) => ProjectMembers(project)));
+      },
       child: Container(
         height: 150,
         width: 300,

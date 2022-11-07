@@ -12,7 +12,8 @@ class LoginForm extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<LoginBloc>(context);
-
+    _email.text = "truong02.bp@gmail.com";
+    _password.text = "123456";
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
         if (state.status == LoginStatus.loginSuccess) {
@@ -58,7 +59,7 @@ class LoginForm extends StatelessWidget {
                 hintText: 'Email',
                 contentPadding: EdgeInsets.only(left: 20, top: 15, bottom: 5),
                 labelStyle:
-                TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
                 hintStyle: TextStyle(
                   color: Colors.black.withOpacity(0.6),
                 ),
@@ -72,7 +73,8 @@ class LoginForm extends StatelessWidget {
             width: 350,
             child: BlocBuilder<LoginBloc, LoginState>(
               bloc: bloc,
-              buildWhen: (previous, current) => current.status == LoginStatus.showPassword,
+              buildWhen: (previous, current) =>
+                  current.status == LoginStatus.showPassword,
               builder: (context, state) {
                 return TextFormField(
                     obscureText: !state.showPassword,
@@ -98,8 +100,8 @@ class LoginForm extends StatelessWidget {
                       ),
                       floatingLabelBehavior: FloatingLabelBehavior.always,
                       hintText: 'Password',
-                      contentPadding: EdgeInsets.only(
-                          left: 20, top: 15, bottom: 5),
+                      contentPadding:
+                          EdgeInsets.only(left: 20, top: 15, bottom: 5),
                       labelStyle: TextStyle(
                           color: Colors.black, fontWeight: FontWeight.bold),
                       hintStyle: TextStyle(
@@ -133,10 +135,9 @@ class LoginForm extends StatelessWidget {
                       color: Colors.red),
                   child: Center(
                       child: const Text(
-                        'Login',
-                        style: const TextStyle(
-                            fontSize: 18, color: Colors.black),
-                      )),
+                    'Login',
+                    style: const TextStyle(fontSize: 18, color: Colors.black),
+                  )),
                 ),
               ),
             ],

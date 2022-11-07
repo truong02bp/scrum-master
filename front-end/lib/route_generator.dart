@@ -6,6 +6,8 @@ import 'package:scrum_master_front_end/pages/dash_board/dash_board_screen.dart';
 import 'package:scrum_master_front_end/pages/issues/issue_screen.dart';
 import 'package:scrum_master_front_end/pages/login/login_screen.dart';
 import 'package:scrum_master_front_end/pages/profile/profile_screen.dart';
+import 'package:scrum_master_front_end/pages/project_members/project_members.dart';
+import 'package:scrum_master_front_end/pages/project_members/project_members.dart';
 import 'package:scrum_master_front_end/pages/project/project_screen.dart';
 import 'package:scrum_master_front_end/pages/settings/setting_screen.dart';
 
