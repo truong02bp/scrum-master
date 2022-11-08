@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scrum_master_front_end/constants/theme.dart';
 import 'package:scrum_master_front_end/pages/dash_board/dash_board_screen.dart';
 import 'package:scrum_master_front_end/pages/home/home_screen.dart';
+import 'package:scrum_master_front_end/pages/issues/issue_screen.dart';
 import 'package:scrum_master_front_end/pages/login/bloc/login_bloc.dart';
 
 class LoginForm extends StatelessWidget {
@@ -17,7 +18,7 @@ class LoginForm extends StatelessWidget {
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
         if (state.status == LoginStatus.loginSuccess) {
-          Navigator.pushNamed(context, DashBoardScreen.routeName);
+          Navigator.pushNamed(context, IssueScreen.routeName);
         }
       },
       bloc: bloc,
