@@ -26,6 +26,9 @@ class UserRepository {
     ApiModel model =
         new ApiModel(url: endpoints, parse: (json) => User.fromJson(json));
     User? user = await apiRepository.get(model);
+    if (user != null) {
+      sharedPreferences.setInt("userId", user.id);
+    }
     return user;
   }
 

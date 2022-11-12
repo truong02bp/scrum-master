@@ -3,12 +3,21 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
+import 'package:scrum_master_front_end/model/issue.dart';
 import 'package:scrum_master_front_end/model/project.dart';
 import 'package:scrum_master_front_end/model/sprint.dart';
 import 'package:scrum_master_front_end/model/user.dart';
 import 'package:scrum_master_front_end/pages/issues/bloc/issue_bloc.dart';
 
-class CreateIssue extends StatelessWidget {
+class CreateIssue extends StatefulWidget {
+  @override
+  State<CreateIssue> createState() => _CreateIssueState();
+}
+
+class _CreateIssueState extends State<CreateIssue> {
+  HtmlEditorController controller = HtmlEditorController();
+  CreateIssueEvent event = CreateIssueEvent();
+
   @override
   Widget build(BuildContext context) {
     return _buildButton(context);
@@ -16,7 +25,6 @@ class CreateIssue extends StatelessWidget {
 
   Widget _buildButton(BuildContext context) {
     final bloc = BlocProvider.of<IssueBloc>(context);
-
     return BlocBuilder<IssueBloc, IssueState>(
       bloc: bloc,
       builder: (context, state) {
@@ -24,6 +32,7 @@ class CreateIssue extends StatelessWidget {
         if (project == null) {
           return Container();
         }
+        event.project = project;
         return InkWell(
           onTap: () {
             AwesomeDialog(
@@ -83,7 +92,9 @@ class CreateIssue extends StatelessWidget {
                                         border: InputBorder.none,
                                         contentPadding: EdgeInsets.all(5)),
                                   ),
-                                  onChanged: (value) {},
+                                  onChanged: (value) {
+                                    event.project = value;
+                                  },
                                   itemAsString: (item) => item.name!,
                                   selectedItem: state.selectedProject,
                                 )),
@@ -118,8 +129,9 @@ class CreateIssue extends StatelessWidget {
                                     border: InputBorder.none,
                                     contentPadding: EdgeInsets.all(5)),
                               ),
-                              onChanged: (value) {},
-                              selectedItem: 'Story',
+                              onChanged: (value) {
+                                event.type = value;
+                              },
                             ),
                           )
                         ]),
@@ -151,6 +163,9 @@ class CreateIssue extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(7)),
                             padding: EdgeInsets.only(left: 10, top: 3),
                             child: TextFormField(
+                              onChanged: (value) {
+                                event.title = value;
+                              },
                               decoration: InputDecoration(
                                   floatingLabelBehavior:
                                       FloatingLabelBehavior.always,
@@ -188,7 +203,9 @@ class CreateIssue extends StatelessWidget {
                                     border: InputBorder.none,
                                     contentPadding: EdgeInsets.all(5)),
                               ),
-                              onChanged: (value) {},
+                              onChanged: (value) {
+                                event.label = value;
+                              },
                             ),
                           )
                         ]),
@@ -213,7 +230,7 @@ class CreateIssue extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(7)),
                               padding: EdgeInsets.only(left: 10, top: 3),
                               child: HtmlEditor(
-                                controller: HtmlEditorController(), //required
+                                controller: controller, //required
                                 htmlEditorOptions: HtmlEditorOptions(
                                     hint: "Your description here...",
                                     adjustHeightForKeyboard: true),
@@ -240,43 +257,65 @@ class CreateIssue extends StatelessWidget {
                           SizedBox(
                             width: 30,
                           ),
-                          Container(
-                            width: 300,
-                            height: 40,
-                            decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.15),
-                                borderRadius: BorderRadius.circular(7)),
-                            padding: EdgeInsets.only(left: 10, top: 3),
-                            child: DropdownSearch<User>(
-                              items: [],
-                              dropdownDecoratorProps: DropDownDecoratorProps(
-                                dropdownSearchDecoration: InputDecoration(
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    border: InputBorder.none,
-                                    contentPadding: EdgeInsets.all(5)),
-                              ),
-                              onChanged: (value) {},
-                              itemAsString: (item) => item.name!,
-                              filterFn: (user, filter) {
-                                return user.name!.contains(filter);
-                              },
-                              popupProps: PopupProps.menu(
-                                showSearchBox: true,
-                                searchFieldProps: TextFieldProps(
-                                    decoration: InputDecoration(
+                          BlocBuilder<IssueBloc, IssueState>(
+                            bloc: bloc,
+                            buildWhen: (previous, current) =>
+                                current.status == IssueStatus.assignToMeSuccess,
+                            builder: (context, state) {
+                              if (state.status ==
+                                  IssueStatus.assignToMeSuccess) {
+                                event.assignee = project.members!
+                                    .firstWhere(
+                                        (element) => element.id == state.userId)
+                                    .user;
+                              }
+                              return Container(
+                                width: 300,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.15),
+                                    borderRadius: BorderRadius.circular(7)),
+                                padding: EdgeInsets.only(left: 10, top: 3),
+                                child: DropdownSearch<User>(
+                                  items: project.members!
+                                      .map((e) => e.user!)
+                                      .toList(),
+                                  dropdownDecoratorProps:
+                                      DropDownDecoratorProps(
+                                    dropdownSearchDecoration: InputDecoration(
                                         floatingLabelBehavior:
                                             FloatingLabelBehavior.always,
-                                        contentPadding: EdgeInsets.all(5))),
-                              ),
-                              autoValidateMode: AutovalidateMode.always,
-                            ),
+                                        border: InputBorder.none,
+                                        contentPadding: EdgeInsets.all(5)),
+                                  ),
+                                  onChanged: (value) {
+                                    event.assignee = value;
+                                  },
+                                  itemAsString: (item) => item.name!,
+                                  filterFn: (user, filter) {
+                                    return user.name!.contains(filter);
+                                  },
+                                  selectedItem: event.assignee,
+                                  popupProps: PopupProps.menu(
+                                    showSearchBox: true,
+                                    searchFieldProps: TextFieldProps(
+                                        decoration: InputDecoration(
+                                            floatingLabelBehavior:
+                                                FloatingLabelBehavior.always,
+                                            contentPadding: EdgeInsets.all(5))),
+                                  ),
+                                  autoValidateMode: AutovalidateMode.always,
+                                ),
+                              );
+                            },
                           ),
                           const SizedBox(
                             width: 20,
                           ),
                           InkWell(
-                            onTap: () {},
+                            onTap: () {
+                              bloc.add(AssignToMe());
+                            },
                             child: Text(
                               'Assign to mee',
                               style: TextStyle(color: Colors.blue),
@@ -304,7 +343,7 @@ class CreateIssue extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(7)),
                             padding: EdgeInsets.only(left: 10, top: 3),
                             child: DropdownSearch<Sprint>(
-                              items: [],
+                              items: state.sprints!,
                               dropdownDecoratorProps: DropDownDecoratorProps(
                                 dropdownSearchDecoration: InputDecoration(
                                   floatingLabelBehavior:
@@ -313,7 +352,9 @@ class CreateIssue extends StatelessWidget {
                                   contentPadding: EdgeInsets.all(5),
                                 ),
                               ),
-                              onChanged: (value) {},
+                              onChanged: (value) {
+                                event.sprint = value;
+                              },
                               itemAsString: (item) => item.name!,
                               filterFn: (sprint, filter) {
                                 return sprint.name!.contains(filter);
@@ -337,8 +378,12 @@ class CreateIssue extends StatelessWidget {
                         ),
                         Align(
                             alignment: Alignment.bottomRight,
-                            child:
-                                InkWell(onTap: () {}, child: createButton())),
+                            child: InkWell(
+                                onTap: () {
+                                  bloc.add(event);
+                                  Navigator.pop(context);
+                                },
+                                child: createButton())),
                         const SizedBox(
                           height: 20,
                         ),

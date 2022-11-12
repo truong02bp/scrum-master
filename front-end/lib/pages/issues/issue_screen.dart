@@ -14,7 +14,7 @@ class IssueScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BaseScreen(BlocProvider(
-      create: (context) => IssueBloc()..add(IssueInitialEvent()),
+      create: (context) => IssueBloc()..add(IssueInitialEvent(context)),
       child: Builder(
         builder: (context) => _buildView(context),
       ),

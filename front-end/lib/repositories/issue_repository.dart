@@ -1,4 +1,3 @@
-
 import 'package:scrum_master_front_end/constants/host_api.dart';
 import 'package:scrum_master_front_end/model/api_model.dart';
 import 'package:scrum_master_front_end/model/issue.dart';
@@ -7,6 +6,7 @@ import 'package:scrum_master_front_end/model/issue.dart';
 import 'package:scrum_master_front_end/model/issue.dart';
 import 'package:scrum_master_front_end/model/issue.dart';
 import 'package:scrum_master_front_end/model/sprint.dart';
+import 'package:scrum_master_front_end/pages/issues/bloc/issue_bloc.dart';
 import 'package:scrum_master_front_end/repositories/api_repository.dart';
 
 class IssueRepository {
@@ -24,5 +24,23 @@ class IssueRepository {
 
     List<Issue>? issues = await apiRepository.get(model);
     return issues;
+  }
+
+  Future<Issue?> create(CreateIssueEvent event) async {
+    ApiModel model = ApiModel(
+        url: endpoints, body: {
+          "project": event.project,
+          "type": event.type,
+          "description": event.description,
+          "title": event.title,
+          "label": event.label,
+          "estimate": event.estimate,
+          "assignee": event.assignee,
+          "sprint": event.sprint
+
+    }, parse: (json) => Issue.fromJson(json));
+
+    Issue? issue = await apiRepository.post(model);
+    return issue;
   }
 }
