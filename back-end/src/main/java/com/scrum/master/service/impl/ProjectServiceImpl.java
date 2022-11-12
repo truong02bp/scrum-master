@@ -18,7 +18,9 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -69,6 +71,9 @@ public class ProjectServiceImpl implements ProjectService {
 
         project.setMembers(members);
         project.setOrganization(user.getOrganization());
+        if (project.getKey() == null) {
+            project.setKey(LocalDateTime.now().toString());
+        }
         return projectRepository.save(project);
     }
 

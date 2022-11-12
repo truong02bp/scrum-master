@@ -40,4 +40,8 @@ public class Issue extends BaseEntity {
     @JsonIgnore
     private Sprint sprint;
 
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    private Project project;
+
 }
