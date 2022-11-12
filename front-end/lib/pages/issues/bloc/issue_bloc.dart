@@ -43,5 +43,10 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
       }
       emit(state.clone(IssueStatus.selectedSuccess));
     });
+
+    on<ShowButton>((event, emit) async {
+      state.showButton = !state.showButton;
+      emit(state.clone(IssueStatus.showButtonSuccess));
+    });
   }
 }

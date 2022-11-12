@@ -10,3 +10,7 @@ class SelectProjectEvent extends IssueEvent {
 
   SelectProjectEvent(this.project);
 }
+
+class ShowButton extends IssueEvent {
+
+}

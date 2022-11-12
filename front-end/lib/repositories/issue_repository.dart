@@ -16,7 +16,7 @@ class IssueRepository {
 
   Future<List<Issue>?> findByProjectId(int projectId) async {
     ApiModel model = ApiModel(
-        url: endpoints + "s",
+        url: endpoints,
         params: {"projectId": "$projectId"},
         parse: (data) {
           return data.map<Issue>((json) => Issue.fromJson(json)).toList();
