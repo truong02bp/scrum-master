@@ -1,9 +1,11 @@
 package com.scrum.master.service.impl;
 
+import com.scrum.master.common.exceptions.BusinessException;
 import com.scrum.master.data.entities.Issue;
 import com.scrum.master.data.repositories.IssueRepository;
 import com.scrum.master.service.IssueService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,13 +26,28 @@ public class IssueServiceImpl implements IssueService {
     @Override
     public Issue create(Issue issue) {
         issue.setReporter(issue.getProject().getProjectLeader());
-        issue.setCode(issue.getProject().getKey() + "-" + issueRepository.count(issue.getProject().getId()));
+        int count = issueRepository.count(issue.getProject().getId());
+        issue.setPriority(count);
+        issue.setCode(issue.getProject().getKey() + "-" + (count + 1));
         return issueRepository.save(issue);
     }
 
     @Override
     public Issue update(Issue issue) {
-        return issueRepository.save(issue);
+        Issue existedIssue = issueRepository.findById(issue.getId()).orElseThrow(() -> {
+            throw BusinessException.builder()
+                .message("Can't find issue")
+                .status(HttpStatus.BAD_REQUEST)
+                .build();
+        });
+        existedIssue.setAssignee(issue.getAssignee());
+        existedIssue.setDescription(issue.getDescription());
+        existedIssue.setLabel(issue.getLabel());
+        existedIssue.setSprint(issue.getSprint());
+        existedIssue.setEstimate(issue.getEstimate());
+        existedIssue.setTitle(issue.getTitle());
+        existedIssue.setType(issue.getType());
+        return issueRepository.save(existedIssue);
     }
 
     @Override

@@ -10,9 +10,11 @@ import java.util.List;
 
 public interface IssueRepository extends JpaRepository<Issue, Long> {
 
-    @Query(value = "SELECT issue FROM Issue issue WHERE issue.project.id = ?1")
+    @Query(value = "SELECT issue FROM Issue issue WHERE issue.project.id = ?1 AND issue.sprint is NULL ORDER BY issue.priority ASC")
     List<Issue> findByProjectId(Long projectId);
 
     @Query(value = "SELECT count(issue.id) FROM Issue issue WHERE issue.project.id = ?1")
     int count(Long projectId);
+    @Query(value = "SELECT count(issue.id) FROM Issue issue WHERE issue.project.id = ?1 AND issue.sprint is NULL")
+    int countToSetPriority(Long projectId);
 }

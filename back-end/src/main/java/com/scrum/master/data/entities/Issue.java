@@ -14,6 +14,7 @@ import java.util.List;
 @Setter
 public class Issue extends BaseEntity {
 
+    private int priority;
     private String code;
     private String title;
     private String description;
