@@ -50,16 +50,17 @@ class IssueScreen extends StatelessWidget {
                         dropdownColor: Colors.white,
                         borderRadius: BorderRadius.circular(7),
                         onChanged: (value) {
-                          state.selectedProject = value;
+                          bloc.add(SelectProjectEvent(value!));
                         },
                         initialValue: state.selectedProject,
                         autofocus: false,
                         menuMaxHeight: 300,
                         decoration: InputDecoration(
                             enabledBorder: OutlineInputBorder(
-                              borderRadius: BorderRadius.circular(10),
-                              borderSide: BorderSide(width: 1, color: Colors.grey.withOpacity(0.2))
-                            ),
+                                borderRadius: BorderRadius.circular(10),
+                                borderSide: BorderSide(
+                                    width: 1,
+                                    color: Colors.grey.withOpacity(0.2))),
                             labelText: 'Project',
                             floatingLabelBehavior: FloatingLabelBehavior.always,
                             contentPadding: EdgeInsets.all(5)),
@@ -96,6 +97,7 @@ class IssueScreen extends StatelessWidget {
             child: BlocBuilder<IssueBloc, IssueState>(
               bloc: bloc,
               builder: (context, state) {
+                print(state.issues.length);
                 return Padding(
                   padding: const EdgeInsets.all(20),
                   child: Column(
@@ -135,7 +137,7 @@ class IssueScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Expanded(
-                                  child: ReorderList(),
+                                  child: ReorderList(state.issues),
                                 ),
                                 CreateIssue()
                               ],

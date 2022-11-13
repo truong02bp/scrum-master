@@ -39,6 +39,8 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
 
     on<SelectProjectEvent>((event, emit) async {
       state.selectedProject = event.project;
+      state.issues.clear();
+
       List<Sprint>? sprints =
           await sprintRepository.findByProjectId(state.selectedProject!.id!);
       if (sprints != null) {
@@ -64,10 +66,10 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
     on<CreateIssueEvent>((event, emit) async {
       Issue? issue = await issueRepository.create(event);
       if (issue != null) {
+        state.issues.add(issue);
         showSuccessAlert("Create issue success", state.context!);
         emit(state.clone(IssueStatus.assignToMeSuccess));
-      }
-      else {
+      } else {
         showErrorAlert("Create issue failure", state.context!);
       }
     });

@@ -27,6 +27,7 @@ class IssueState {
     state.projects = this.projects;
     state.showButton = this.showButton;
     state.userId = this.userId;
+    state.issues = this.issues;
     return state;
   }
 }

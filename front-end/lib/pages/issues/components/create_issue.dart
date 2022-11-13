@@ -317,7 +317,7 @@ class _CreateIssueState extends State<CreateIssue> {
                               bloc.add(AssignToMe());
                             },
                             child: Text(
-                              'Assign to mee',
+                              'Assign to me',
                               style: TextStyle(color: Colors.blue),
                             ),
                           )

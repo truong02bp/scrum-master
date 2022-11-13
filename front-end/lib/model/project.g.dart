@@ -19,6 +19,7 @@ Project _$ProjectFromJson(Map<String, dynamic> json) {
     json['owner'] == null
         ? null
         : User.fromJson(json['owner'] as Map<String, dynamic>),
+    json['key'] as String?,
     json['projectLeader'] == null
         ? null
         : User.fromJson(json['projectLeader'] as Map<String, dynamic>),
@@ -28,6 +29,7 @@ Project _$ProjectFromJson(Map<String, dynamic> json) {
 Map<String, dynamic> _$ProjectToJson(Project instance) => <String, dynamic>{
       'id': instance.id,
       'name': instance.name,
+      'key': instance.key,
       'organization': instance.organization?.toJson(),
       'members': instance.members?.map((e) => e.toJson()).toList(),
       'owner': instance.owner?.toJson(),
