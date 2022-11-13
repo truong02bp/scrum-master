@@ -1,5 +1,6 @@
 
 import 'package:json_annotation/json_annotation.dart';
+import 'package:scrum_master_front_end/model/project.dart';
 import 'package:scrum_master_front_end/model/sprint.dart';
 import 'package:scrum_master_front_end/model/user.dart';
 
@@ -18,6 +19,7 @@ class Issue {
   User? assignee;
   Sprint? sprint;
   int? priority;
+  Project? project;
   List<Issue>? subTasks;
 
 
@@ -33,6 +35,7 @@ class Issue {
       this.assignee,
       this.sprint,
       this.priority,
+      this.project,
       this.subTasks);
 
   factory Issue.fromJson(Map<String, dynamic> json) => _$IssueFromJson(json);

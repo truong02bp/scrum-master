@@ -25,6 +25,9 @@ Issue _$IssueFromJson(Map<String, dynamic> json) {
         ? null
         : Sprint.fromJson(json['sprint'] as Map<String, dynamic>),
     json['priority'] as int?,
+    json['project'] == null
+        ? null
+        : Project.fromJson(json['project'] as Map<String, dynamic>),
     (json['subTasks'] as List<dynamic>?)
         ?.map((e) => Issue.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -43,5 +46,6 @@ Map<String, dynamic> _$IssueToJson(Issue instance) => <String, dynamic>{
       'assignee': instance.assignee?.toJson(),
       'sprint': instance.sprint?.toJson(),
       'priority': instance.priority,
+      'project': instance.project?.toJson(),
       'subTasks': instance.subTasks?.map((e) => e.toJson()).toList(),
     };

@@ -181,6 +181,38 @@ class _CreateIssueState extends State<CreateIssue> {
                           SizedBox(
                               width: 100,
                               child: Text(
+                                'Estimate',
+                                style: TextStyle(fontSize: 16),
+                              )),
+                          SizedBox(
+                            width: 30,
+                          ),
+                          Container(
+                            width: 650,
+                            height: 40,
+                            decoration: BoxDecoration(
+                                color: Colors.grey.withOpacity(0.15),
+                                borderRadius: BorderRadius.circular(7)),
+                            padding: EdgeInsets.only(left: 10, top: 3),
+                            child: TextFormField(
+                              onChanged: (value) {
+                                event.estimate = int.parse(value);
+                              },
+                              decoration: InputDecoration(
+                                  floatingLabelBehavior:
+                                      FloatingLabelBehavior.always,
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.only(bottom: 10)),
+                            ),
+                          ),
+                        ]),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Row(children: [
+                          SizedBox(
+                              width: 100,
+                              child: Text(
                                 'Label',
                                 style: TextStyle(fontSize: 16),
                               )),
@@ -379,7 +411,9 @@ class _CreateIssueState extends State<CreateIssue> {
                         Align(
                             alignment: Alignment.bottomRight,
                             child: InkWell(
-                                onTap: () {
+                                onTap: () async {
+                                  event.description =
+                                      await controller.getText();
                                   bloc.add(event);
                                   Navigator.pop(context);
                                 },

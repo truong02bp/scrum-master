@@ -73,5 +73,19 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
         showErrorAlert("Create issue failure", state.context!);
       }
     });
+
+    on<UpdateIssueEvent>((event, emit) async {
+      Issue? issue = await issueRepository.update(event);
+      if (issue != null) {
+        int index =
+            state.issues.indexWhere((element) => element.id == issue.id);
+        state.issues.insert(index + 1, issue);
+        state.issues.removeAt(index);
+        showSuccessAlert("Update issue success", state.context!);
+        emit(state.clone(IssueStatus.assignToMeSuccess));
+      } else {
+        showErrorAlert("Update issue failure", state.context!);
+      }
+    });
   }
 }

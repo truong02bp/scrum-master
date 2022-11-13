@@ -32,3 +32,14 @@ class CreateIssueEvent extends IssueEvent {
   User? assignee;
   Sprint? sprint;
 }
+
+class UpdateIssueEvent extends IssueEvent {
+  int? id;
+  String? type;
+  String? description;
+  String? title;
+  String? label;
+  int? estimate;
+  User? assignee;
+  Sprint? sprint;
+}

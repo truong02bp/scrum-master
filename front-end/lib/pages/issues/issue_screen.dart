@@ -97,7 +97,9 @@ class IssueScreen extends StatelessWidget {
             child: BlocBuilder<IssueBloc, IssueState>(
               bloc: bloc,
               builder: (context, state) {
-                print(state.issues.length);
+                if (state.selectedProject == null) {
+                  return Container();
+                }
                 return Padding(
                   padding: const EdgeInsets.all(20),
                   child: Column(
@@ -137,7 +139,8 @@ class IssueScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Expanded(
-                                  child: ReorderList(state.issues),
+                                  child: ReorderList(
+                                      state.issues, state.selectedProject!, state.sprints!),
                                 ),
                                 CreateIssue()
                               ],

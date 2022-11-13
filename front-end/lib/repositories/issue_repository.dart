@@ -28,7 +28,8 @@ class IssueRepository {
 
   Future<Issue?> create(CreateIssueEvent event) async {
     ApiModel model = ApiModel(
-        url: endpoints, body: {
+        url: endpoints,
+        body: {
           "project": event.project,
           "type": event.type,
           "description": event.description,
@@ -37,10 +38,29 @@ class IssueRepository {
           "estimate": event.estimate,
           "assignee": event.assignee,
           "sprint": event.sprint
-
-    }, parse: (json) => Issue.fromJson(json));
+        },
+        parse: (json) => Issue.fromJson(json));
 
     Issue? issue = await apiRepository.post(model);
+    return issue;
+  }
+
+  Future<Issue?> update(UpdateIssueEvent event) async {
+    ApiModel model = ApiModel(
+        url: endpoints,
+        body: {
+          "id": event.id,
+          "type": event.type,
+          "description": event.description,
+          "title": event.title,
+          "label": event.label,
+          "estimate": event.estimate,
+          "assignee": event.assignee,
+          "sprint": event.sprint
+        },
+        parse: (json) => Issue.fromJson(json));
+
+    Issue? issue = await apiRepository.put(model);
     return issue;
   }
 }
