@@ -7,6 +7,7 @@ import java.util.List;
 public interface IssueService {
 
     List<Issue> findByProjectId(Long projectId);
+    List<Issue> updateIndex(List<Issue> issues);
 
     Issue create(Issue issue);
 

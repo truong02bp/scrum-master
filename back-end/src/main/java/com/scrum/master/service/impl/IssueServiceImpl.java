@@ -24,6 +24,14 @@ public class IssueServiceImpl implements IssueService {
     }
 
     @Override
+    public List<Issue> updateIndex(List<Issue> issues) {
+        for (int i = 0; i < issues.size(); i++) {
+            issues.get(i).setPriority(i);
+        }
+        return issueRepository.saveAll(issues);
+    }
+
+    @Override
     public Issue create(Issue issue) {
         issue.setReporter(issue.getProject().getProjectLeader());
         int count = issueRepository.count(issue.getProject().getId());

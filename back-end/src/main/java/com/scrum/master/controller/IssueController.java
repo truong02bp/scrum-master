@@ -30,6 +30,11 @@ public class IssueController {
         return ResponseEntity.ok(issueService.update(issue));
     }
 
+    @PutMapping("/issue/index")
+    public ResponseEntity<List<Issue>> updateIndex(@RequestBody List<Issue> issues) {
+        return ResponseEntity.ok(issueService.updateIndex(issues));
+    }
+
     @DeleteMapping("/issue")
     public ResponseEntity<String> delete(@RequestParam("issueId") Long issueId) {
         issueService.delete(issueId);
