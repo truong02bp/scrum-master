@@ -26,6 +26,18 @@ class IssueRepository {
     return issues;
   }
 
+  Future<List<Issue>?> updateIndex(List<Issue> indexIssues) async {
+    ApiModel model = ApiModel(
+        url: endpoints + "/index",
+        body: indexIssues,
+        parse: (data) {
+          return data.map<Issue>((json) => Issue.fromJson(json)).toList();
+        });
+
+    List<Issue>? issues = await apiRepository.put(model);
+    return issues;
+  }
+
   Future<Issue?> create(CreateIssueEvent event) async {
     ApiModel model = ApiModel(
         url: endpoints,

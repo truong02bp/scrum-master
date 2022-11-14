@@ -5,7 +5,8 @@ enum IssueStatus {
   selectedSuccess,
   showButtonSuccess,
   assignToMeSuccess,
-  createIssueSuccess
+  createIssueSuccess,
+  updateIndexSuccess
 }
 
 class IssueState {

@@ -67,7 +67,7 @@ class _ReorderListState extends State<ReorderList> {
                       borderRadius: BorderRadius.circular(10)),
                   child: Center(
                     child: issue.estimate != null
-                        ? Text('${issue.estimate}')
+                        ? Text('${issue.estimate}', style: TextStyle(fontSize: 13),)
                         : Text(''),
                   ),
                 ),
@@ -89,6 +89,7 @@ class _ReorderListState extends State<ReorderList> {
             }
             final item = widget.issues.removeAt(previous);
             widget.issues.insert(current, item);
+            bloc.add(UpdateIndexIssue(widget.issues));
           });
         },
       ),
@@ -476,8 +477,7 @@ class _ReorderListState extends State<ReorderList> {
                     alignment: Alignment.bottomRight,
                     child: InkWell(
                         onTap: () async {
-                          event.description =
-                              await controller.getText();
+                          event.description = await controller.getText();
                           bloc.add(event);
                           Navigator.pop(context);
                         },

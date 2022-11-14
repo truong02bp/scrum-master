@@ -22,6 +22,13 @@ class AssignToMe extends IssueEvent {
 
 }
 
+class UpdateIndexIssue extends IssueEvent {
+  List<Issue> issues;
+
+  UpdateIndexIssue(this.issues);
+}
+
+
 class CreateIssueEvent extends IssueEvent {
   Project? project;
   String? type;

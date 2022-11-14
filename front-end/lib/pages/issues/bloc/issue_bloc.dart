@@ -54,6 +54,14 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
       emit(state.clone(IssueStatus.selectedSuccess));
     });
 
+    on<UpdateIndexIssue>((event, emit) async {
+      List<Issue>? issues = await issueRepository.updateIndex(event.issues);
+      if (issues != null) {
+        state.issues = issues;
+        emit(state.clone(IssueStatus.showButtonSuccess));
+      }
+    });
+
     on<ShowButton>((event, emit) async {
       state.showButton = !state.showButton;
       emit(state.clone(IssueStatus.showButtonSuccess));

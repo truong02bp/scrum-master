@@ -1,3 +1,5 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
+import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -116,20 +118,12 @@ class IssueScreen extends StatelessWidget {
                           const SizedBox(
                             width: 20,
                           ),
-                          Text('${state.issues.length} issues'),
+                          Text(
+                            '${state.issues.length} issues',
+                            style: TextStyle(fontSize: 16),
+                          ),
                           Spacer(),
-                          InkWell(
-                            onTap: () {},
-                            borderRadius: BorderRadius.circular(10),
-                            child: Container(
-                              height: 40,
-                              width: 120,
-                              decoration: BoxDecoration(
-                                  color: Colors.blueAccent.withOpacity(0.7),
-                                  borderRadius: BorderRadius.circular(7)),
-                              child: Center(child: Text('+ Create sprint')),
-                            ),
-                          )
+
                         ],
                       ),
                       Expanded(
@@ -139,8 +133,8 @@ class IssueScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Expanded(
-                                  child: ReorderList(
-                                      state.issues, state.selectedProject!, state.sprints!),
+                                  child: ReorderList(state.issues,
+                                      state.selectedProject!, state.sprints!),
                                 ),
                                 CreateIssue()
                               ],
