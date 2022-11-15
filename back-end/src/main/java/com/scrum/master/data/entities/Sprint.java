@@ -17,6 +17,7 @@ public class Sprint extends BaseEntity {
     private String name;
     private LocalDateTime startDate;
     private LocalDateTime endDate;
+    @Enumerated(EnumType.STRING)
     private SprintStatus status;
     @ManyToOne
     @JoinColumn(name = "project_id")
@@ -24,4 +25,5 @@ public class Sprint extends BaseEntity {
 
     @OneToMany
     private List<Issue> issues;
+
 }

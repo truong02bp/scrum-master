@@ -3,6 +3,7 @@ package com.scrum.master.service.impl;
 import com.scrum.master.common.exceptions.BusinessException;
 import com.scrum.master.data.entities.Issue;
 import com.scrum.master.data.repositories.IssueRepository;
+import com.scrum.master.data.repositories.SprintRepository;
 import com.scrum.master.service.IssueService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -17,6 +18,7 @@ import java.util.List;
 public class IssueServiceImpl implements IssueService {
 
     private final IssueRepository issueRepository;
+    private final SprintRepository sprintRepository;
 
     @Override
     public List<Issue> findByProjectId(Long projectId) {
@@ -48,10 +50,13 @@ public class IssueServiceImpl implements IssueService {
                 .status(HttpStatus.BAD_REQUEST)
                 .build();
         });
+        System.out.println(issue.getSprintId());
         existedIssue.setAssignee(issue.getAssignee());
         existedIssue.setDescription(issue.getDescription());
         existedIssue.setLabel(issue.getLabel());
-        existedIssue.setSprint(issue.getSprint());
+        if (issue.getSprintId() != null) {
+            existedIssue.setSprint(sprintRepository.findById(issue.getSprintId()).orElse(null));
+        }
         existedIssue.setEstimate(issue.getEstimate());
         existedIssue.setTitle(issue.getTitle());
         existedIssue.setType(issue.getType());

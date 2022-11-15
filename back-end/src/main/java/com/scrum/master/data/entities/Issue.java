@@ -45,4 +45,7 @@ public class Issue extends BaseEntity {
     @JoinColumn(name = "project_id")
     private Project project;
 
+    @Transient
+    private Long sprintId;
+
 }
