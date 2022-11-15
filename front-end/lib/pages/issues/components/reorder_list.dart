@@ -346,7 +346,7 @@ class _ReorderListState extends State<ReorderList> {
                       )),
                 ]),
                 const SizedBox(
-                  height: 20,
+                  height: 40,
                 ),
                 Row(children: [
                   SizedBox(
@@ -422,7 +422,7 @@ class _ReorderListState extends State<ReorderList> {
                   )
                 ]),
                 const SizedBox(
-                  height: 20,
+                  height: 40,
                 ),
                 Row(children: [
                   SizedBox(
@@ -442,7 +442,7 @@ class _ReorderListState extends State<ReorderList> {
                         borderRadius: BorderRadius.circular(7)),
                     padding: EdgeInsets.only(left: 10, top: 3),
                     child: DropdownSearch<Sprint>(
-                      items: widget.sprints!,
+                      items: widget.sprints,
                       dropdownDecoratorProps: DropDownDecoratorProps(
                         dropdownSearchDecoration: InputDecoration(
                           floatingLabelBehavior: FloatingLabelBehavior.always,

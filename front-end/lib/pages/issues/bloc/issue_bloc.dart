@@ -46,6 +46,9 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
           await sprintRepository.findByProjectId(state.selectedProject!.id!);
       if (sprints != null) {
         state.sprints = sprints;
+        if (sprints.isNotEmpty) {
+          state.selectedSprint = sprints[0];
+        }
       }
       List<Issue>? issues =
           await issueRepository.findByProjectId(state.selectedProject!.id!);
@@ -61,6 +64,11 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
         state.issues = issues;
         emit(state.clone(IssueStatus.showButtonSuccess));
       }
+    });
+
+    on<SelectSprintEvent>((event, emit) async {
+      state.selectedSprint = event.sprint;
+      emit(state.clone(IssueStatus.showButtonSuccess));
     });
 
     on<ShowButton>((event, emit) async {

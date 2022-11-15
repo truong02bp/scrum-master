@@ -16,6 +16,12 @@ class SelectProjectEvent extends IssueEvent {
   SelectProjectEvent(this.project);
 }
 
+class SelectSprintEvent extends IssueEvent {
+  final Sprint sprint;
+
+  SelectSprintEvent(this.sprint);
+}
+
 class ShowButton extends IssueEvent {}
 
 class AssignToMe extends IssueEvent {

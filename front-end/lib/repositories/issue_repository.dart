@@ -68,7 +68,7 @@ class IssueRepository {
           "label": event.label,
           "estimate": event.estimate,
           "assignee": event.assignee,
-          "sprint": event.sprint
+          "sprintId": event.sprint != null ? event.sprint!.id : null
         },
         parse: (json) => Issue.fromJson(json));
 

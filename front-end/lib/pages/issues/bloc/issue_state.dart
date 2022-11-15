@@ -13,6 +13,7 @@ enum IssueStatus {
 class IssueState {
   BuildContext? context;
   Project? selectedProject;
+  Sprint? selectedSprint;
   List<Project>? projects;
   List<Issue> issues = [];
   List<Sprint> sprints = [];
@@ -30,6 +31,8 @@ class IssueState {
     state.showButton = this.showButton;
     state.userId = this.userId;
     state.issues = this.issues;
+    state.sprints = this.sprints;
+    state.selectedSprint = this.selectedSprint;
     return state;
   }
 }
