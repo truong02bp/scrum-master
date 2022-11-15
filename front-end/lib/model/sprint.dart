@@ -12,12 +12,12 @@ class Sprint {
   Project? project;
   List<Issue>? issues;
   DateTime? startDate;
-  DateTime? endState;
-  String status;
+  DateTime? endDate;
+  String? status;
 
 
   Sprint(this.id, this.name, this.project, this.issues, this.startDate,
-      this.endState, this.status);
+      this.endDate, this.status);
 
   factory Sprint.fromJson(Map<String, dynamic> json) => _$SprintFromJson(json);
 

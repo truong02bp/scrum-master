@@ -6,7 +6,8 @@ enum IssueStatus {
   showButtonSuccess,
   assignToMeSuccess,
   createIssueSuccess,
-  updateIndexSuccess
+  updateIndexSuccess,
+  selectDateSuccess
 }
 
 class IssueState {
@@ -14,7 +15,7 @@ class IssueState {
   Project? selectedProject;
   List<Project>? projects;
   List<Issue> issues = [];
-  List<Sprint>? sprints = [];
+  List<Sprint> sprints = [];
   IssueStatus status = IssueStatus.initial;
   int? userId;
 

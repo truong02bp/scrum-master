@@ -1,6 +1,3 @@
-import 'dart:async';
-import 'dart:html';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:meta/meta.dart';
@@ -35,6 +32,10 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
         emit(state.clone(IssueStatus.initial));
       }
       state.userId = sharedPreferences.getInt("userId");
+    });
+
+    on<SelectDate>((event, emit) async {
+      emit(state.clone(IssueStatus.selectDateSuccess));
     });
 
     on<SelectProjectEvent>((event, emit) async {
@@ -93,6 +94,18 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
         emit(state.clone(IssueStatus.assignToMeSuccess));
       } else {
         showErrorAlert("Update issue failure", state.context!);
+      }
+    });
+
+    on<CreateSprintEvent>((event, emit) async {
+      event.project = state.selectedProject!;
+      Sprint? sprint = await sprintRepository.create(event);
+      if (sprint != null) {
+        showSuccessAlert("Create sprint success", state.context!);
+        state.sprints.add(sprint);
+        emit(state.clone(IssueStatus.createIssueSuccess));
+      } else {
+        showErrorAlert("Create sprint failure", state.context!);
       }
     });
   }

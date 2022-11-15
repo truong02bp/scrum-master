@@ -19,10 +19,8 @@ Sprint _$SprintFromJson(Map<String, dynamic> json) {
     json['startDate'] == null
         ? null
         : DateTime.parse(json['startDate'] as String),
-    json['endState'] == null
-        ? null
-        : DateTime.parse(json['endState'] as String),
-    json['status'] as String,
+    json['endDate'] == null ? null : DateTime.parse(json['endDate'] as String),
+    json['status'] as String?,
   );
 }
 
@@ -32,6 +30,6 @@ Map<String, dynamic> _$SprintToJson(Sprint instance) => <String, dynamic>{
       'project': instance.project?.toJson(),
       'issues': instance.issues?.map((e) => e.toJson()).toList(),
       'startDate': instance.startDate?.toIso8601String(),
-      'endState': instance.endState?.toIso8601String(),
+      'endDate': instance.endDate?.toIso8601String(),
       'status': instance.status,
     };
