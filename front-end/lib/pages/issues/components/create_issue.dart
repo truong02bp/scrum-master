@@ -432,7 +432,10 @@ class _CreateIssueState extends State<CreateIssue> {
           child: Container(
             height: 40,
             width: 120,
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(7)),
+            decoration: BoxDecoration(
+                color: Colors.blueAccent,
+                borderRadius: BorderRadius.circular(7)
+            ),
             child: Center(child: Text('+ Create issue')),
           ),
         );

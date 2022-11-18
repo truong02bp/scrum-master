@@ -31,3 +31,13 @@ class CreateSprintEvent extends SprintEvent {
 class SelectDate extends SprintEvent {
 
 }
+
+class SelectIssue extends SprintEvent {
+  int? id;
+
+  SelectIssue(this.id);
+}
+
+class AddIssue extends SprintEvent {
+
+}

@@ -299,7 +299,7 @@ class _CreateSprintState extends State<CreateSprint> {
         height: 40,
         width: 120,
         decoration: BoxDecoration(
-            color: Colors.blueAccent.withOpacity(0.7),
+            color: Colors.blueAccent,
             borderRadius: BorderRadius.circular(7)),
         child: Center(child: Text(' + Create sprint')),
       ),

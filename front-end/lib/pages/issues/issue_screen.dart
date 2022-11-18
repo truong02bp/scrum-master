@@ -91,10 +91,10 @@ class IssueScreen extends StatelessWidget {
               color: Colors.grey.withOpacity(0.5),
             ),
             const SizedBox(
-              height: 20,
+              height: 30,
             ),
             Container(
-              height: 700,
+              height: 600,
               width: double.infinity,
               decoration: BoxDecoration(
                   color: Colors.grey.withOpacity(0.3),
@@ -126,8 +126,10 @@ class IssueScreen extends StatelessWidget {
                               style: TextStyle(fontSize: 16),
                             ),
                             Spacer(),
+                            CreateIssue()
                           ],
                         ),
+                        SizedBox(height: 10,),
                         Expanded(
                           child: Padding(
                               padding: const EdgeInsets.all(defaultPadding),
@@ -138,7 +140,6 @@ class IssueScreen extends StatelessWidget {
                                     child: ReorderList(state.issues,
                                         state.selectedProject!, state.sprints),
                                   ),
-                                  CreateIssue()
                                 ],
                               )),
                         ),

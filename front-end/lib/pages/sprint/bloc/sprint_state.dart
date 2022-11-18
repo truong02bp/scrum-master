@@ -1,6 +1,14 @@
 part of 'sprint_bloc.dart';
 
-enum SprintStatus {initial, selectProjectSuccess, selectSprintSuccess, createIssueSuccess, selectDateSuccess}
+enum SprintStatus {
+  initial,
+  selectProjectSuccess,
+  selectSprintSuccess,
+  createIssueSuccess,
+  selectDateSuccess,
+  selectIssueSuccess,
+  addIssueSuccess
+}
 
 class SprintState {
   late BuildContext context;
@@ -12,6 +20,7 @@ class SprintState {
   Project? selectedProject;
   SprintStatus status = SprintStatus.initial;
   int? userId;
+  Set<int> selectIssues = Set();
 
   SprintState clone(SprintStatus status) {
     SprintState state = SprintState();
@@ -24,8 +33,7 @@ class SprintState {
     state.sprints = this.sprints;
     state.issues = this.issues;
     state.projectIssues = this.projectIssues;
+    state.selectIssues = this.selectIssues;
     return state;
   }
-
 }
-

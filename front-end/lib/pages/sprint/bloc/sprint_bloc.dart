@@ -44,7 +44,11 @@ class SprintBloc extends Bloc<SprintEvent, SprintState> {
       if (sprints != null) {
         state.sprints = sprints;
         if (sprints.isNotEmpty) {
-          add(SelectSprintEvent(sprints[0]));
+          Sprint sprint = sprints.firstWhere(
+            (element) => element.status == "ACTIVE",
+            orElse: () => sprints[0],
+          );
+          add(SelectSprintEvent(sprint));
         }
       }
       List<Issue>? projectIssues =
@@ -66,19 +70,40 @@ class SprintBloc extends Bloc<SprintEvent, SprintState> {
       emit(state.clone(SprintStatus.selectSprintSuccess));
     });
 
+    on<AddIssue>((event, emit) async {
+      List<Issue>? issues =
+          await issueRepository.addIssue(state.selectedSprint!.id!, state.selectIssues);
+      if (issues != null) {
+        state.issues.addAll(issues);
+        showSuccessAlert("Add issue success", state.context);
+        emit(state.clone(SprintStatus.selectSprintSuccess));
+      } else {
+        showErrorAlert("Add issue failure", state.context);
+      }
+    });
+
     on<CreateSprintEvent>((event, emit) async {
       event.project = state.selectedProject!;
       Sprint? sprint = await sprintRepository.create(event);
       if (sprint != null) {
-        showSuccessAlert("Create sprint success", state.context!);
+        showSuccessAlert("Create sprint success", state.context);
         state.sprints.add(sprint);
       } else {
-        showErrorAlert("Create sprint failure", state.context!);
+        showErrorAlert("Create sprint failure", state.context);
       }
     });
 
     on<SelectDate>((event, emit) async {
       emit(state.clone(SprintStatus.selectDateSuccess));
+    });
+
+    on<SelectIssue>((event, emit) async {
+      if (state.selectIssues.contains(event.id!)) {
+        state.selectIssues.remove(event.id!);
+      } else {
+        state.selectIssues.add(event.id!);
+      }
+      emit(state.clone(SprintStatus.selectIssueSuccess));
     });
   }
 }

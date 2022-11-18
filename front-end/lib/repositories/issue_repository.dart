@@ -38,6 +38,23 @@ class IssueRepository {
     return issues;
   }
 
+  Future<List<Issue>?> addIssue(int sprintId, Set<int> ids) async {
+    String idsParam = "";
+    ids.forEach((element) {
+      idsParam+= "$element,";
+    });
+    idsParam = idsParam.substring(0, idsParam.length-1);
+    ApiModel model = ApiModel(
+        url: endpoints + "/assign",
+        params: {"sprintId": "$sprintId", "ids": idsParam},
+        parse: (data) {
+          return data.map<Issue>((json) => Issue.fromJson(json)).toList();
+        });
+
+    List<Issue>? issues = await apiRepository.put(model);
+    return issues;
+  }
+
   Future<List<Issue>?> updateIndex(List<Issue> indexIssues) async {
     ApiModel model = ApiModel(
         url: endpoints + "/index",

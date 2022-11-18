@@ -27,7 +27,6 @@ class _ReorderListState extends State<ReorderList> {
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<SprintBloc>(context);
-
     return Container(
       decoration: BoxDecoration(
           color: Colors.white.withOpacity(0.6),
