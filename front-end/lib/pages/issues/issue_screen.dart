@@ -6,7 +6,7 @@ import 'package:scrum_master_front_end/model/project.dart';
 import 'package:scrum_master_front_end/model/sprint.dart';
 import 'package:scrum_master_front_end/pages/issues/bloc/issue_bloc.dart';
 import 'package:scrum_master_front_end/pages/issues/components/create_issue.dart';
-import 'package:scrum_master_front_end/pages/issues/components/create_sprint.dart';
+import 'package:scrum_master_front_end/pages/sprint/components/create_sprint.dart';
 import 'package:scrum_master_front_end/pages/issues/components/reorder_list.dart';
 import 'package:scrum_master_front_end/pages/sprint/components/sprint_card.dart';
 import 'package:scrum_master_front_end/widgets/base_screen.dart';
@@ -126,7 +126,6 @@ class IssueScreen extends StatelessWidget {
                               style: TextStyle(fontSize: 16),
                             ),
                             Spacer(),
-                            CreateSprint()
                           ],
                         ),
                         Expanded(

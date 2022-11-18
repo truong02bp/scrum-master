@@ -3,6 +3,7 @@ import 'package:dropdown_search/dropdown_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scrum_master_front_end/pages/issues/bloc/issue_bloc.dart';
+import 'package:scrum_master_front_end/pages/sprint/bloc/sprint_bloc.dart';
 
 class CreateSprint extends StatefulWidget {
   const CreateSprint({Key? key}) : super(key: key);
@@ -14,7 +15,7 @@ class CreateSprint extends StatefulWidget {
 class _CreateSprintState extends State<CreateSprint> {
   late DateTime startDate;
   late DateTime endDate;
-  late IssueBloc bloc;
+  late SprintBloc bloc;
   late CreateSprintEvent event;
   bool canEdit = true;
 
@@ -24,7 +25,7 @@ class _CreateSprintState extends State<CreateSprint> {
     super.initState();
     startDate = DateTime.now();
     endDate = DateTime.now();
-    bloc = BlocProvider.of<IssueBloc>(context);
+    bloc = BlocProvider.of<SprintBloc>(context);
     event = CreateSprintEvent();
   }
 
@@ -202,7 +203,7 @@ class _CreateSprintState extends State<CreateSprint> {
                                         });
                               }
                             },
-                            child: BlocBuilder<IssueBloc, IssueState>(
+                            child: BlocBuilder<SprintBloc, SprintState>(
                               bloc: bloc,
                               builder: (context, state) {
                                 return Container(
@@ -253,7 +254,7 @@ class _CreateSprintState extends State<CreateSprint> {
                                         });
                               }
                             },
-                            child: BlocBuilder<IssueBloc, IssueState>(
+                            child: BlocBuilder<SprintBloc, SprintState>(
                               bloc: bloc,
                               builder: (context, state) {
                                 return Container(

@@ -34,10 +34,6 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
       state.userId = sharedPreferences.getInt("userId");
     });
 
-    on<SelectDate>((event, emit) async {
-      emit(state.clone(IssueStatus.selectDateSuccess));
-    });
-
     on<SelectProjectEvent>((event, emit) async {
       state.selectedProject = event.project;
       state.issues.clear();
@@ -105,16 +101,6 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
       }
     });
 
-    on<CreateSprintEvent>((event, emit) async {
-      event.project = state.selectedProject!;
-      Sprint? sprint = await sprintRepository.create(event);
-      if (sprint != null) {
-        showSuccessAlert("Create sprint success", state.context!);
-        state.sprints.add(sprint);
-        emit(state.clone(IssueStatus.createIssueSuccess));
-      } else {
-        showErrorAlert("Create sprint failure", state.context!);
-      }
-    });
+
   }
 }

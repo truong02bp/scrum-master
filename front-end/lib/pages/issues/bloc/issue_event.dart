@@ -28,10 +28,6 @@ class AssignToMe extends IssueEvent {
 
 }
 
-class SelectDate extends IssueEvent {
-
-}
-
 class UpdateIndexIssue extends IssueEvent {
   List<Issue> issues;
 
@@ -61,9 +57,4 @@ class UpdateIssueEvent extends IssueEvent {
   Sprint? sprint;
 }
 
-class CreateSprintEvent extends IssueEvent {
-  late DateTime startDate;
-  late DateTime endDate;
-  late String name;
-  late Project project;
-}
+

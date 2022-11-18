@@ -1,7 +1,7 @@
 import 'package:scrum_master_front_end/constants/host_api.dart';
 import 'package:scrum_master_front_end/model/api_model.dart';
 import 'package:scrum_master_front_end/model/sprint.dart';
-import 'package:scrum_master_front_end/pages/issues/bloc/issue_bloc.dart';
+import 'package:scrum_master_front_end/pages/sprint/bloc/sprint_bloc.dart';
 import 'package:scrum_master_front_end/repositories/api_repository.dart';
 
 class SprintRepository {

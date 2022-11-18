@@ -20,3 +20,14 @@ class SelectSprintEvent extends SprintEvent {
 
   SelectSprintEvent(this.sprint);
 }
+
+class CreateSprintEvent extends SprintEvent {
+  late DateTime startDate;
+  late DateTime endDate;
+  late String name;
+  late Project project;
+}
+
+class SelectDate extends SprintEvent {
+
+}

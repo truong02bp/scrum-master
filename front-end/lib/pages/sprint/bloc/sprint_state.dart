@@ -1,6 +1,6 @@
 part of 'sprint_bloc.dart';
 
-enum SprintStatus {initial, selectProjectSuccess, selectSprintSuccess}
+enum SprintStatus {initial, selectProjectSuccess, selectSprintSuccess, createIssueSuccess, selectDateSuccess}
 
 class SprintState {
   late BuildContext context;
