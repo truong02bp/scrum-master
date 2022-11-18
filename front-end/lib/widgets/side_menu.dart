@@ -7,6 +7,7 @@ import 'package:scrum_master_front_end/pages/issues/issue_screen.dart';
 import 'package:scrum_master_front_end/pages/profile/profile_screen.dart';
 import 'package:scrum_master_front_end/pages/project/project_screen.dart';
 import 'package:scrum_master_front_end/pages/settings/setting_screen.dart';
+import 'package:scrum_master_front_end/pages/sprint/sprint_screen.dart';
 
 class SideMenu extends StatelessWidget {
 
@@ -30,6 +31,13 @@ class SideMenu extends StatelessWidget {
             svgSrc: "assets/icons/menu_tran.svg",
             press: () {
               Navigator.pushNamed(context, ProjectScreen.routeName);
+            },
+          ),
+          DrawerListTile(
+            title: "Sprints",
+            svgSrc: "assets/icons/sprint.svg",
+            press: () {
+              Navigator.pushNamed(context, SprintScreen.routeName);
             },
           ),
           DrawerListTile(

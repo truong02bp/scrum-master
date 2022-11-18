@@ -8,7 +8,7 @@ import 'package:scrum_master_front_end/pages/issues/bloc/issue_bloc.dart';
 import 'package:scrum_master_front_end/pages/issues/components/create_issue.dart';
 import 'package:scrum_master_front_end/pages/issues/components/create_sprint.dart';
 import 'package:scrum_master_front_end/pages/issues/components/reorder_list.dart';
-import 'package:scrum_master_front_end/pages/issues/components/sprint_card.dart';
+import 'package:scrum_master_front_end/pages/sprint/components/sprint_card.dart';
 import 'package:scrum_master_front_end/widgets/base_screen.dart';
 
 class IssueScreen extends StatelessWidget {
@@ -89,93 +89,6 @@ class IssueScreen extends StatelessWidget {
             Container(
               height: 1,
               color: Colors.grey.withOpacity(0.5),
-            ),
-            const SizedBox(
-              height: 20,
-            ),
-            BlocBuilder<IssueBloc, IssueState>(
-              bloc: bloc,
-              builder: (context, state) {
-                return Container(
-                  height: 400,
-                  width: double.infinity,
-                  decoration: BoxDecoration(
-                      color: Colors.grey.withOpacity(0.3),
-                      borderRadius: BorderRadius.circular(10)),
-                  child: Padding(
-                    padding: const EdgeInsets.all(20),
-                    child: Column(
-                      children: [
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          children: [
-                            Text(
-                              'Sprints',
-                              style: TextStyle(fontSize: 20),
-                            ),
-                            const SizedBox(
-                              width: 20,
-                            ),
-                            Text(
-                              '${state.sprints.length} sprint',
-                              style: TextStyle(fontSize: 16),
-                            ),
-                            Spacer(),
-                            Container(
-                              height: 50,
-                              width: 300,
-                              child: BlocBuilder<IssueBloc, IssueState>(
-                                bloc: bloc,
-                                builder: (context, state) {
-                                  if (state.selectedSprint == null) {
-                                    return Container();
-                                  }
-                                  return FormBuilderDropdown<Sprint>(
-                                      name: 'Sprint',
-                                      dropdownColor: Colors.white,
-                                      borderRadius: BorderRadius.circular(7),
-                                      onChanged: (value) {
-                                        bloc.add(SelectSprintEvent(value!));
-                                      },
-                                      initialValue: state.selectedSprint,
-                                      autofocus: false,
-                                      menuMaxHeight: 300,
-                                      decoration: InputDecoration(
-                                          enabledBorder: OutlineInputBorder(
-                                              borderRadius:
-                                                  BorderRadius.circular(10),
-                                              borderSide: BorderSide(
-                                                  width: 1,
-                                                  color: Colors.grey
-                                                      .withOpacity(0.2))),
-                                          labelText: 'Sprint',
-                                          floatingLabelBehavior:
-                                              FloatingLabelBehavior.always,
-                                          contentPadding: EdgeInsets.all(5)),
-                                      items: List.generate(
-                                          state.sprints.length,
-                                          (index) => DropdownMenuItem(
-                                                value: state.sprints[index],
-                                                child: Text(
-                                                    state.sprints[index].name!),
-                                              )));
-                                },
-                              ),
-                            ),
-                          ],
-                        ),
-                        Expanded(
-                            child: state.selectedSprint != null
-                                ? Container(
-                                    height: 300,
-                                    child: SprintCard(state.selectedSprint!))
-                                : Container()),
-                      ],
-                    ),
-                  ),
-                );
-              },
             ),
             const SizedBox(
               height: 20,

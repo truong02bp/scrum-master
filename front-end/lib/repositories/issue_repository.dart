@@ -26,6 +26,18 @@ class IssueRepository {
     return issues;
   }
 
+  Future<List<Issue>?> findBySprintId(int sprintId) async {
+    ApiModel model = ApiModel(
+        url: endpoints + "/sprint",
+        params: {"sprintId": "$sprintId"},
+        parse: (data) {
+          return data.map<Issue>((json) => Issue.fromJson(json)).toList();
+        });
+
+    List<Issue>? issues = await apiRepository.get(model);
+    return issues;
+  }
+
   Future<List<Issue>?> updateIndex(List<Issue> indexIssues) async {
     ApiModel model = ApiModel(
         url: endpoints + "/index",

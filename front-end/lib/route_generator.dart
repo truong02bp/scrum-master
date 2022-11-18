@@ -10,6 +10,8 @@ import 'package:scrum_master_front_end/pages/project_members/project_members.dar
 import 'package:scrum_master_front_end/pages/project_members/project_members.dart';
 import 'package:scrum_master_front_end/pages/project/project_screen.dart';
 import 'package:scrum_master_front_end/pages/settings/setting_screen.dart';
+import 'package:scrum_master_front_end/pages/sprint/sprint_screen.dart';
+import 'package:scrum_master_front_end/pages/sprint/sprint_screen.dart';
 
 class RouteGenerator {
   static Route<dynamic> generateRoute(RouteSettings settings) {
@@ -38,6 +40,9 @@ class RouteGenerator {
       case BoardScreen.routeName:
         return _GeneratePageRoute(
             widget: BoardScreen(), routeName: settings.name!);
+      case SprintScreen.routeName:
+        return _GeneratePageRoute(
+            widget: SprintScreen(), routeName: settings.name!);
       default:
         return _GeneratePageRoute(
             widget: LoginScreen(), routeName: settings.name!);
