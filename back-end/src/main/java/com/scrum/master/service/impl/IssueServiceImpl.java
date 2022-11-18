@@ -2,7 +2,10 @@ package com.scrum.master.service.impl;
 
 import com.scrum.master.common.exceptions.BusinessException;
 import com.scrum.master.data.entities.Issue;
+import com.scrum.master.data.entities.Project;
+import com.scrum.master.data.entities.Sprint;
 import com.scrum.master.data.repositories.IssueRepository;
+import com.scrum.master.data.repositories.ProjectRepository;
 import com.scrum.master.data.repositories.SprintRepository;
 import com.scrum.master.service.IssueService;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +14,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -19,6 +24,7 @@ public class IssueServiceImpl implements IssueService {
 
     private final IssueRepository issueRepository;
     private final SprintRepository sprintRepository;
+    private final ProjectRepository projectRepository;
 
     @Override
     public List<Issue> findByProjectId(Long projectId) {
@@ -26,9 +32,24 @@ public class IssueServiceImpl implements IssueService {
     }
 
     @Override
+    public List<Issue> findBySprintId(Long sprintId) {
+        return issueRepository.findBySprintId(sprintId);
+    }
+
+    @Override
     public List<Issue> updateIndex(List<Issue> issues) {
         for (int i = 0; i < issues.size(); i++) {
             issues.get(i).setPriority(i);
+        }
+        return issueRepository.saveAll(issues);
+    }
+
+    @Override
+    public List<Issue> assignToSprint(Long projectId, Set<Long> ids) {
+        List<Issue> issues = issueRepository.findAllById(ids);
+        Sprint sprint = sprintRepository.findById(projectId).orElse(null);
+        for (Issue issue : issues) {
+            issue.setSprint(sprint);
         }
         return issueRepository.saveAll(issues);
     }

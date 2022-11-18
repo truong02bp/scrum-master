@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/api/v1")
@@ -18,6 +19,11 @@ public class IssueController {
     @GetMapping("/issue")
     public ResponseEntity<List<Issue>> getByProjectId(@RequestParam("projectId") Long projectId) {
         return ResponseEntity.ok(issueService.findByProjectId(projectId));
+    }
+
+    @GetMapping("/issue/sprint")
+    public ResponseEntity<List<Issue>> getBySprintId(@RequestParam("sprintId") Long sprintId) {
+        return ResponseEntity.ok(issueService.findBySprintId(sprintId));
     }
 
     @PostMapping("/issue")
@@ -33,6 +39,12 @@ public class IssueController {
     @PutMapping("/issue/index")
     public ResponseEntity<List<Issue>> updateIndex(@RequestBody List<Issue> issues) {
         return ResponseEntity.ok(issueService.updateIndex(issues));
+    }
+
+    @PutMapping("/issue/assign")
+    public ResponseEntity<List<Issue>> assignIssueToSprint(@RequestParam("ids") Set<Long> ids,
+                                                            @RequestParam("sprintId") Long sprintId) {
+        return ResponseEntity.ok(issueService.assignToSprint(sprintId, ids));
     }
 
     @DeleteMapping("/issue")

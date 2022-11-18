@@ -13,6 +13,9 @@ public interface IssueRepository extends JpaRepository<Issue, Long> {
     @Query(value = "SELECT issue FROM Issue issue WHERE issue.project.id = ?1 AND issue.sprint is NULL ORDER BY issue.priority ASC")
     List<Issue> findByProjectId(Long projectId);
 
+    @Query(value = "SELECT issue FROM Issue issue WHERE  issue.sprint.id = ?1 ORDER BY issue.priority ASC")
+    List<Issue> findBySprintId(Long sprintId);
+
     @Query(value = "SELECT count(issue.id) FROM Issue issue WHERE issue.project.id = ?1")
     int count(Long projectId);
 

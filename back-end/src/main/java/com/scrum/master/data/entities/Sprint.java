@@ -23,7 +23,4 @@ public class Sprint extends BaseEntity {
     @JoinColumn(name = "project_id")
     private Project project;
 
-    @OneToMany
-    private List<Issue> issues;
-
 }
