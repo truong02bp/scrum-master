@@ -7,7 +7,10 @@ enum SprintStatus {
   createIssueSuccess,
   selectDateSuccess,
   selectIssueSuccess,
-  addIssueSuccess
+  addIssueSuccess,
+  assignToMeSuccess,
+  updateIssueSuccess,
+  activeSprintSuccess
 }
 
 class SprintState {

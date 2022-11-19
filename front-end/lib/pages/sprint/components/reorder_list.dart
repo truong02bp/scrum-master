@@ -7,7 +7,6 @@ import 'package:scrum_master_front_end/model/issue.dart';
 import 'package:scrum_master_front_end/model/project.dart';
 import 'package:scrum_master_front_end/model/sprint.dart';
 import 'package:scrum_master_front_end/model/user.dart';
-import 'package:scrum_master_front_end/pages/issues/bloc/issue_bloc.dart';
 import 'package:scrum_master_front_end/pages/sprint/bloc/sprint_bloc.dart';
 
 class ReorderList extends StatefulWidget {
@@ -67,7 +66,8 @@ class _ReorderListState extends State<ReorderList> {
                       borderRadius: BorderRadius.circular(10)),
                   child: Center(
                     child: issue.estimate != null
-                        ? Text('${issue.estimate}', style: TextStyle(fontSize: 13),)
+                        ? Text(
+                      '${issue.estimate}', style: TextStyle(fontSize: 13),)
                         : Text(''),
                   ),
                 ),
@@ -97,7 +97,7 @@ class _ReorderListState extends State<ReorderList> {
   }
 
   void _onTap(Issue issue) {
-    final bloc = BlocProvider.of<IssueBloc>(context);
+    final bloc = BlocProvider.of<SprintBloc>(context);
     UpdateIssueEvent event = UpdateIssueEvent();
     event.id = issue.id;
     event.estimate = issue.estimate;
@@ -160,7 +160,7 @@ class _ReorderListState extends State<ReorderList> {
                           dropdownDecoratorProps: DropDownDecoratorProps(
                             dropdownSearchDecoration: InputDecoration(
                                 floatingLabelBehavior:
-                                    FloatingLabelBehavior.always,
+                                FloatingLabelBehavior.always,
                                 border: InputBorder.none,
                                 contentPadding: EdgeInsets.all(5)),
                           ),
@@ -264,7 +264,7 @@ class _ReorderListState extends State<ReorderList> {
                     padding: EdgeInsets.only(left: 10, top: 3),
                     child: TextFormField(
                       initialValue:
-                          event.estimate != null ? '${event.estimate}' : '',
+                      event.estimate != null ? '${event.estimate}' : '',
                       onChanged: (value) {
                         event.estimate = int.parse(value);
                       },
@@ -323,27 +323,35 @@ class _ReorderListState extends State<ReorderList> {
                   SizedBox(
                     width: 30,
                   ),
-                  Container(
-                      width: 650,
-                      height: 300,
-                      decoration: BoxDecoration(
-                          color: Colors.grey.withOpacity(0.15),
-                          borderRadius: BorderRadius.circular(7)),
-                      padding: EdgeInsets.only(left: 10, top: 3),
-                      child: HtmlEditor(
-                        controller: controller, //required
-                        htmlEditorOptions: HtmlEditorOptions(
-                            hint: "Your description here...",
-                            adjustHeightForKeyboard: true),
-                        htmlToolbarOptions: HtmlToolbarOptions(
-                          dropdownBackgroundColor: Colors.white,
-                          dropdownBoxDecoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(10)),
-                        ),
-                        otherOptions: OtherOptions(
+                  BlocBuilder<SprintBloc, SprintState>(
+                    bloc: bloc,
+                    builder: (context, state) {
+                      return Container(
+                          width: 650,
                           height: 300,
-                        ),
-                      )),
+                          decoration: BoxDecoration(
+                              color: Colors.grey.withOpacity(0.15),
+                              borderRadius: BorderRadius.circular(7)),
+                          padding: EdgeInsets.only(left: 10, top: 3),
+                          child: HtmlEditor(
+
+                            controller: controller, //required
+                            htmlEditorOptions: HtmlEditorOptions(
+                                hint: "Your description here...",
+                                initialText: issue.description,
+                                shouldEnsureVisible: false,
+                                adjustHeightForKeyboard: true),
+                            htmlToolbarOptions: HtmlToolbarOptions(
+                              dropdownBackgroundColor: Colors.white,
+                              dropdownBoxDecoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(10)),
+                            ),
+                            otherOptions: OtherOptions(
+                              height: 300,
+                            ),
+                          ));
+                    },
+                  ),
                 ]),
                 const SizedBox(
                   height: 40,
@@ -358,15 +366,15 @@ class _ReorderListState extends State<ReorderList> {
                   SizedBox(
                     width: 30,
                   ),
-                  BlocBuilder<IssueBloc, IssueState>(
+                  BlocBuilder<SprintBloc, SprintState>(
                     bloc: bloc,
                     buildWhen: (previous, current) =>
-                        current.status == IssueStatus.assignToMeSuccess,
+                    current.status == SprintStatus.assignToMeSuccess,
                     builder: (context, state) {
-                      if (state.status == IssueStatus.assignToMeSuccess) {
-                        // event.assignee = project.members!
-                        //     .firstWhere((element) => element.id == state.userId)
-                        //     .user;
+                      if (state.status == SprintStatus.assignToMeSuccess) {
+                        event.assignee = state.selectedProject!.members!
+                            .firstWhere((element) => element.id == state.userId)
+                            .user;
                       }
                       return Container(
                         width: 300,
@@ -383,7 +391,7 @@ class _ReorderListState extends State<ReorderList> {
                           dropdownDecoratorProps: DropDownDecoratorProps(
                             dropdownSearchDecoration: InputDecoration(
                                 floatingLabelBehavior:
-                                    FloatingLabelBehavior.always,
+                                FloatingLabelBehavior.always,
                                 border: InputBorder.none,
                                 contentPadding: EdgeInsets.all(5)),
                           ),
@@ -394,13 +402,13 @@ class _ReorderListState extends State<ReorderList> {
                           filterFn: (user, filter) {
                             return user.name!.contains(filter);
                           },
-                          // selectedItem: event.assignee,
                           popupProps: PopupProps.menu(
                             showSearchBox: true,
+
                             searchFieldProps: TextFieldProps(
                                 decoration: InputDecoration(
                                     floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                    FloatingLabelBehavior.always,
                                     contentPadding: EdgeInsets.all(5))),
                           ),
                           autoValidateMode: AutovalidateMode.always,
@@ -424,55 +432,6 @@ class _ReorderListState extends State<ReorderList> {
                 const SizedBox(
                   height: 40,
                 ),
-                Row(children: [
-                  SizedBox(
-                      width: 100,
-                      child: Text(
-                        'Sprint',
-                        style: TextStyle(fontSize: 16),
-                      )),
-                  SizedBox(
-                    width: 30,
-                  ),
-                  Container(
-                    width: 300,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.15),
-                        borderRadius: BorderRadius.circular(7)),
-                    padding: EdgeInsets.only(left: 10, top: 3),
-                    child: DropdownSearch<Sprint>(
-                      items: widget.sprints,
-                      dropdownDecoratorProps: DropDownDecoratorProps(
-                        dropdownSearchDecoration: InputDecoration(
-                          floatingLabelBehavior: FloatingLabelBehavior.always,
-                          border: InputBorder.none,
-                          contentPadding: EdgeInsets.all(5),
-                        ),
-                      ),
-                      onChanged: (value) {
-                        event.sprint = value;
-                      },
-                      itemAsString: (item) => item.name!,
-                      filterFn: (sprint, filter) {
-                        return sprint.name!.contains(filter);
-                      },
-                      popupProps: PopupProps.menu(
-                        showSearchBox: true,
-                        searchFieldProps: TextFieldProps(
-                          decoration: InputDecoration(
-                            floatingLabelBehavior: FloatingLabelBehavior.always,
-                            contentPadding: EdgeInsets.all(5),
-                          ),
-                        ),
-                      ),
-                      autoValidateMode: AutovalidateMode.always,
-                    ),
-                  )
-                ]),
-                const SizedBox(
-                  height: 20,
-                ),
                 Align(
                     alignment: Alignment.bottomRight,
                     child: InkWell(
@@ -490,7 +449,8 @@ class _ReorderListState extends State<ReorderList> {
           ),
         ),
       ),
-    )..show();
+    )
+      ..show();
   }
 
   Widget updateButton() {

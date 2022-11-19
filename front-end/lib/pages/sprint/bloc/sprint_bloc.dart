@@ -7,6 +7,7 @@ import 'package:scrum_master_front_end/alert.dart';
 import 'package:scrum_master_front_end/model/issue.dart';
 import 'package:scrum_master_front_end/model/project.dart';
 import 'package:scrum_master_front_end/model/sprint.dart';
+import 'package:scrum_master_front_end/model/user.dart';
 import 'package:scrum_master_front_end/repositories/issue_repository.dart';
 import 'package:scrum_master_front_end/repositories/project_repository.dart';
 import 'package:scrum_master_front_end/repositories/sprint_repository.dart';
@@ -104,6 +105,42 @@ class SprintBloc extends Bloc<SprintEvent, SprintState> {
         state.selectIssues.add(event.id!);
       }
       emit(state.clone(SprintStatus.selectIssueSuccess));
+    });
+
+    on<AssignToMe>((event, emit) async {
+      emit(state.clone(SprintStatus.assignToMeSuccess));
+    });
+
+    on<ActiveSprint>((event, emit) async {
+      Sprint? sprint = await sprintRepository.activeBySprintId(state.selectedSprint!.id!);
+      if (sprint != null) {
+        state.selectedSprint = sprint;
+        showSuccessAlert("Active sprint success", state.context);
+        emit(state.clone(SprintStatus.activeSprintSuccess));
+      }
+      else {
+        showErrorAlert("Active sprint failure", state.context);
+      }
+    });
+
+    on<UpdateIssueEvent>((event, emit) async {
+      Issue? issue = await issueRepository.update(event.id,
+        event.type,
+        event.description,
+        event.title,
+        event.label,
+        event.estimate,
+        event.assignee,
+        event.sprint);
+      if (issue != null) {
+        int index = state.issues.indexWhere((element) => element.id == issue.id);
+        state.issues.insert(index + 1, issue);
+        state.issues.removeAt(index);
+        showSuccessAlert("Update issue success", state.context);
+        emit(state.clone(SprintStatus.updateIssueSuccess));
+      } else {
+        showErrorAlert("Update issue failure", state.context);
+      }
     });
   }
 }

@@ -88,7 +88,15 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
     });
 
     on<UpdateIssueEvent>((event, emit) async {
-      Issue? issue = await issueRepository.update(event);
+      Issue? issue = await issueRepository.update(
+          event.id,
+          event.type,
+          event.description,
+          event.title,
+          event.label,
+          event.estimate,
+          event.assignee,
+          event.sprint);
       if (issue != null) {
         int index =
             state.issues.indexWhere((element) => element.id == issue.id);
@@ -100,7 +108,5 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
         showErrorAlert("Update issue failure", state.context!);
       }
     });
-
-
   }
 }

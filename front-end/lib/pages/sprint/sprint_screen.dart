@@ -159,7 +159,9 @@ class SprintScreen extends StatelessWidget {
                                       return Container();
                                     }
                                     return InkWell(
-                                      onTap: () {},
+                                      onTap: () {
+                                        bloc.add(ActiveSprint());
+                                      },
                                       child: Container(
                                         height: 40,
                                         width: 70,

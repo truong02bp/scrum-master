@@ -6,6 +6,7 @@ import 'package:scrum_master_front_end/model/issue.dart';
 import 'package:scrum_master_front_end/model/issue.dart';
 import 'package:scrum_master_front_end/model/issue.dart';
 import 'package:scrum_master_front_end/model/sprint.dart';
+import 'package:scrum_master_front_end/model/user.dart';
 import 'package:scrum_master_front_end/pages/issues/bloc/issue_bloc.dart';
 import 'package:scrum_master_front_end/repositories/api_repository.dart';
 
@@ -41,9 +42,9 @@ class IssueRepository {
   Future<List<Issue>?> addIssue(int sprintId, Set<int> ids) async {
     String idsParam = "";
     ids.forEach((element) {
-      idsParam+= "$element,";
+      idsParam += "$element,";
     });
-    idsParam = idsParam.substring(0, idsParam.length-1);
+    idsParam = idsParam.substring(0, idsParam.length - 1);
     ApiModel model = ApiModel(
         url: endpoints + "/assign",
         params: {"sprintId": "$sprintId", "ids": idsParam},
@@ -86,18 +87,27 @@ class IssueRepository {
     return issue;
   }
 
-  Future<Issue?> update(UpdateIssueEvent event) async {
+  Future<Issue?> update(
+    int? id,
+    String? type,
+    String? description,
+    String? title,
+    String? label,
+    int? estimate,
+    User? assignee,
+    Sprint? sprint
+  ) async {
     ApiModel model = ApiModel(
         url: endpoints,
         body: {
-          "id": event.id,
-          "type": event.type,
-          "description": event.description,
-          "title": event.title,
-          "label": event.label,
-          "estimate": event.estimate,
-          "assignee": event.assignee,
-          "sprintId": event.sprint != null ? event.sprint!.id : null
+          "id": id,
+          "type": type,
+          "description": description,
+          "title": title,
+          "label": label,
+          "estimate": estimate,
+          "assignee": assignee,
+          "sprintId": sprint != null ? sprint.id : null
         },
         parse: (json) => Issue.fromJson(json));
 

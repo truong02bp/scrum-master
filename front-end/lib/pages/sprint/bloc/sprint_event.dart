@@ -45,3 +45,18 @@ class AddIssue extends SprintEvent {
 class ActiveSprint extends SprintEvent {
 
 }
+
+class UpdateIssueEvent extends SprintEvent {
+  int? id;
+  String? type;
+  String? description;
+  String? title;
+  String? label;
+  int? estimate;
+  User? assignee;
+  Sprint? sprint;
+}
+
+class AssignToMe extends SprintEvent {
+
+}
