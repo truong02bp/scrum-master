@@ -41,3 +41,7 @@ class SelectIssue extends SprintEvent {
 class AddIssue extends SprintEvent {
 
 }
+
+class ActiveSprint extends SprintEvent {
+
+}

@@ -148,13 +148,42 @@ class SprintScreen extends StatelessWidget {
                                   ),
                                 ),
                                 const SizedBox(
+                                  width: 40,
+                                ),
+                                BlocBuilder<SprintBloc, SprintState>(
+                                  bloc: bloc,
+                                  builder: (context, state) {
+                                    if (state.selectedSprint == null ||
+                                        state.selectedSprint!.status ==
+                                            "ACTIVE") {
+                                      return Container();
+                                    }
+                                    return InkWell(
+                                      onTap: () {},
+                                      child: Container(
+                                        height: 40,
+                                        width: 70,
+                                        decoration: BoxDecoration(
+                                            color: Colors.blueAccent,
+                                            borderRadius:
+                                                BorderRadius.circular(7)),
+                                        child: Center(child: Text('Active')),
+                                      ),
+                                    );
+                                  },
+                                ),
+                                const SizedBox(
                                   width: 20,
                                 ),
+                                Spacer(),
                                 Text(
                                   '${state.sprints.length} sprint',
-                                  style: TextStyle(fontSize: 16),
+                                  style: TextStyle(
+                                      fontSize: 15, color: Colors.black54),
                                 ),
-                                Spacer(),
+                                const SizedBox(
+                                  width: 20,
+                                ),
                                 CreateSprint()
                               ],
                             ),
