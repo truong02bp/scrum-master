@@ -21,6 +21,17 @@ class SprintRepository {
     return sprints;
   }
 
+  Future<Sprint?> findActiveSprintByProjectId(int projectId) async {
+    ApiModel model = ApiModel(
+        url: endpoints ,
+        params: {"projectId": "$projectId"},
+        parse: (json) => Sprint.fromJson(json)
+        );
+
+    Sprint? sprint = await apiRepository.get(model);
+    return sprint;
+  }
+
   Future<Sprint?> activeBySprintId(int sprintId) async {
     ApiModel model = ApiModel(
         url: endpoints + "/active",

@@ -21,6 +21,7 @@ class Issue {
   int? priority;
   Project? project;
   List<Issue>? subTasks;
+  String? status;
 
 
   Issue(
@@ -36,6 +37,7 @@ class Issue {
       this.sprint,
       this.priority,
       this.project,
+      this.status,
       this.subTasks);
 
   factory Issue.fromJson(Map<String, dynamic> json) => _$IssueFromJson(json);

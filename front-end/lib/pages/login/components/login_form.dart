@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scrum_master_front_end/constants/theme.dart';
+import 'package:scrum_master_front_end/pages/board/board_screen.dart';
 import 'package:scrum_master_front_end/pages/dash_board/dash_board_screen.dart';
 import 'package:scrum_master_front_end/pages/home/home_screen.dart';
 import 'package:scrum_master_front_end/pages/issues/issue_screen.dart';
@@ -19,7 +20,7 @@ class LoginForm extends StatelessWidget {
     return BlocListener<LoginBloc, LoginState>(
       listener: (context, state) {
         if (state.status == LoginStatus.loginSuccess) {
-          Navigator.pushNamed(context, SprintScreen.routeName);
+          Navigator.pushNamed(context, BoardScreen.routeName);
         }
       },
       bloc: bloc,

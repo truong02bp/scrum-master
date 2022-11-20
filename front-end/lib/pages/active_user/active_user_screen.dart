@@ -11,9 +11,7 @@ class ActiveUserScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     String myurl = Uri.base.toString();
-    print(myurl);
     String? para1 = Uri.base.queryParameters["email"];
-    print(para1);
     return Scaffold(
       body: SafeArea(
           child: BlocProvider(

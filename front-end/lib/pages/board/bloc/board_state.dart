@@ -1,18 +1,34 @@
 part of 'board_bloc.dart';
 
-enum BoardStatus { initial, updateSuccess }
+enum BoardStatus {
+  initial,
+  updateSuccess,
+  selectProjectSuccess,
+  selectProjectFailure,
+  assignToMeSuccess,
+  updateIssueSuccess
+}
 
 class BoardState {
+  late BuildContext context;
+  int? userId;
   Sprint? sprint;
   List<Issue> issues = [];
-
-  BoardStatus boardStatus = BoardStatus.initial;
+  List<Project> projects = [];
+  Project? selectedProject;
+  bool isMyIssue = false;
+  BoardStatus status = BoardStatus.initial;
 
   BoardState clone(BoardStatus status) {
     BoardState state = BoardState();
-    state.boardStatus = status;
+    state.status = status;
     state.sprint = this.sprint;
     state.issues = this.issues;
+    state.context = this.context;
+    state.userId = this.userId;
+    state.projects = this.projects;
+    state.selectedProject = this.selectedProject;
+    state.isMyIssue = this.isMyIssue;
     return state;
   }
 }

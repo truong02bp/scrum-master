@@ -206,6 +206,117 @@ class _ReorderListState extends State<ReorderList> {
                 const SizedBox(
                   height: 30,
                 ),
+                Row(children: [
+                  SizedBox(
+                      width: 100,
+                      child: Text(
+                        'Assignee',
+                        style: TextStyle(fontSize: 16),
+                      )),
+                  SizedBox(
+                    width: 30,
+                  ),
+                  BlocBuilder<SprintBloc, SprintState>(
+                    bloc: bloc,
+                    buildWhen: (previous, current) =>
+                    current.status == SprintStatus.assignToMeSuccess,
+                    builder: (context, state) {
+                      if (state.status == SprintStatus.assignToMeSuccess) {
+                        event.assignee = state.selectedProject!.members!
+                            .firstWhere((element) => element.id == state.userId)
+                            .user;
+                      }
+                      return Container(
+                        width: 300,
+                        height: 40,
+                        decoration: BoxDecoration(
+                            color: Colors.grey.withOpacity(0.15),
+                            borderRadius: BorderRadius.circular(7)),
+                        padding: EdgeInsets.only(left: 10, top: 3),
+                        child: DropdownSearch<User>(
+                          items: widget.project.members!
+                              .map((e) => e.user!)
+                              .toList(),
+                          selectedItem: event.assignee,
+                          dropdownDecoratorProps: DropDownDecoratorProps(
+                            dropdownSearchDecoration: InputDecoration(
+                                floatingLabelBehavior:
+                                FloatingLabelBehavior.always,
+                                border: InputBorder.none,
+                                contentPadding: EdgeInsets.all(5)),
+                          ),
+                          onChanged: (value) {
+                            event.assignee = value;
+                          },
+                          itemAsString: (item) => item.name!,
+                          filterFn: (user, filter) {
+                            return user.name!.contains(filter);
+                          },
+                          popupProps: PopupProps.menu(
+                            showSearchBox: true,
+
+                            searchFieldProps: TextFieldProps(
+                                decoration: InputDecoration(
+                                    floatingLabelBehavior:
+                                    FloatingLabelBehavior.always,
+                                    contentPadding: EdgeInsets.all(5))),
+                          ),
+                          autoValidateMode: AutovalidateMode.always,
+                        ),
+                      );
+                    },
+                  ),
+                  const SizedBox(
+                    width: 20,
+                  ),
+                  InkWell(
+                    onTap: () {
+                      bloc.add(AssignToMe());
+                    },
+                    child: Text(
+                      'Assign to me',
+                      style: TextStyle(color: Colors.blue),
+                    ),
+                  )
+                ]),
+                const SizedBox(
+                  height: 20,
+                ),
+                Row(children: [
+                  SizedBox(
+                      width: 100,
+                      child: Text(
+                        'Label',
+                        style: TextStyle(fontSize: 16),
+                      )),
+                  SizedBox(
+                    width: 30,
+                  ),
+                  Container(
+                    width: 300,
+                    height: 40,
+                    decoration: BoxDecoration(
+                        color: Colors.grey.withOpacity(0.15),
+                        borderRadius: BorderRadius.circular(7)),
+                    padding: EdgeInsets.only(left: 10, top: 3),
+                    child: DropdownSearch<String>(
+                      items: ['Operation', 'Deploy', 'Hot-fix'],
+                      dropdownDecoratorProps: DropDownDecoratorProps(
+                        dropdownSearchDecoration: InputDecoration(
+                            floatingLabelBehavior: FloatingLabelBehavior.always,
+                            border: InputBorder.none,
+                            contentPadding: EdgeInsets.all(5)),
+                      ),
+                      onChanged: (value) {
+                        event.label = value;
+                      },
+                      selectedItem: event.label,
+                    ),
+                  )
+                ]),
+                const SizedBox(
+                  height: 30,
+                ),
                 Container(
                   height: 1,
                   color: Colors.grey.withOpacity(0.5),
@@ -282,41 +393,6 @@ class _ReorderListState extends State<ReorderList> {
                   SizedBox(
                       width: 100,
                       child: Text(
-                        'Label',
-                        style: TextStyle(fontSize: 16),
-                      )),
-                  SizedBox(
-                    width: 30,
-                  ),
-                  Container(
-                    width: 300,
-                    height: 40,
-                    decoration: BoxDecoration(
-                        color: Colors.grey.withOpacity(0.15),
-                        borderRadius: BorderRadius.circular(7)),
-                    padding: EdgeInsets.only(left: 10, top: 3),
-                    child: DropdownSearch<String>(
-                      items: ['Operation', 'Deploy', 'Hot-fix'],
-                      dropdownDecoratorProps: DropDownDecoratorProps(
-                        dropdownSearchDecoration: InputDecoration(
-                            floatingLabelBehavior: FloatingLabelBehavior.always,
-                            border: InputBorder.none,
-                            contentPadding: EdgeInsets.all(5)),
-                      ),
-                      onChanged: (value) {
-                        event.label = value;
-                      },
-                      selectedItem: event.label,
-                    ),
-                  )
-                ]),
-                const SizedBox(
-                  height: 20,
-                ),
-                Row(children: [
-                  SizedBox(
-                      width: 100,
-                      child: Text(
                         'Description',
                         style: TextStyle(fontSize: 16),
                       )),
@@ -352,82 +428,6 @@ class _ReorderListState extends State<ReorderList> {
                           ));
                     },
                   ),
-                ]),
-                const SizedBox(
-                  height: 40,
-                ),
-                Row(children: [
-                  SizedBox(
-                      width: 100,
-                      child: Text(
-                        'Assignee',
-                        style: TextStyle(fontSize: 16),
-                      )),
-                  SizedBox(
-                    width: 30,
-                  ),
-                  BlocBuilder<SprintBloc, SprintState>(
-                    bloc: bloc,
-                    buildWhen: (previous, current) =>
-                    current.status == SprintStatus.assignToMeSuccess,
-                    builder: (context, state) {
-                      if (state.status == SprintStatus.assignToMeSuccess) {
-                        event.assignee = state.selectedProject!.members!
-                            .firstWhere((element) => element.id == state.userId)
-                            .user;
-                      }
-                      return Container(
-                        width: 300,
-                        height: 40,
-                        decoration: BoxDecoration(
-                            color: Colors.grey.withOpacity(0.15),
-                            borderRadius: BorderRadius.circular(7)),
-                        padding: EdgeInsets.only(left: 10, top: 3),
-                        child: DropdownSearch<User>(
-                          items: widget.project.members!
-                              .map((e) => e.user!)
-                              .toList(),
-                          selectedItem: event.assignee,
-                          dropdownDecoratorProps: DropDownDecoratorProps(
-                            dropdownSearchDecoration: InputDecoration(
-                                floatingLabelBehavior:
-                                FloatingLabelBehavior.always,
-                                border: InputBorder.none,
-                                contentPadding: EdgeInsets.all(5)),
-                          ),
-                          onChanged: (value) {
-                            event.assignee = value;
-                          },
-                          itemAsString: (item) => item.name!,
-                          filterFn: (user, filter) {
-                            return user.name!.contains(filter);
-                          },
-                          popupProps: PopupProps.menu(
-                            showSearchBox: true,
-
-                            searchFieldProps: TextFieldProps(
-                                decoration: InputDecoration(
-                                    floatingLabelBehavior:
-                                    FloatingLabelBehavior.always,
-                                    contentPadding: EdgeInsets.all(5))),
-                          ),
-                          autoValidateMode: AutovalidateMode.always,
-                        ),
-                      );
-                    },
-                  ),
-                  const SizedBox(
-                    width: 20,
-                  ),
-                  InkWell(
-                    onTap: () {
-                      bloc.add(AssignToMe());
-                    },
-                    child: Text(
-                      'Assign to me',
-                      style: TextStyle(color: Colors.blue),
-                    ),
-                  )
                 ]),
                 const SizedBox(
                   height: 40,

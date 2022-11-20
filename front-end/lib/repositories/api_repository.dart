@@ -92,6 +92,9 @@ class ApiRepository {
     if (res.statusCode == 200) {
       if (model.parse != null) {
         String data = Utf8Decoder().convert(res.bodyBytes);
+        if (data.isEmpty) {
+          return null;
+        }
         final jsonData = jsonDecode(data);
         return model.parse!(jsonData);
       }

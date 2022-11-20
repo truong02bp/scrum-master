@@ -28,6 +28,7 @@ Issue _$IssueFromJson(Map<String, dynamic> json) {
     json['project'] == null
         ? null
         : Project.fromJson(json['project'] as Map<String, dynamic>),
+    json['status'] as String?,
     (json['subTasks'] as List<dynamic>?)
         ?.map((e) => Issue.fromJson(e as Map<String, dynamic>))
         .toList(),
@@ -48,4 +49,5 @@ Map<String, dynamic> _$IssueToJson(Issue instance) => <String, dynamic>{
       'priority': instance.priority,
       'project': instance.project?.toJson(),
       'subTasks': instance.subTasks?.map((e) => e.toJson()).toList(),
+      'status': instance.status,
     };

@@ -34,7 +34,7 @@ void showSuccessAlert(String message, BuildContext context) {
 }
 
 void showErrorAlert(String message, BuildContext context) {
-  message = message.substring(message.indexOf(": ") + 2, message.length);
+  message = message.substring(message.indexOf(": ") + 1, message.length);
   AwesomeDialog(
       context: context,
       animType: AnimType.TOPSLIDE,

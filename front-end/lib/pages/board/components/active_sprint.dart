@@ -1,59 +1,100 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:scrum_master_front_end/model/sprint.dart';
+import 'package:scrum_master_front_end/pages/board/bloc/board_bloc.dart';
 import 'package:scrum_master_front_end/pages/board/components/draggable_issue.dart';
 
 class ActiveSprint extends StatelessWidget {
+  final Sprint sprint;
+
+  ActiveSprint(this.sprint);
+
   int size = 4;
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 15, top: 15, right: 15),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          _buildTitle(),
-          const SizedBox(
-            height: 15,
-          ),
-          Text(
-            'Scrum Sprint 2',
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.w800),
-          ),
-          const SizedBox(
-            height: 15,
-          ),
-          _buildFilter(),
-          const SizedBox(
-            height: 20,
-          ),
-          Container(
-            width: double.infinity,
-            height: 0.75,
-            color: Colors.black.withOpacity(0.1),
-          ),
-          _buildStatusBar(),
-          const SizedBox(
-            height: 10,
-          ),
-          Expanded(
-              child: ListView(
-            children: [
-              DraggableIssue(),
-              const SizedBox(height: 20,),
-              DraggableIssue(),
-            ],
-          )),
-        ],
-      ),
+    final bloc = BlocProvider.of<BoardBloc>(context);
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        _buildTitle(),
+        const SizedBox(
+          height: 10,
+        ),
+        Row(
+          children: [
+            InkWell(
+              onTap: () {
+                bloc.add(FilterIssue(false));
+              },
+              borderRadius: BorderRadius.circular(7),
+              child: Container(
+                width: 50,
+                height: 30,
+                decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(7)),
+                child: Center(
+                  child: Text(
+                    'All',
+                    style: TextStyle(color: Colors.blueAccent, fontSize: 18),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+            InkWell(
+              onTap: () {
+                bloc.add(FilterIssue(true));
+              },
+              borderRadius: BorderRadius.circular(7),
+              child: Container(
+                width: 150,
+                height: 30,
+                decoration: BoxDecoration(
+                    color: Colors.grey.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(7)),
+                child: Center(
+                  child: Text(
+                    'Only my issues',
+                    style: TextStyle(color: Colors.blueAccent, fontSize: 17),
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(
+          height: 10,
+        ),
+        Container(
+          width: double.infinity,
+          height: 0.75,
+          color: Colors.black.withOpacity(0.1),
+        ),
+        _buildStatusBar(),
+        const SizedBox(
+          height: 10,
+        ),
+        BlocBuilder<BoardBloc, BoardState>(
+          bloc: bloc,
+          builder: (context, state) {
+            print(state.status);
+            return DraggableIssue(state.issues);
+          },
+        )
+      ],
     );
   }
 
   Widget _buildTitle() {
     return Row(children: [
       Text(
-        'FU board',
-        style: TextStyle(fontSize: 18, color: Colors.black),
+        '${sprint.name}',
+        style: TextStyle(fontSize: 25, fontWeight: FontWeight.w800),
       ),
       Spacer(),
       Icon(
@@ -85,32 +126,6 @@ class ActiveSprint extends StatelessWidget {
         width: 20,
       ),
     ]);
-  }
-
-  Widget _buildFilter() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: [
-        Text(
-          'Filter : ',
-          style: TextStyle(fontSize: 19),
-        ),
-        const SizedBox(
-          width: 20,
-        ),
-        Text(
-          'Only my issues',
-          style: TextStyle(color: Colors.blueAccent, fontSize: 17),
-        ),
-        const SizedBox(
-          width: 40,
-        ),
-        Text(
-          'Recently updated',
-          style: TextStyle(color: Colors.blueAccent, fontSize: 17),
-        ),
-      ],
-    );
   }
 
   Widget _buildStatusBar() {

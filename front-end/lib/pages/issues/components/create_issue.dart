@@ -136,6 +136,170 @@ class _CreateIssueState extends State<CreateIssue> {
                           )
                         ]),
                         const SizedBox(
+                          height: 20,
+                        ),
+                        Row(children: [
+                          SizedBox(
+                              width: 100,
+                              child: Text(
+                                'Assignee',
+                                style: TextStyle(fontSize: 16),
+                              )),
+                          SizedBox(
+                            width: 30,
+                          ),
+                          BlocBuilder<IssueBloc, IssueState>(
+                            bloc: bloc,
+                            buildWhen: (previous, current) =>
+                            current.status == IssueStatus.assignToMeSuccess,
+                            builder: (context, state) {
+                              if (state.status ==
+                                  IssueStatus.assignToMeSuccess) {
+                                event.assignee = project.members!
+                                    .firstWhere(
+                                        (element) => element.id == state.userId)
+                                    .user;
+                              }
+                              return Container(
+                                width: 300,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                    color: Colors.grey.withOpacity(0.15),
+                                    borderRadius: BorderRadius.circular(7)),
+                                padding: EdgeInsets.only(left: 10, top: 3),
+                                child: DropdownSearch<User>(
+                                  items: project.members!
+                                      .map((e) => e.user!)
+                                      .toList(),
+                                  dropdownDecoratorProps:
+                                  DropDownDecoratorProps(
+                                    dropdownSearchDecoration: InputDecoration(
+                                        floatingLabelBehavior:
+                                        FloatingLabelBehavior.always,
+                                        border: InputBorder.none,
+                                        contentPadding: EdgeInsets.all(5)),
+                                  ),
+                                  onChanged: (value) {
+                                    event.assignee = value;
+                                  },
+                                  itemAsString: (item) => item.name!,
+                                  filterFn: (user, filter) {
+                                    return user.name!.contains(filter);
+                                  },
+                                  selectedItem: event.assignee,
+                                  popupProps: PopupProps.menu(
+                                    showSearchBox: true,
+                                    searchFieldProps: TextFieldProps(
+                                        decoration: InputDecoration(
+                                            floatingLabelBehavior:
+                                            FloatingLabelBehavior.always,
+                                            contentPadding: EdgeInsets.all(5))),
+                                  ),
+                                  autoValidateMode: AutovalidateMode.always,
+                                ),
+                              );
+                            },
+                          ),
+                          const SizedBox(
+                            width: 20,
+                          ),
+                          InkWell(
+                            onTap: () {
+                              bloc.add(AssignToMe());
+                            },
+                            child: Text(
+                              'Assign to me',
+                              style: TextStyle(color: Colors.blue),
+                            ),
+                          )
+                        ]),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        Row(children: [
+                          SizedBox(
+                              width: 100,
+                              child: Text(
+                                'Sprint',
+                                style: TextStyle(fontSize: 16),
+                              )),
+                          SizedBox(
+                            width: 30,
+                          ),
+                          Container(
+                            width: 300,
+                            height: 40,
+                            decoration: BoxDecoration(
+                                color: Colors.grey.withOpacity(0.15),
+                                borderRadius: BorderRadius.circular(7)),
+                            padding: EdgeInsets.only(left: 10, top: 3),
+                            child: DropdownSearch<Sprint>(
+                              items: state.sprints!,
+                              dropdownDecoratorProps: DropDownDecoratorProps(
+                                dropdownSearchDecoration: InputDecoration(
+                                  floatingLabelBehavior:
+                                  FloatingLabelBehavior.always,
+                                  border: InputBorder.none,
+                                  contentPadding: EdgeInsets.all(5),
+                                ),
+                              ),
+                              onChanged: (value) {
+                                event.sprint = value;
+                              },
+                              itemAsString: (item) => item.name!,
+                              filterFn: (sprint, filter) {
+                                return sprint.name!.contains(filter);
+                              },
+                              popupProps: PopupProps.menu(
+                                showSearchBox: true,
+                                searchFieldProps: TextFieldProps(
+                                  decoration: InputDecoration(
+                                    floatingLabelBehavior:
+                                    FloatingLabelBehavior.always,
+                                    contentPadding: EdgeInsets.all(5),
+                                  ),
+                                ),
+                              ),
+                              autoValidateMode: AutovalidateMode.always,
+                            ),
+                          )
+                        ]),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        Row(children: [
+                          SizedBox(
+                              width: 100,
+                              child: Text(
+                                'Label',
+                                style: TextStyle(fontSize: 16),
+                              )),
+                          SizedBox(
+                            width: 30,
+                          ),
+                          Container(
+                            width: 300,
+                            height: 40,
+                            decoration: BoxDecoration(
+                                color: Colors.grey.withOpacity(0.15),
+                                borderRadius: BorderRadius.circular(7)),
+                            padding: EdgeInsets.only(left: 10, top: 3),
+                            child: DropdownSearch<String>(
+                              items: ['Operation', 'Deploy', 'Hot-fix'],
+                              dropdownDecoratorProps: DropDownDecoratorProps(
+                                dropdownSearchDecoration: InputDecoration(
+                                    floatingLabelBehavior:
+                                    FloatingLabelBehavior.always,
+                                    border: InputBorder.none,
+                                    contentPadding: EdgeInsets.all(5)),
+                              ),
+                              onChanged: (value) {
+                                event.label = value;
+                              },
+                            ),
+                          )
+                        ]),
+                        const SizedBox(
                           height: 30,
                         ),
                         Container(
@@ -209,38 +373,6 @@ class _CreateIssueState extends State<CreateIssue> {
                         const SizedBox(
                           height: 20,
                         ),
-                        Row(children: [
-                          SizedBox(
-                              width: 100,
-                              child: Text(
-                                'Label',
-                                style: TextStyle(fontSize: 16),
-                              )),
-                          SizedBox(
-                            width: 30,
-                          ),
-                          Container(
-                            width: 300,
-                            height: 40,
-                            decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.15),
-                                borderRadius: BorderRadius.circular(7)),
-                            padding: EdgeInsets.only(left: 10, top: 3),
-                            child: DropdownSearch<String>(
-                              items: ['Operation', 'Deploy', 'Hot-fix'],
-                              dropdownDecoratorProps: DropDownDecoratorProps(
-                                dropdownSearchDecoration: InputDecoration(
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    border: InputBorder.none,
-                                    contentPadding: EdgeInsets.all(5)),
-                              ),
-                              onChanged: (value) {
-                                event.label = value;
-                              },
-                            ),
-                          )
-                        ]),
                         const SizedBox(
                           height: 20,
                         ),
@@ -275,135 +407,6 @@ class _CreateIssueState extends State<CreateIssue> {
                                   height: 300,
                                 ),
                               )),
-                        ]),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(children: [
-                          SizedBox(
-                              width: 100,
-                              child: Text(
-                                'Assignee',
-                                style: TextStyle(fontSize: 16),
-                              )),
-                          SizedBox(
-                            width: 30,
-                          ),
-                          BlocBuilder<IssueBloc, IssueState>(
-                            bloc: bloc,
-                            buildWhen: (previous, current) =>
-                                current.status == IssueStatus.assignToMeSuccess,
-                            builder: (context, state) {
-                              if (state.status ==
-                                  IssueStatus.assignToMeSuccess) {
-                                event.assignee = project.members!
-                                    .firstWhere(
-                                        (element) => element.id == state.userId)
-                                    .user;
-                              }
-                              return Container(
-                                width: 300,
-                                height: 40,
-                                decoration: BoxDecoration(
-                                    color: Colors.grey.withOpacity(0.15),
-                                    borderRadius: BorderRadius.circular(7)),
-                                padding: EdgeInsets.only(left: 10, top: 3),
-                                child: DropdownSearch<User>(
-                                  items: project.members!
-                                      .map((e) => e.user!)
-                                      .toList(),
-                                  dropdownDecoratorProps:
-                                      DropDownDecoratorProps(
-                                    dropdownSearchDecoration: InputDecoration(
-                                        floatingLabelBehavior:
-                                            FloatingLabelBehavior.always,
-                                        border: InputBorder.none,
-                                        contentPadding: EdgeInsets.all(5)),
-                                  ),
-                                  onChanged: (value) {
-                                    event.assignee = value;
-                                  },
-                                  itemAsString: (item) => item.name!,
-                                  filterFn: (user, filter) {
-                                    return user.name!.contains(filter);
-                                  },
-                                  selectedItem: event.assignee,
-                                  popupProps: PopupProps.menu(
-                                    showSearchBox: true,
-                                    searchFieldProps: TextFieldProps(
-                                        decoration: InputDecoration(
-                                            floatingLabelBehavior:
-                                                FloatingLabelBehavior.always,
-                                            contentPadding: EdgeInsets.all(5))),
-                                  ),
-                                  autoValidateMode: AutovalidateMode.always,
-                                ),
-                              );
-                            },
-                          ),
-                          const SizedBox(
-                            width: 20,
-                          ),
-                          InkWell(
-                            onTap: () {
-                              bloc.add(AssignToMe());
-                            },
-                            child: Text(
-                              'Assign to me',
-                              style: TextStyle(color: Colors.blue),
-                            ),
-                          )
-                        ]),
-                        const SizedBox(
-                          height: 20,
-                        ),
-                        Row(children: [
-                          SizedBox(
-                              width: 100,
-                              child: Text(
-                                'Sprint',
-                                style: TextStyle(fontSize: 16),
-                              )),
-                          SizedBox(
-                            width: 30,
-                          ),
-                          Container(
-                            width: 300,
-                            height: 40,
-                            decoration: BoxDecoration(
-                                color: Colors.grey.withOpacity(0.15),
-                                borderRadius: BorderRadius.circular(7)),
-                            padding: EdgeInsets.only(left: 10, top: 3),
-                            child: DropdownSearch<Sprint>(
-                              items: state.sprints!,
-                              dropdownDecoratorProps: DropDownDecoratorProps(
-                                dropdownSearchDecoration: InputDecoration(
-                                  floatingLabelBehavior:
-                                      FloatingLabelBehavior.always,
-                                  border: InputBorder.none,
-                                  contentPadding: EdgeInsets.all(5),
-                                ),
-                              ),
-                              onChanged: (value) {
-                                event.sprint = value;
-                              },
-                              itemAsString: (item) => item.name!,
-                              filterFn: (sprint, filter) {
-                                return sprint.name!.contains(filter);
-                              },
-                              popupProps: PopupProps.menu(
-                                showSearchBox: true,
-                                searchFieldProps: TextFieldProps(
-                                  decoration: InputDecoration(
-                                    floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
-                                    contentPadding: EdgeInsets.all(5),
-                                  ),
-                                ),
-                              ),
-                              autoValidateMode: AutovalidateMode.always,
-                            ),
-                          )
                         ]),
                         const SizedBox(
                           height: 20,
