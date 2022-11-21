@@ -87,16 +87,25 @@ class IssueRepository {
     return issue;
   }
 
+  Future<Issue?> updateStatus(int issueId, String status) async {
+    ApiModel model = ApiModel(
+        url: endpoints + "/status",
+        params: {"issueId": "$issueId", "status": status},
+        parse: (json) => Issue.fromJson(json));
+
+    Issue? issue = await apiRepository.put(model);
+    return issue;
+  }
+
   Future<Issue?> update(
-    int? id,
-    String? type,
-    String? description,
-    String? title,
-    String? label,
-    int? estimate,
-    User? assignee,
-    Sprint? sprint
-  ) async {
+      int? id,
+      String? type,
+      String? description,
+      String? title,
+      String? label,
+      int? estimate,
+      User? assignee,
+      Sprint? sprint) async {
     ApiModel model = ApiModel(
         url: endpoints,
         body: {

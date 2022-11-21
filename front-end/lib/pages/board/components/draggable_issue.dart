@@ -8,15 +8,14 @@ import 'package:flutter/material.dart';
 import 'package:scrum_master_front_end/constants/host_api.dart';
 import 'package:scrum_master_front_end/constants/theme.dart';
 import 'package:scrum_master_front_end/model/issue.dart';
-import 'package:scrum_master_front_end/model/issue.dart';
-import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:html_editor_enhanced/html_editor.dart';
 import 'package:scrum_master_front_end/pages/board/bloc/board_bloc.dart';
 
 class DraggableIssue extends StatefulWidget {
+  final Key key;
   final List<Issue> issues;
 
-  DraggableIssue(this.issues);
+  DraggableIssue(this.key, this.issues);
 
   @override
   State<DraggableIssue> createState() => _DraggableIssueState();
@@ -28,6 +27,7 @@ class _DraggableIssueState extends State<DraggableIssue> {
   List<Issue> preRelease = [];
   List<Issue> done = [];
   HtmlEditorController controller = HtmlEditorController();
+  late BoardBloc bloc;
 
   @override
   void initState() {
@@ -46,24 +46,26 @@ class _DraggableIssueState extends State<DraggableIssue> {
       if (issue.status == 'Done') {
         done.add(issue);
       }
+      bloc = BlocProvider.of<BoardBloc>(context);
     }
   }
 
   @override
   Widget build(BuildContext context) {
     return Row(
+      key: widget.key,
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildColumn(todo),
-        _buildColumn(processing),
-        _buildColumn(preRelease),
-        _buildColumn(done),
+        _buildColumn(todo, 'Todo'),
+        _buildColumn(processing, 'Processing'),
+        _buildColumn(preRelease, 'Prerelase'),
+        _buildColumn(done, 'Done'),
       ],
     );
   }
 
-  Widget _buildColumn(List<Issue> list) {
+  Widget _buildColumn(List<Issue> list, String status) {
     return Flexible(
       flex: 1,
       fit: FlexFit.tight,
@@ -101,6 +103,7 @@ class _DraggableIssueState extends State<DraggableIssue> {
         onAccept: (Issue issue) {
           if (!list.contains(issue)) {
             list.add(issue);
+            bloc.add(UpdateIssueStatus(issue.id!, status));
           }
         },
       ),
@@ -184,7 +187,6 @@ class _DraggableIssueState extends State<DraggableIssue> {
   }
 
   void _onTap(Issue issue, BuildContext context) {
-    final bloc = BlocProvider.of<BoardBloc>(context);
     UpdateIssueEvent event = UpdateIssueEvent();
     event.id = issue.id;
     event.estimate = issue.estimate;
@@ -532,5 +534,15 @@ class _DraggableIssueState extends State<DraggableIssue> {
         ],
       ),
     );
+  }
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    done.clear();
+    preRelease.clear();
+    processing.clear();
+    todo.clear();
   }
 }

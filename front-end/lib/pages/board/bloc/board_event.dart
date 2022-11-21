@@ -36,3 +36,10 @@ class UpdateIssueEvent extends BoardEvent {
 class AssignToMe extends BoardEvent {
 
 }
+
+class UpdateIssueStatus extends BoardEvent {
+  int issueId;
+  String status;
+
+  UpdateIssueStatus(this.issueId, this.status);
+}

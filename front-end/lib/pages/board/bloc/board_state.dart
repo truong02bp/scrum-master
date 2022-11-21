@@ -6,7 +6,9 @@ enum BoardStatus {
   selectProjectSuccess,
   selectProjectFailure,
   assignToMeSuccess,
-  updateIssueSuccess
+  updateIssueSuccess,
+  updateStatusSuccess,
+  filterSuccess,
 }
 
 class BoardState {
@@ -14,6 +16,7 @@ class BoardState {
   int? userId;
   Sprint? sprint;
   List<Issue> issues = [];
+  List<Issue> filterIssues = [];
   List<Project> projects = [];
   Project? selectedProject;
   bool isMyIssue = false;
@@ -29,6 +32,7 @@ class BoardState {
     state.projects = this.projects;
     state.selectedProject = this.selectedProject;
     state.isMyIssue = this.isMyIssue;
+    state.filterIssues = this.filterIssues;
     return state;
   }
 }

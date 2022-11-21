@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:scrum_master_front_end/model/issue.dart';
 import 'package:scrum_master_front_end/model/sprint.dart';
 import 'package:scrum_master_front_end/pages/board/bloc/board_bloc.dart';
 import 'package:scrum_master_front_end/pages/board/components/draggable_issue.dart';
@@ -82,8 +83,10 @@ class ActiveSprint extends StatelessWidget {
         BlocBuilder<BoardBloc, BoardState>(
           bloc: bloc,
           builder: (context, state) {
-            print(state.status);
-            return DraggableIssue(state.issues);
+            if (state.isMyIssue) {
+              return DraggableIssue(UniqueKey(), state.filterIssues);
+            }
+            return DraggableIssue(UniqueKey(), state.issues);
           },
         )
       ],

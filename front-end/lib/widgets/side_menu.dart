@@ -34,17 +34,17 @@ class SideMenu extends StatelessWidget {
             },
           ),
           DrawerListTile(
-            title: "Sprints",
-            svgSrc: "assets/icons/sprint.svg",
-            press: () {
-              Navigator.pushNamed(context, SprintScreen.routeName);
-            },
-          ),
-          DrawerListTile(
             title: "Boards",
             svgSrc: "assets/icons/menu_doc.svg",
             press: () {
               Navigator.pushNamed(context, BoardScreen.routeName);
+            },
+          ),
+          DrawerListTile(
+            title: "Sprints",
+            svgSrc: "assets/icons/sprint.svg",
+            press: () {
+              Navigator.pushNamed(context, SprintScreen.routeName);
             },
           ),
           DrawerListTile(

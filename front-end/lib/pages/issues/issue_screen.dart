@@ -129,7 +129,9 @@ class IssueScreen extends StatelessWidget {
                             CreateIssue()
                           ],
                         ),
-                        SizedBox(height: 10,),
+                        SizedBox(
+                          height: 10,
+                        ),
                         Expanded(
                           child: Padding(
                               padding: const EdgeInsets.all(defaultPadding),

@@ -56,7 +56,14 @@ class BoardBloc extends Bloc<BoardEvent, BoardState> {
     });
     on<FilterIssue>((event, emit) async {
       state.isMyIssue = event.isMyIssue;
-      if (state.isMyIssue) {}
+      if (state.isMyIssue) {
+        state.filterIssues = state.issues
+            .where((element) =>
+                element.assignee != null &&
+                element.assignee!.id == state.userId)
+            .toList();
+      }
+      emit(state.clone(BoardStatus.filterSuccess));
     });
 
     on<UpdateIssueEvent>((event, emit) async {
@@ -70,10 +77,18 @@ class BoardBloc extends Bloc<BoardEvent, BoardState> {
           event.assignee,
           event.sprint);
       if (issue != null) {
-        int index =
-            state.issues.indexWhere((element) => element.id == issue.id);
-        state.issues.insert(index + 1, issue);
-        state.issues.removeAt(index);
+        if (!state.isMyIssue) {
+          int index =
+              state.issues.indexWhere((element) => element.id == issue.id);
+          state.issues.insert(index + 1, issue);
+          state.issues.removeAt(index);
+        } else {
+          int index = state.filterIssues
+              .indexWhere((element) => element.id == issue.id);
+          state.filterIssues.insert(index + 1, issue);
+          state.filterIssues.removeAt(index);
+        }
+
         showSuccessAlert("Update issue success", state.context);
         emit(state.clone(BoardStatus.updateIssueSuccess));
       } else {
@@ -83,6 +98,24 @@ class BoardBloc extends Bloc<BoardEvent, BoardState> {
 
     on<AssignToMe>((event, emit) async {
       emit(state.clone(BoardStatus.assignToMeSuccess));
+    });
+
+    on<UpdateIssueStatus>((event, emit) async {
+      Issue? issue =
+          await issueRepository.updateStatus(event.issueId, event.status);
+      if (issue != null) {
+        if (state.isMyIssue) {
+          state.filterIssues.removeWhere((element) => element.id! == issue.id);
+          state.filterIssues.add(issue);
+        } else {
+          state.issues.removeWhere((element) => element.id! == issue.id);
+          state.issues.add(issue);
+        }
+
+        emit(state.clone(BoardStatus.updateStatusSuccess));
+      } else {
+        showErrorAlert("Update status issue failure", state.context);
+      }
     });
   }
 }
