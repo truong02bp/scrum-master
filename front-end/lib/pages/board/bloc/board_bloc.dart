@@ -48,11 +48,11 @@ class BoardBloc extends Bloc<BoardEvent, BoardState> {
         if (issues != null) {
           state.issues = issues;
         }
-        emit(state.clone(BoardStatus.selectProjectSuccess));
       } else {
         showErrorAlert("Active sprint not available", state.context);
         emit(state.clone(BoardStatus.selectProjectFailure));
       }
+      emit(state.clone(BoardStatus.selectProjectSuccess));
     });
     on<FilterIssue>((event, emit) async {
       state.isMyIssue = event.isMyIssue;
@@ -98,6 +98,17 @@ class BoardBloc extends Bloc<BoardEvent, BoardState> {
 
     on<AssignToMe>((event, emit) async {
       emit(state.clone(BoardStatus.assignToMeSuccess));
+    });
+
+    on<CompleteSprint>((event, emit) async {
+      Sprint? sprint = await sprintRepository.completeBySprintId(state.sprint!.id!);
+      if (sprint != null) {
+        emit(state.clone(BoardStatus.updateSuccess));
+        showSuccessAlert("Complete sprint success", state.context);
+      }
+      else {
+        showErrorAlert("Complete sprint failure", state.context);
+      }
     });
 
     on<UpdateIssueStatus>((event, emit) async {

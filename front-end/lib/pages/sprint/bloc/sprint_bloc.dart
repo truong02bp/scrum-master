@@ -39,6 +39,7 @@ class SprintBloc extends Bloc<SprintEvent, SprintState> {
     on<SelectProjectEvent>((event, emit) async {
       state.selectedProject = event.project;
       state.issues.clear();
+      state.sprints.clear();
 
       List<Sprint>? sprints =
           await sprintRepository.findByProjectId(state.selectedProject!.id!);
@@ -72,8 +73,8 @@ class SprintBloc extends Bloc<SprintEvent, SprintState> {
     });
 
     on<AddIssue>((event, emit) async {
-      List<Issue>? issues =
-          await issueRepository.addIssue(state.selectedSprint!.id!, state.selectIssues);
+      List<Issue>? issues = await issueRepository.addIssue(
+          state.selectedSprint!.id!, state.selectIssues);
       if (issues != null) {
         state.issues.addAll(issues);
         showSuccessAlert("Add issue success", state.context);
@@ -112,28 +113,30 @@ class SprintBloc extends Bloc<SprintEvent, SprintState> {
     });
 
     on<ActiveSprint>((event, emit) async {
-      Sprint? sprint = await sprintRepository.activeBySprintId(state.selectedSprint!.id!);
+      Sprint? sprint =
+          await sprintRepository.activeBySprintId(state.selectedSprint!.id!);
       if (sprint != null) {
         state.selectedSprint = sprint;
         showSuccessAlert("Active sprint success", state.context);
         emit(state.clone(SprintStatus.activeSprintSuccess));
-      }
-      else {
+      } else {
         showErrorAlert("Active sprint failure", state.context);
       }
     });
 
     on<UpdateIssueEvent>((event, emit) async {
-      Issue? issue = await issueRepository.update(event.id,
-        event.type,
-        event.description,
-        event.title,
-        event.label,
-        event.estimate,
-        event.assignee,
-        event.sprint);
+      Issue? issue = await issueRepository.update(
+          event.id,
+          event.type,
+          event.description,
+          event.title,
+          event.label,
+          event.estimate,
+          event.assignee,
+          event.sprint);
       if (issue != null) {
-        int index = state.issues.indexWhere((element) => element.id == issue.id);
+        int index =
+            state.issues.indexWhere((element) => element.id == issue.id);
         state.issues.insert(index + 1, issue);
         state.issues.removeAt(index);
         showSuccessAlert("Update issue success", state.context);

@@ -43,3 +43,7 @@ class UpdateIssueStatus extends BoardEvent {
 
   UpdateIssueStatus(this.issueId, this.status);
 }
+
+class CompleteSprint extends BoardEvent {
+
+}

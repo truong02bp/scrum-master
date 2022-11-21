@@ -50,8 +50,11 @@ class SprintScreen extends StatelessWidget {
                             name: 'Project',
                             dropdownColor: Colors.white,
                             borderRadius: BorderRadius.circular(7),
-                            onChanged: (value) {},
+                            onChanged: (value) {
+                              bloc.add(SelectProjectEvent(value!));
+                            },
                             initialValue: state.selectedProject,
+                            isExpanded: true,
                             autofocus: false,
                             menuMaxHeight: 300,
                             decoration: InputDecoration(
@@ -156,7 +159,14 @@ class SprintScreen extends StatelessWidget {
                                     if (state.selectedSprint == null ||
                                         state.selectedSprint!.status ==
                                             "ACTIVE") {
-                                      return Container();
+                                      return Container(
+                                        child: Text(
+                                          'Activated',
+                                          style: TextStyle(
+                                              color: Colors.green,
+                                              fontSize: 15),
+                                        ),
+                                      );
                                     }
                                     return InkWell(
                                       onTap: () {
@@ -164,7 +174,7 @@ class SprintScreen extends StatelessWidget {
                                       },
                                       child: Container(
                                         height: 40,
-                                        width: 70,
+                                        width: 80,
                                         decoration: BoxDecoration(
                                             color: Colors.blueAccent,
                                             borderRadius:

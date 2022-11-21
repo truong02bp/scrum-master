@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scrum_master_front_end/model/issue.dart';
@@ -15,13 +16,22 @@ class ActiveSprint extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final bloc = BlocProvider.of<BoardBloc>(context);
+    DateTime startDate = sprint.startDate!;
+    DateTime endDate = sprint.endDate!;
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        _buildTitle(),
+        _buildTitle(context),
         const SizedBox(
-          height: 10,
+          height: 8,
+        ),
+        Text(
+          '${startDate.day}/${startDate.month}/${startDate.year} - ${endDate.day}/${endDate.month}/${endDate.year}',
+          style: TextStyle(fontSize: 15, color: Colors.black54),
+        ),
+        const SizedBox(
+          height: 15,
         ),
         Row(
           children: [
@@ -93,7 +103,15 @@ class ActiveSprint extends StatelessWidget {
     );
   }
 
-  Widget _buildTitle() {
+  Widget _buildTitle(BuildContext context) {
+    DateTime endDate = sprint.endDate!;
+    DateTime now = DateTime.now();
+
+    Duration difference = endDate.difference(now);
+
+    int days = difference.inDays;
+    int hours = difference.inHours % 24;
+    final bloc = BlocProvider.of<BoardBloc>(context);
     return Row(children: [
       Text(
         '${sprint.name}',
@@ -109,21 +127,37 @@ class ActiveSprint extends StatelessWidget {
         width: 5,
       ),
       Text(
-        '9 days remaining',
+        '$days days - $hours hours remaining',
         style: TextStyle(fontSize: 16, color: Colors.black),
       ),
       const SizedBox(
         width: 50,
       ),
       InkWell(
-        onTap: () {},
+        onTap: () {
+          AwesomeDialog(
+            context: context,
+            animType: AnimType.TOPSLIDE,
+            dialogType: DialogType.INFO,
+            aligment: Alignment.center,
+            keyboardAware: true,
+            title: 'Confirm to complete this sprint',
+            btnOkOnPress: () {
+              bloc.add(CompleteSprint());
+            },
+            btnCancelOnPress: () {
+
+            },
+            width: 400,
+          )..show();
+        },
         borderRadius: BorderRadius.circular(5),
         child: Container(
-            height: 30,
-            width: 100,
+            height: 40,
+            width: 150,
             decoration: BoxDecoration(
                 color: Colors.blue, borderRadius: BorderRadius.circular(5)),
-            child: Center(child: Text('Close sprint'))),
+            child: Center(child: Text('Complete sprint'))),
       ),
       const SizedBox(
         width: 20,

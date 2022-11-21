@@ -42,6 +42,16 @@ class SprintRepository {
     return sprint;
   }
 
+  Future<Sprint?> completeBySprintId(int sprintId) async {
+    ApiModel model = ApiModel(
+        url: endpoints + "/complete",
+        params: {"sprintId": "$sprintId"},
+        parse: (json) => Sprint.fromJson(json));
+
+    Sprint? sprint = await apiRepository.put(model);
+    return sprint;
+  }
+
   Future<Sprint?> create(CreateSprintEvent event) async {
     Sprint sprint = Sprint(null, event.name, event.project, null,
         event.startDate, event.endDate, 'INACTIVE');
