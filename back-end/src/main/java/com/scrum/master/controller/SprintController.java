@@ -37,6 +37,12 @@ public class SprintController {
         return ResponseEntity.ok(sprintService.active(sprintId));
     }
 
+    @PutMapping("/sprint/complete")
+    public ResponseEntity<Sprint> complete(@RequestParam("sprintId") Long sprintId) {
+        return ResponseEntity.ok(sprintService.complete(sprintId));
+    }
+
+
     @DeleteMapping("/sprint")
     public ResponseEntity<String> delete(@RequestParam("sprintId") Long sprintId) {
         sprintService.delete(sprintId);

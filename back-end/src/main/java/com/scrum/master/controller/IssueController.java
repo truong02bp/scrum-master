@@ -1,5 +1,6 @@
 package com.scrum.master.controller;
 
+import com.scrum.master.common.enums.IssueStatus;
 import com.scrum.master.data.entities.Issue;
 import com.scrum.master.service.IssueService;
 import lombok.RequiredArgsConstructor;
@@ -43,9 +44,16 @@ public class IssueController {
 
     @PutMapping("/issue/assign")
     public ResponseEntity<List<Issue>> assignIssueToSprint(@RequestParam("ids") Set<Long> ids,
-                                                            @RequestParam("sprintId") Long sprintId) {
+                                                           @RequestParam("sprintId") Long sprintId) {
         return ResponseEntity.ok(issueService.assignToSprint(sprintId, ids));
     }
+
+    @PutMapping("/issue/status")
+    public ResponseEntity<Issue> updateStatus(@RequestParam("status") IssueStatus status,
+                                              @RequestParam("issueId") Long issueId) {
+        return ResponseEntity.ok(issueService.updateStatus(issueId, status));
+    }
+
 
     @DeleteMapping("/issue")
     public ResponseEntity<String> delete(@RequestParam("issueId") Long issueId) {

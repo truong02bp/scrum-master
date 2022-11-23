@@ -37,9 +37,8 @@ public class UserController {
     }
 
     @PutMapping("/user")
-    public ResponseEntity<String> update(@RequestBody User user) {
-        userService.update(user);
-        return ResponseEntity.ok("Update success");
+    public ResponseEntity<User> update(@RequestBody UserDto userDto) {
+        return ResponseEntity.ok(userService.update(userDto));
     }
 
     @PutMapping("/user/password")

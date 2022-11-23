@@ -15,6 +15,7 @@ import com.scrum.master.service.MailService;
 import com.scrum.master.service.MinioService;
 import com.scrum.master.service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.apache.commons.lang3.ArrayUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.GrantedAuthority;
@@ -53,12 +54,21 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int update(User user) {
-        int rowUpdated = userRepository.update(user.getName(), user.getAddress(), user.getPhone(), user.getId());
-        if (rowUpdated != 1) {
-            throw BusinessException.builder().status(HttpStatus.INTERNAL_SERVER_ERROR).message("Update user failed").build();
+    public User update(UserDto userDto) {
+        User user = findById(userDto.getId());
+        user.setName(userDto.getName());
+        user.setAddress(userDto.getAddress());
+        user.setPhone(userDto.getPhone());
+        List<Byte> bytes = userDto.getBytes();
+        if (bytes != null && !bytes.isEmpty()) {
+            final String time = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd")).replaceAll("-", "");
+            Byte[] arrays = bytes.toArray(new Byte[bytes.size()]);
+            minioService.upload("/" + time + "/", user.getId() + ".png",
+                new ByteArrayInputStream(ArrayUtils.toPrimitive(arrays)));
+            user.setAvatarUrl("/" + time + "/" + user.getId() + ".png");
         }
-        return rowUpdated;
+
+        return userRepository.save(user);
     }
 
     @Override

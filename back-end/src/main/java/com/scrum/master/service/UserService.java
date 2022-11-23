@@ -27,7 +27,7 @@ public interface UserService extends UserDetailsService {
      * @return active user
      */
     User activeUser(ActiveUserRequest activeUserRequest);
-    int update(User user);
+    User update(UserDto userDto);
     User updatePassword(UserDto userDto);
     User updateAvatar(MediaDto dto);
 

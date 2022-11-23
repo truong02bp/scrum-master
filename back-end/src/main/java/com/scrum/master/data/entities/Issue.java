@@ -1,6 +1,7 @@
 package com.scrum.master.data.entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.scrum.master.common.enums.IssueStatus;
 import com.scrum.master.common.enums.IssueType;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,6 +23,8 @@ public class Issue extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private IssueType type;
     private Integer estimate;
+    @Enumerated(EnumType.STRING)
+    private IssueStatus status = IssueStatus.Todo;
 
 
     @OneToMany

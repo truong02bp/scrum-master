@@ -1,5 +1,6 @@
 package com.scrum.master.service;
 
+import com.scrum.master.common.enums.IssueStatus;
 import com.scrum.master.data.entities.Issue;
 
 import java.util.List;
@@ -14,6 +15,8 @@ public interface IssueService {
     List<Issue> assignToSprint(Long sprintId, Set<Long> ids);
 
     Issue create(Issue issue);
+
+    Issue updateStatus(Long issueId, IssueStatus status);
 
     Issue update(Issue issue);
 

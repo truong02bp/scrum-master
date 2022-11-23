@@ -13,6 +13,7 @@ public interface SprintService {
     Sprint create(Sprint sprint);
 
     Sprint active(Long sprintId);
+    Sprint complete(Long sprintId);
 
     void delete(Long sprintId);
 }

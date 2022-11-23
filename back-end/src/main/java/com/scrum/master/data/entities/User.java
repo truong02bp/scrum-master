@@ -42,4 +42,7 @@ public class User extends BaseEntity implements Serializable {
     @ManyToOne
     @JoinColumn(name = "organization_id")
     private Organization organization;
+
+    @Transient
+    private byte[] bytes;
 }

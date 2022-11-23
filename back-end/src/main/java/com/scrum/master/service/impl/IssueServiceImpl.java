@@ -1,5 +1,6 @@
 package com.scrum.master.service.impl;
 
+import com.scrum.master.common.enums.IssueStatus;
 import com.scrum.master.common.exceptions.BusinessException;
 import com.scrum.master.data.entities.Issue;
 import com.scrum.master.data.entities.Project;
@@ -60,6 +61,18 @@ public class IssueServiceImpl implements IssueService {
         int count = issueRepository.count(issue.getProject().getId());
         issue.setPriority(count);
         issue.setCode(issue.getProject().getKey() + "-" + (count + 1));
+        return issueRepository.save(issue);
+    }
+
+    @Override
+    public Issue updateStatus(Long issueId, IssueStatus status) {
+        Issue issue = issueRepository.findById(issueId).orElseThrow(() -> {
+            throw BusinessException.builder()
+                .message("Can't find issue")
+                .status(HttpStatus.BAD_REQUEST)
+                .build();
+        });
+        issue.setStatus(status);
         return issueRepository.save(issue);
     }
 

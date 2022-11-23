@@ -1,0 +1,124 @@
+[2022-11-20 20:36:37.037][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][55]Starting Application using Java 17.0.3 on 192.168.2.174 with PID 25109 (/Users/mac/Documents/software-development/scrum-master/back-end/target/classes started by mac in /Users/mac/Documents/software-development/scrum-master/back-end)
+[2022-11-20 20:36:37.037][INFO ][org.springframework.boot.SpringApplication][restartedMain][640]No active profile set, falling back to 1 default profile: "default"
+[2022-11-20 20:36:37.037][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-11-20 20:36:37.037][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-11-20 20:36:37.037][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-20 20:36:37.037][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][201]Finished Spring Data repository scanning in 24 ms. Found 6 JPA repository interfaces.
+[2022-11-20 20:36:37.037][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][108]Tomcat initialized with port(s): 8080 (http)
+[2022-11-20 20:36:37.037][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2022-11-20 20:36:37.037][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting service [Tomcat]
+[2022-11-20 20:36:37.037][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting Servlet engine: [Apache Tomcat/9.0.58]
+[2022-11-20 20:36:37.037][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing Spring embedded WebApplicationContext
+[2022-11-20 20:36:37.037][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][restartedMain][290]Root WebApplicationContext: initialization completed in 658 ms
+[2022-11-20 20:36:37.037][INFO ][org.hibernate.jpa.internal.util.LogHelper][restartedMain][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-20 20:36:37.037][INFO ][org.hibernate.Version][restartedMain][44]HHH000412: Hibernate ORM core version 5.6.5.Final
+[2022-11-20 20:36:37.037][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][restartedMain][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-20 20:36:37.037][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][110]HikariPool-1 - Starting...
+[2022-11-20 20:36:38.038][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][123]HikariPool-1 - Start completed.
+[2022-11-20 20:36:38.038][INFO ][org.hibernate.dialect.Dialect][restartedMain][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[2022-11-20 20:36:38.038][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][restartedMain][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-20 20:36:38.038][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-20 20:36:38.038][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][restartedMain][219]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-20 20:36:39.039][INFO ][org.springframework.security.web.DefaultSecurityFilterChain][restartedMain][52]Will not secure any request
+[2022-11-20 20:36:39.039][WARN ][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer][restartedMain][61]Unable to start LiveReload server
+[2022-11-20 20:36:39.039][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting ProtocolHandler ["http-nio-8080"]
+[2022-11-20 20:36:39.039][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2022-11-20 20:36:39.039][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Starting...
+[2022-11-20 20:36:39.039][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@980e53e]]
+[2022-11-20 20:36:39.039][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Started.
+[2022-11-20 20:36:39.039][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][61]Started Application in 2.585 seconds (JVM running for 2.979)
+[2022-11-20 20:36:45.045][INFO ][org.apache.juli.logging.DirectJDKLog][http-nio-8080-exec-1][173]Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-11-20 20:36:45.045][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-1][525]Initializing Servlet 'dispatcherServlet'
+[2022-11-20 20:36:45.045][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-1][547]Completed initialization in 1 ms
+[2022-11-20 20:37:38.038][INFO ][org.springframework.web.socket.config.WebSocketMessageBrokerStats][MessageBroker-1][128]WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+[2022-11-20 21:07:38.038][INFO ][org.springframework.web.socket.config.WebSocketMessageBrokerStats][MessageBroker-1][128]WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 0, completed tasks = 1]
+[2022-11-20 21:37:39.039][WARN ][com.zaxxer.hikari.pool.HikariPool$HouseKeeper][HikariPool-1 housekeeper][788]HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=10m28s676ms).
+[2022-11-20 21:47:40.040][INFO ][org.springframework.web.socket.config.WebSocketMessageBrokerStats][MessageBroker-2][128]WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 3, active threads = 1, queued tasks = 0, completed tasks = 2]
+[2022-11-20 22:04:40.040][WARN ][com.zaxxer.hikari.pool.HikariPool$HouseKeeper][HikariPool-1 housekeeper][788]HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m27s717ms).
+[2022-11-20 22:06:04.004][WARN ][com.zaxxer.hikari.pool.HikariPool$HouseKeeper][HikariPool-1 housekeeper][788]HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=53s959ms).
+[2022-11-20 22:11:32.032][WARN ][com.zaxxer.hikari.pool.HikariPool$HouseKeeper][HikariPool-1 housekeeper][788]HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=5m28s33ms).
+[2022-11-20 22:29:13.013][WARN ][com.zaxxer.hikari.pool.HikariPool$HouseKeeper][HikariPool-1 housekeeper][788]HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=17m11s585ms).
+[2022-11-20 22:32:21.021][WARN ][com.zaxxer.hikari.pool.HikariPool$HouseKeeper][HikariPool-1 housekeeper][788]HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=2m7s767ms).
+[2022-11-20 22:46:21.021][INFO ][org.springframework.web.socket.config.WebSocketMessageBrokerStats][MessageBroker-1][128]WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 4, active threads = 1, queued tasks = 0, completed tasks = 3]
+[2022-11-20 23:16:21.021][INFO ][org.springframework.web.socket.config.WebSocketMessageBrokerStats][MessageBroker-3][128]WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 5, active threads = 1, queued tasks = 0, completed tasks = 4]
+[2022-11-20 23:36:30.030][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopping...
+[2022-11-20 23:36:30.030][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@980e53e]]
+[2022-11-20 23:36:30.030][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopped.
+[2022-11-20 23:36:30.030][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][SpringApplicationShutdownHook][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-20 23:36:30.030][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][350]HikariPool-1 - Shutdown initiated...
+[2022-11-20 23:36:30.030][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][352]HikariPool-1 - Shutdown completed.
+[2022-11-20 23:36:34.034][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][55]Starting Application using Java 17.0.3 on 192.168.2.174 with PID 42408 (/Users/mac/Documents/software-development/scrum-master/back-end/target/classes started by mac in /Users/mac/Documents/software-development/scrum-master/back-end)
+[2022-11-20 23:36:34.034][INFO ][org.springframework.boot.SpringApplication][restartedMain][640]No active profile set, falling back to 1 default profile: "default"
+[2022-11-20 23:36:34.034][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-11-20 23:36:34.034][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-11-20 23:36:34.034][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-20 23:36:34.034][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][201]Finished Spring Data repository scanning in 27 ms. Found 6 JPA repository interfaces.
+[2022-11-20 23:36:35.035][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][108]Tomcat initialized with port(s): 8080 (http)
+[2022-11-20 23:36:35.035][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2022-11-20 23:36:35.035][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting service [Tomcat]
+[2022-11-20 23:36:35.035][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting Servlet engine: [Apache Tomcat/9.0.58]
+[2022-11-20 23:36:35.035][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing Spring embedded WebApplicationContext
+[2022-11-20 23:36:35.035][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][restartedMain][290]Root WebApplicationContext: initialization completed in 909 ms
+[2022-11-20 23:36:35.035][INFO ][org.hibernate.jpa.internal.util.LogHelper][restartedMain][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-20 23:36:35.035][INFO ][org.hibernate.Version][restartedMain][44]HHH000412: Hibernate ORM core version 5.6.5.Final
+[2022-11-20 23:36:35.035][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][restartedMain][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-20 23:36:35.035][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][110]HikariPool-1 - Starting...
+[2022-11-20 23:36:35.035][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][123]HikariPool-1 - Start completed.
+[2022-11-20 23:36:35.035][INFO ][org.hibernate.dialect.Dialect][restartedMain][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[2022-11-20 23:36:36.036][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][restartedMain][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-20 23:36:36.036][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-20 23:36:36.036][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][restartedMain][219]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-20 23:36:36.036][INFO ][org.springframework.security.web.DefaultSecurityFilterChain][restartedMain][52]Will not secure any request
+[2022-11-20 23:36:36.036][WARN ][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer][restartedMain][61]Unable to start LiveReload server
+[2022-11-20 23:36:36.036][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting ProtocolHandler ["http-nio-8080"]
+[2022-11-20 23:36:36.036][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2022-11-20 23:36:36.036][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Starting...
+[2022-11-20 23:36:36.036][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@20e9cf38]]
+[2022-11-20 23:36:36.036][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Started.
+[2022-11-20 23:36:36.036][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][61]Started Application in 2.811 seconds (JVM running for 3.093)
+[2022-11-20 23:37:36.036][INFO ][org.springframework.web.socket.config.WebSocketMessageBrokerStats][MessageBroker-1][128]WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+[2022-11-20 23:40:22.022][INFO ][org.apache.juli.logging.DirectJDKLog][http-nio-8080-exec-2][173]Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-11-20 23:40:22.022][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-2][525]Initializing Servlet 'dispatcherServlet'
+[2022-11-20 23:40:22.022][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-2][547]Completed initialization in 7 ms
+[2022-11-20 23:49:27.027][WARN ][org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver][http-nio-8080-exec-3][208]Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'sprintId' for method parameter type Long is not present]
+[2022-11-20 23:49:29.029][WARN ][org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver][http-nio-8080-exec-4][208]Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'sprintId' for method parameter type Long is not present]
+[2022-11-20 23:49:31.031][WARN ][org.springframework.web.servlet.handler.AbstractHandlerExceptionResolver][http-nio-8080-exec-5][208]Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'sprintId' for method parameter type Long is not present]
+[2022-11-20 23:50:49.049][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopping...
+[2022-11-20 23:50:49.049][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@20e9cf38]]
+[2022-11-20 23:50:49.049][INFO ][org.springframework.core.log.CompositeLog][SpringApplicationShutdownHook][137]Stopped.
+[2022-11-20 23:50:49.049][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][SpringApplicationShutdownHook][651]Closing JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-20 23:50:50.050][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][350]HikariPool-1 - Shutdown initiated...
+[2022-11-20 23:50:50.050][INFO ][com.zaxxer.hikari.HikariDataSource][SpringApplicationShutdownHook][352]HikariPool-1 - Shutdown completed.
+[2022-11-20 23:50:52.052][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][55]Starting Application using Java 17.0.3 on 192.168.2.174 with PID 44165 (/Users/mac/Documents/software-development/scrum-master/back-end/target/classes started by mac in /Users/mac/Documents/software-development/scrum-master/back-end)
+[2022-11-20 23:50:52.052][INFO ][org.springframework.boot.SpringApplication][restartedMain][640]No active profile set, falling back to 1 default profile: "default"
+[2022-11-20 23:50:52.052][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+[2022-11-20 23:50:52.052][INFO ][org.springframework.boot.logging.DeferredLog][restartedMain][255]For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+[2022-11-20 23:50:52.052][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][132]Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2022-11-20 23:50:52.052][INFO ][org.springframework.data.repository.config.RepositoryConfigurationDelegate][restartedMain][201]Finished Spring Data repository scanning in 28 ms. Found 6 JPA repository interfaces.
+[2022-11-20 23:50:53.053][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][108]Tomcat initialized with port(s): 8080 (http)
+[2022-11-20 23:50:53.053][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing ProtocolHandler ["http-nio-8080"]
+[2022-11-20 23:50:53.053][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting service [Tomcat]
+[2022-11-20 23:50:53.053][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting Servlet engine: [Apache Tomcat/9.0.58]
+[2022-11-20 23:50:53.053][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Initializing Spring embedded WebApplicationContext
+[2022-11-20 23:50:53.053][INFO ][org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext][restartedMain][290]Root WebApplicationContext: initialization completed in 618 ms
+[2022-11-20 23:50:53.053][INFO ][org.hibernate.jpa.internal.util.LogHelper][restartedMain][31]HHH000204: Processing PersistenceUnitInfo [name: default]
+[2022-11-20 23:50:53.053][INFO ][org.hibernate.Version][restartedMain][44]HHH000412: Hibernate ORM core version 5.6.5.Final
+[2022-11-20 23:50:53.053][INFO ][org.hibernate.annotations.common.reflection.java.JavaReflectionManager][restartedMain][56]HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+[2022-11-20 23:50:53.053][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][110]HikariPool-1 - Starting...
+[2022-11-20 23:50:53.053][INFO ][com.zaxxer.hikari.HikariDataSource][restartedMain][123]HikariPool-1 - Start completed.
+[2022-11-20 23:50:53.053][INFO ][org.hibernate.dialect.Dialect][restartedMain][175]HHH000400: Using dialect: org.hibernate.dialect.PostgreSQLDialect
+[2022-11-20 23:50:53.053][INFO ][org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator][restartedMain][52]HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2022-11-20 23:50:53.053][INFO ][org.springframework.orm.jpa.AbstractEntityManagerFactoryBean][restartedMain][437]Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2022-11-20 23:50:54.054][WARN ][org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration][restartedMain][219]spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2022-11-20 23:50:54.054][INFO ][org.springframework.security.web.DefaultSecurityFilterChain][restartedMain][52]Will not secure any request
+[2022-11-20 23:50:54.054][WARN ][org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer][restartedMain][61]Unable to start LiveReload server
+[2022-11-20 23:50:54.054][INFO ][org.apache.juli.logging.DirectJDKLog][restartedMain][173]Starting ProtocolHandler ["http-nio-8080"]
+[2022-11-20 23:50:54.054][INFO ][org.springframework.boot.web.embedded.tomcat.TomcatWebServer][restartedMain][220]Tomcat started on port(s): 8080 (http) with context path ''
+[2022-11-20 23:50:54.054][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Starting...
+[2022-11-20 23:50:54.054][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@20e9cf38]]
+[2022-11-20 23:50:54.054][INFO ][org.springframework.core.log.CompositeLog][restartedMain][137]Started.
+[2022-11-20 23:50:54.054][INFO ][org.springframework.boot.StartupInfoLogger][restartedMain][61]Started Application in 2.374 seconds (JVM running for 2.798)
+[2022-11-20 23:51:01.001][INFO ][org.apache.juli.logging.DirectJDKLog][http-nio-8080-exec-1][173]Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2022-11-20 23:51:01.001][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-1][525]Initializing Servlet 'dispatcherServlet'
+[2022-11-20 23:51:01.001][INFO ][org.springframework.web.servlet.FrameworkServlet][http-nio-8080-exec-1][547]Completed initialization in 1 ms
+[2022-11-20 23:51:54.054][INFO ][org.springframework.web.socket.config.WebSocketMessageBrokerStats][MessageBroker-1][128]WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
