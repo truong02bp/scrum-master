@@ -11,11 +11,12 @@ class User {
   String? name;
   String? phone;
   String? avatarUrl;
+  String? address;
   Role role;
   Organization organization;
   bool isActive;
 
-  User(this.id, this.email, this.name, this.phone, this.avatarUrl, this.role, this.organization, this.isActive);
+  User(this.id, this.email, this.address,  this.name, this.phone, this.avatarUrl, this.role, this.organization, this.isActive);
 
   factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);
 

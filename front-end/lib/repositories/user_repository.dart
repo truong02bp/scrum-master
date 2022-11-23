@@ -1,3 +1,5 @@
+import 'dart:typed_data';
+
 import 'package:scrum_master_front_end/constants/host_api.dart';
 import 'package:scrum_master_front_end/model/api_model.dart';
 import 'package:scrum_master_front_end/model/role.dart';
@@ -38,6 +40,35 @@ class UserRepository {
         parse: (json) => User.fromJson(json),
         body: {"email": email, "role": role});
     User? user = await apiRepository.post(model);
+    return user;
+  }
+
+  Future<User?> update(User user, Uint8List? bytes) async {
+    ApiModel model = new ApiModel(
+        url: endpoints,
+        parse: (json) => User.fromJson(json),
+        body: {
+          "bytes": bytes,
+          "name": "${user.name}",
+          "id": "${user.id}",
+          "phone": user.phone,
+          "address": user.address
+        });
+    User? updated = await apiRepository.put(model);
+    return updated;
+  }
+
+  Future<User?> updatePassword(
+      int id, String oldPassword, String newPassword) async {
+    ApiModel model = new ApiModel(
+        url: endpoints + "/password",
+        parse: (json) => User.fromJson(json),
+        body: {
+          "id": id,
+          "oldPassword": oldPassword,
+          "newPassword": newPassword
+        });
+    User? user = await apiRepository.put(model);
     return user;
   }
 
