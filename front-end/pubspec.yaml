@@ -54,6 +54,7 @@ dependencies:
   html_editor_enhanced: ^2.2.0+1-dev.1
   flutter_datetime_picker: ^1.5.1
   image_picker_web: ^3.0.0+1
+  fl_chart: ^0.55.2
 
 dev_dependencies:
   flutter_test:

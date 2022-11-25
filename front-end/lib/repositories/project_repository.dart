@@ -53,4 +53,10 @@ class ProjectRepository {
     ProjectMember? projectMember = await apiRepository.delete(model);
     return projectMember;
   }
+
+  Future<void> remove(int id) async {
+    String url = endpoints + "/$id";
+    ApiModel model = ApiModel(url: url);
+    await apiRepository.delete(model);
+  }
 }

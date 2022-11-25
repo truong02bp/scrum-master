@@ -23,8 +23,7 @@ class ProjectMembers extends StatelessWidget {
   Widget build(BuildContext context) {
     return BaseScreen(BlocProvider(
       create: (context) =>
-      ProjectMemberBloc()
-        ..add(ProjectMemberInitialEvent(context, project)),
+          ProjectMemberBloc()..add(ProjectMemberInitialEvent(context, project)),
       child: (Builder(
         builder: (context) => _buildView(context),
       )),
@@ -54,6 +53,43 @@ class ProjectMembers extends StatelessWidget {
                 'Members',
                 style: TextStyle(fontSize: 25),
               ),
+              Spacer(),
+              InkWell(
+                onTap: () {
+                  AwesomeDialog(
+                      context: context,
+                      animType: AnimType.SCALE,
+                      dialogType: DialogType.NO_HEADER,
+                      width: 500,
+                      padding: EdgeInsets.only(
+                          top: 40, bottom: 40, left: 40, right: 40),
+                      btnOkOnPress: () {
+                          bloc.add(RemoveProject(project));
+                      },
+                      body: SizedBox(
+                        height: 50,
+                        child: Text(
+                          'Are you sure to delete this project?',
+                        ),
+                      ),
+                      btnOkText: 'Confirm',
+                      btnCancelOnPress: () {})
+                    ..show();
+                },
+                child: Container(
+                  height: 40,
+                  width: 80,
+                  decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(7),
+                      color: Colors.red),
+                  child: Center(
+                    child: Text('Delete'),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                width: 40,
+              )
             ],
           ),
           const SizedBox(
@@ -67,14 +103,13 @@ class ProjectMembers extends StatelessWidget {
                   padding: const EdgeInsets.all(5),
                   children: List.generate(
                       project.members!.length,
-                          (index) =>
-                          InkWell(
-                              onTap: () {},
-                              borderRadius: BorderRadius.circular(15),
-                              child: _buildItem(
-                                  context: context,
-                                  user: project.members![index].user!,
-                                  role: project.members![index].role!))),
+                      (index) => InkWell(
+                          onTap: () {},
+                          borderRadius: BorderRadius.circular(15),
+                          child: _buildItem(
+                              context: context,
+                              user: project.members![index].user!,
+                              role: project.members![index].role!))),
                 );
               },
             ),
@@ -84,9 +119,10 @@ class ProjectMembers extends StatelessWidget {
     );
   }
 
-  Container _buildItem({required User user,
-    required String role,
-    required BuildContext context}) {
+  Container _buildItem(
+      {required User user,
+      required String role,
+      required BuildContext context}) {
     final bloc = BlocProvider.of<ProjectMemberBloc>(context);
 
     return Container(
@@ -170,13 +206,17 @@ class ProjectMembers extends StatelessWidget {
                   animType: AnimType.SCALE,
                   dialogType: DialogType.NO_HEADER,
                   width: 500,
-                  padding: EdgeInsets.only(
-                      top: 40, bottom: 40, left: 40, right: 40),
+                  padding:
+                      EdgeInsets.only(top: 40, bottom: 40, left: 40, right: 40),
                   btnOkOnPress: () {
                     bloc.add(RemoveMember(user));
                   },
-                  body: SizedBox(height: 50,
-                    child: Text('Are you sure to remove this person?',),),
+                  body: SizedBox(
+                    height: 50,
+                    child: Text(
+                      'Are you sure to remove this person?',
+                    ),
+                  ),
                   btnOkText: 'Confirm',
                   btnCancelOnPress: () {})
                 ..show();
@@ -249,7 +289,7 @@ class ProjectMembers extends StatelessWidget {
                                 dropdownSearchDecoration: InputDecoration(
                                     labelText: "Member",
                                     floatingLabelBehavior:
-                                    FloatingLabelBehavior.always,
+                                        FloatingLabelBehavior.always,
                                     contentPadding: EdgeInsets.all(5)),
                               ),
                               onChanged: (value) {
@@ -269,7 +309,7 @@ class ProjectMembers extends StatelessWidget {
                                 searchFieldProps: TextFieldProps(
                                     decoration: InputDecoration(
                                         floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                            FloatingLabelBehavior.always,
                                         contentPadding: EdgeInsets.all(5))),
                               ),
                               autoValidateMode: AutovalidateMode.always,
@@ -290,7 +330,7 @@ class ProjectMembers extends StatelessWidget {
                                 decoration: InputDecoration(
                                     labelText: 'Role',
                                     floatingLabelBehavior:
-                                    FloatingLabelBehavior.always,
+                                        FloatingLabelBehavior.always,
                                     contentPadding: EdgeInsets.all(10)),
                                 items: [
                                   DropdownMenuItem(
@@ -314,18 +354,17 @@ class ProjectMembers extends StatelessWidget {
                             child: state.status == ProjectMemberStatus.loading
                                 ? LoadingIcon(height: 40, width: 40)
                                 : InkWell(
-                                onTap: () {
-                                  if (selectUser != null && role != null) {
-                                    bloc.add(AddMember(selectUser!, role!));
-                                  }
-                                },
-                                child: inviteButton())),
+                                    onTap: () {
+                                      if (selectUser != null && role != null) {
+                                        bloc.add(AddMember(selectUser!, role!));
+                                      }
+                                    },
+                                    child: inviteButton())),
                       ],
                     ),
                   ),
                 ),
-              )
-                ..show();
+              )..show();
             },
             child: inviteButton());
       },
@@ -335,7 +374,7 @@ class ProjectMembers extends StatelessWidget {
   Widget inviteButton() {
     return Container(
       height: 40,
-      width: 90,
+      width: 80,
       decoration: BoxDecoration(
           color: Colors.blueAccent, borderRadius: BorderRadius.circular(7)),
       child: Row(

@@ -96,20 +96,19 @@ class Users extends StatelessWidget {
             fit: FlexFit.tight,
             child: Text(
               user.isActive == true ? "Activated" : "Disabled",
-              style: TextStyle(fontSize: 14, color: user.isActive == true ? Colors.green : Colors.red),
+              style: TextStyle(
+                  fontSize: 14,
+                  color: user.isActive == true ? Colors.green : Colors.red),
             ),
           ),
           const Spacer(),
-          const Icon(
-            Icons.edit,
-            color: Colors.red,
-            size: 17,
-          ),
-          const SizedBox(width: 10,),
-          const Icon(
-            Icons.delete,
-            color: Colors.red,
-            size: 17,
+          InkWell(
+            onTap: () {},
+            child: const Icon(
+              Icons.delete,
+              color: Colors.red,
+              size: 17,
+            ),
           ),
           const SizedBox(
             width: 15,

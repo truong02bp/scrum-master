@@ -7,7 +7,9 @@ import 'package:scrum_master_front_end/alert.dart';
 import 'package:scrum_master_front_end/model/project.dart';
 import 'package:scrum_master_front_end/model/project_member.dart';
 import 'package:scrum_master_front_end/model/user.dart';
+import 'package:scrum_master_front_end/pages/profile/profile_screen.dart';
 import 'package:scrum_master_front_end/pages/project/bloc/project_bloc.dart';
+import 'package:scrum_master_front_end/pages/project/project_screen.dart';
 import 'package:scrum_master_front_end/repositories/project_repository.dart';
 import 'package:scrum_master_front_end/repositories/user_repository.dart';
 
@@ -56,6 +58,14 @@ class ProjectMemberBloc extends Bloc<ProjectMemberEvent, ProjectMemberState> {
         showSuccessAlert("Remove member success", state.context!);
         emit(state.clone(ProjectMemberStatus.removeMemberSuccess));
       }
+    });
+
+    on<RemoveProject>((event, emit) async {
+      try {
+        await projectRepository.remove(event.project.id!);
+        Navigator.of(state.context!).pop();
+        Navigator.pushNamed(state.context!, ProjectScreen.routeName);
+      } catch (e) {}
     });
   }
 }

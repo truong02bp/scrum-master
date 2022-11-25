@@ -31,3 +31,9 @@ class RemoveMember extends ProjectMemberEvent {
     RemoveMember(this.user);
 }
 
+class RemoveProject extends ProjectMemberEvent {
+    final Project project;
+
+    RemoveProject(this.project);
+}
+

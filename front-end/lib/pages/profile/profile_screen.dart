@@ -173,8 +173,21 @@ class _ProfileScreenState extends State<ProfileScreen> {
                                 ),
                         ),
                       ),
+                      const SizedBox(height: 20,),
+                      InkWell(
+                        child: Text(
+                          'Change avatar ?',
+                          style: TextStyle(color: Colors.blue),
+                        ),
+                        onTap: () {
+                          setState(() async {
+                            bytes = await ImagePickerWeb.getImageAsBytes();
+                            bloc.add(SelectImage());
+                          });
+                        },
+                      ) ,
                       const SizedBox(
-                        height: 60,
+                        height: 40,
                       ),
                       TextFormField(
                         readOnly: true,
