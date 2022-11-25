@@ -102,6 +102,11 @@ public class ProjectServiceImpl implements ProjectService {
         return null;
     }
 
+    @Override
+    public void delete(Long id) {
+        projectRepository.deleteById(id);
+    }
+
     private Project findById(Long id) {
         return projectRepository.findById(id).orElseThrow(() -> {
             throw BusinessException.builder().status(HttpStatus.BAD_REQUEST).message("Project not available").build();

@@ -13,4 +13,6 @@ public interface ProjectService {
 
     ProjectMember addMember(Long id, ProjectMember member);
     ProjectMember removeMember(Long id, ProjectMember member);
+
+    void delete(Long id);
 }

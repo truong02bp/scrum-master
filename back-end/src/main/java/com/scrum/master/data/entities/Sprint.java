@@ -19,7 +19,8 @@ public class Sprint extends BaseEntity {
     private LocalDateTime endDate;
     @Enumerated(EnumType.STRING)
     private SprintStatus status;
-    @ManyToOne
+
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "project_id")
     private Project project;
 

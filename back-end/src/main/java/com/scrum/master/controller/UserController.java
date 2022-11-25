@@ -41,6 +41,11 @@ public class UserController {
         return ResponseEntity.ok(userService.update(userDto));
     }
 
+//    @DeleteMapping("/user/{id}")
+//    public ResponseEntity<User> delete() {
+//        return ResponseEntity.ok(userService.update(userDto));
+//    }
+
     @PutMapping("/user/password")
     public ResponseEntity<User> updatePassword(@RequestBody UserDto userDto) {
         return ResponseEntity.ok(userService.updatePassword(userDto));

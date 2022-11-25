@@ -39,12 +39,12 @@ public class Issue extends BaseEntity {
     @JoinColumn(name = "assignee")
     private User assignee;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "sprint_id")
     @JsonIgnore
     private Sprint sprint;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "project_id")
     private Project project;
 
