@@ -56,7 +56,7 @@ class _ReorderListState extends State<ReorderList> {
             ),
             title: Row(
               children: [
-                Text("${issue.title!}"),
+                Text("${issue.title!}", overflow: TextOverflow.ellipsis),
                 Spacer(),
                 Container(
                   height: 20,
@@ -67,7 +67,9 @@ class _ReorderListState extends State<ReorderList> {
                   child: Center(
                     child: issue.estimate != null
                         ? Text(
-                      '${issue.estimate}', style: TextStyle(fontSize: 13),)
+                            '${issue.estimate}',
+                            style: TextStyle(fontSize: 13),
+                          )
                         : Text(''),
                   ),
                 ),
@@ -160,7 +162,7 @@ class _ReorderListState extends State<ReorderList> {
                           dropdownDecoratorProps: DropDownDecoratorProps(
                             dropdownSearchDecoration: InputDecoration(
                                 floatingLabelBehavior:
-                                FloatingLabelBehavior.always,
+                                    FloatingLabelBehavior.always,
                                 border: InputBorder.none,
                                 contentPadding: EdgeInsets.all(5)),
                           ),
@@ -219,7 +221,7 @@ class _ReorderListState extends State<ReorderList> {
                   BlocBuilder<SprintBloc, SprintState>(
                     bloc: bloc,
                     buildWhen: (previous, current) =>
-                    current.status == SprintStatus.assignToMeSuccess,
+                        current.status == SprintStatus.assignToMeSuccess,
                     builder: (context, state) {
                       if (state.status == SprintStatus.assignToMeSuccess) {
                         event.assignee = state.selectedProject!.members!
@@ -241,7 +243,7 @@ class _ReorderListState extends State<ReorderList> {
                           dropdownDecoratorProps: DropDownDecoratorProps(
                             dropdownSearchDecoration: InputDecoration(
                                 floatingLabelBehavior:
-                                FloatingLabelBehavior.always,
+                                    FloatingLabelBehavior.always,
                                 border: InputBorder.none,
                                 contentPadding: EdgeInsets.all(5)),
                           ),
@@ -254,11 +256,10 @@ class _ReorderListState extends State<ReorderList> {
                           },
                           popupProps: PopupProps.menu(
                             showSearchBox: true,
-
                             searchFieldProps: TextFieldProps(
                                 decoration: InputDecoration(
                                     floatingLabelBehavior:
-                                    FloatingLabelBehavior.always,
+                                        FloatingLabelBehavior.always,
                                     contentPadding: EdgeInsets.all(5))),
                           ),
                           autoValidateMode: AutovalidateMode.always,
@@ -375,7 +376,7 @@ class _ReorderListState extends State<ReorderList> {
                     padding: EdgeInsets.only(left: 10, top: 3),
                     child: TextFormField(
                       initialValue:
-                      event.estimate != null ? '${event.estimate}' : '',
+                          event.estimate != null ? '${event.estimate}' : '',
                       onChanged: (value) {
                         event.estimate = int.parse(value);
                       },
@@ -410,7 +411,6 @@ class _ReorderListState extends State<ReorderList> {
                               borderRadius: BorderRadius.circular(7)),
                           padding: EdgeInsets.only(left: 10, top: 3),
                           child: HtmlEditor(
-
                             controller: controller, //required
                             htmlEditorOptions: HtmlEditorOptions(
                                 hint: "Your description here...",
@@ -449,8 +449,7 @@ class _ReorderListState extends State<ReorderList> {
           ),
         ),
       ),
-    )
-      ..show();
+    )..show();
   }
 
   Widget updateButton() {

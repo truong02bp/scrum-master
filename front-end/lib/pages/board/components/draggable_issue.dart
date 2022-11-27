@@ -112,7 +112,6 @@ class _DraggableIssueState extends State<DraggableIssue> {
 
   Container _buildItem(Issue issue) {
     final item = Container(
-      width: 280,
       margin: EdgeInsets.only(top: 10, left: 5, right: 5),
       decoration: BoxDecoration(
           color: Colors.white, borderRadius: BorderRadius.circular(7)),

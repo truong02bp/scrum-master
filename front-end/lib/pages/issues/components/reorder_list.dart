@@ -57,7 +57,7 @@ class _ReorderListState extends State<ReorderList> {
             ),
             title: Row(
               children: [
-                Text("${issue.title!}"),
+                Text("${issue.title!}", overflow: TextOverflow.ellipsis),
                 Spacer(),
                 Container(
                   height: 20,

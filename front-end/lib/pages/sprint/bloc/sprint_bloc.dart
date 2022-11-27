@@ -90,6 +90,7 @@ class SprintBloc extends Bloc<SprintEvent, SprintState> {
       if (sprint != null) {
         showSuccessAlert("Create sprint success", state.context);
         state.sprints.add(sprint);
+        emit(state.clone(SprintStatus.selectSprintSuccess));
       } else {
         showErrorAlert("Create sprint failure", state.context);
       }

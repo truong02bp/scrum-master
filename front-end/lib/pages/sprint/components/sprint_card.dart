@@ -129,8 +129,15 @@ class _SprintCardState extends State<SprintCard> {
                                 ),
                                 title: Row(
                                   children: [
-                                    Text("${issue.title!}"),
-                                    Spacer(),
+                                    Expanded(
+                                      child: Text(
+                                        "${issue.title!}aa",
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      width: 20,
+                                    ),
                                     Container(
                                       height: 20,
                                       width: 25,

@@ -18,7 +18,7 @@ class ProjectCard extends StatelessWidget {
         Navigator.push(context, MaterialPageRoute(builder: (context) => ProjectMembers(project)));
       },
       child: Container(
-        height: 150,
+        height: 160,
         width: 300,
         decoration: BoxDecoration(
             color: Colors.grey.withOpacity(0.1),
@@ -29,6 +29,7 @@ class ProjectCard extends StatelessWidget {
             Column(
               children: [
                 Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Container(
                         width: 60,
@@ -40,12 +41,11 @@ class ProjectCard extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               color: Colors.black),
                         ))),
-                    Text(
-                      '${project.name!}',
-                      style: TextStyle(fontSize: 15),
-                    ),
-                    Spacer(
-                      flex: 10,
+                    Expanded(
+                      child: Text(
+                        '${project.name!}',
+                        style: TextStyle(fontSize: 15),
+                      ),
                     ),
                   ],
                 ),

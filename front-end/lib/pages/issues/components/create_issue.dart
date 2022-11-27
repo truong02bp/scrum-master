@@ -151,14 +151,15 @@ class _CreateIssueState extends State<CreateIssue> {
                           BlocBuilder<IssueBloc, IssueState>(
                             bloc: bloc,
                             buildWhen: (previous, current) =>
-                            current.status == IssueStatus.assignToMeSuccess,
+                                current.status == IssueStatus.assignToMeSuccess,
                             builder: (context, state) {
                               if (state.status ==
                                   IssueStatus.assignToMeSuccess) {
                                 event.assignee = project.members!
                                     .firstWhere(
-                                        (element) => element.id == state.userId)
+                                        (element) => element.user!.id == state.userId)
                                     .user;
+                                print(event.assignee);
                               }
                               return Container(
                                 width: 300,
@@ -172,10 +173,10 @@ class _CreateIssueState extends State<CreateIssue> {
                                       .map((e) => e.user!)
                                       .toList(),
                                   dropdownDecoratorProps:
-                                  DropDownDecoratorProps(
+                                      DropDownDecoratorProps(
                                     dropdownSearchDecoration: InputDecoration(
                                         floatingLabelBehavior:
-                                        FloatingLabelBehavior.always,
+                                            FloatingLabelBehavior.always,
                                         border: InputBorder.none,
                                         contentPadding: EdgeInsets.all(5)),
                                   ),
@@ -192,7 +193,7 @@ class _CreateIssueState extends State<CreateIssue> {
                                     searchFieldProps: TextFieldProps(
                                         decoration: InputDecoration(
                                             floatingLabelBehavior:
-                                            FloatingLabelBehavior.always,
+                                                FloatingLabelBehavior.always,
                                             contentPadding: EdgeInsets.all(5))),
                                   ),
                                   autoValidateMode: AutovalidateMode.always,
@@ -238,7 +239,7 @@ class _CreateIssueState extends State<CreateIssue> {
                               dropdownDecoratorProps: DropDownDecoratorProps(
                                 dropdownSearchDecoration: InputDecoration(
                                   floatingLabelBehavior:
-                                  FloatingLabelBehavior.always,
+                                      FloatingLabelBehavior.always,
                                   border: InputBorder.none,
                                   contentPadding: EdgeInsets.all(5),
                                 ),
@@ -255,7 +256,7 @@ class _CreateIssueState extends State<CreateIssue> {
                                 searchFieldProps: TextFieldProps(
                                   decoration: InputDecoration(
                                     floatingLabelBehavior:
-                                    FloatingLabelBehavior.always,
+                                        FloatingLabelBehavior.always,
                                     contentPadding: EdgeInsets.all(5),
                                   ),
                                 ),
@@ -289,7 +290,7 @@ class _CreateIssueState extends State<CreateIssue> {
                               dropdownDecoratorProps: DropDownDecoratorProps(
                                 dropdownSearchDecoration: InputDecoration(
                                     floatingLabelBehavior:
-                                    FloatingLabelBehavior.always,
+                                        FloatingLabelBehavior.always,
                                     border: InputBorder.none,
                                     contentPadding: EdgeInsets.all(5)),
                               ),
@@ -437,8 +438,7 @@ class _CreateIssueState extends State<CreateIssue> {
             width: 120,
             decoration: BoxDecoration(
                 color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(7)
-            ),
+                borderRadius: BorderRadius.circular(7)),
             child: Center(child: Text('+ Create issue')),
           ),
         );
