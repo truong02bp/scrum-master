@@ -2,12 +2,14 @@ package com.scrum.master.service.impl;
 
 import com.scrum.master.common.enums.IssueStatus;
 import com.scrum.master.common.exceptions.BusinessException;
+import com.scrum.master.data.entities.ActivityLog;
 import com.scrum.master.data.entities.Issue;
 import com.scrum.master.data.entities.Project;
 import com.scrum.master.data.entities.Sprint;
 import com.scrum.master.data.repositories.IssueRepository;
 import com.scrum.master.data.repositories.ProjectRepository;
 import com.scrum.master.data.repositories.SprintRepository;
+import com.scrum.master.service.ActivityLogService;
 import com.scrum.master.service.IssueService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -26,6 +28,7 @@ public class IssueServiceImpl implements IssueService {
     private final IssueRepository issueRepository;
     private final SprintRepository sprintRepository;
     private final ProjectRepository projectRepository;
+    private final ActivityLogService activityLogService;
 
     @Override
     public List<Issue> findByProjectId(Long projectId) {
@@ -66,6 +69,11 @@ public class IssueServiceImpl implements IssueService {
         int count = issueRepository.count(issue.getProject().getId());
         issue.setPriority(count);
         issue.setCode(issue.getProject().getKey() + "-" + (count + 1));
+        ActivityLog log = new ActivityLog();
+        log.setProject(issue.getProject());
+        log.setIssue(issue);
+        log.setDescription("created issue");
+        activityLogService.create(log);
         return issueRepository.save(issue);
     }
 
@@ -98,11 +106,23 @@ public class IssueServiceImpl implements IssueService {
         existedIssue.setEstimate(issue.getEstimate());
         existedIssue.setTitle(issue.getTitle());
         existedIssue.setType(issue.getType());
+        ActivityLog log = new ActivityLog();
+        log.setProject(issue.getProject());
+        log.setIssue(issue);
+        log.setDescription("updated issue");
+        activityLogService.create(log);
         return issueRepository.save(existedIssue);
     }
 
     @Override
     public void delete(Long issueId) {
+        Issue issue = issueRepository.findById(issueId).orElseThrow(() -> {
+            throw BusinessException.builder().status(HttpStatus.BAD_REQUEST).build();
+        });
+        ActivityLog log = new ActivityLog();
+        log.setProject(issue.getProject());
+        log.setDescription("delete issue " + issue.getCode() + ": " + issue.getTitle());
+        activityLogService.create(log);
         issueRepository.deleteById(issueId);
     }
 }
