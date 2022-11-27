@@ -10,6 +10,7 @@ public interface IssueService {
 
     List<Issue> findByProjectId(Long projectId);
     List<Issue> findBySprintId(Long sprintId);
+    List<Issue> findByUserId(Long sprintId);
     List<Issue> updateIndex(List<Issue> issues);
 
     List<Issue> assignToSprint(Long sprintId, Set<Long> ids);

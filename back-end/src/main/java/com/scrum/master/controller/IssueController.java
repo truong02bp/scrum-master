@@ -27,6 +27,11 @@ public class IssueController {
         return ResponseEntity.ok(issueService.findBySprintId(sprintId));
     }
 
+    @GetMapping("/issue/user")
+    public ResponseEntity<List<Issue>> getByUserId(@RequestParam("userId") Long userId) {
+        return ResponseEntity.ok(issueService.findByUserId(userId));
+    }
+
     @PostMapping("/issue")
     public ResponseEntity<Issue> create(@RequestBody Issue issue) {
         return ResponseEntity.ok(issueService.create(issue));

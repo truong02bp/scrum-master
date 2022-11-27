@@ -38,6 +38,11 @@ public class IssueServiceImpl implements IssueService {
     }
 
     @Override
+    public List<Issue> findByUserId(Long userId) {
+        return issueRepository.findByUserId(userId);
+    }
+
+    @Override
     public List<Issue> updateIndex(List<Issue> issues) {
         for (int i = 0; i < issues.size(); i++) {
             issues.get(i).setPriority(i);
