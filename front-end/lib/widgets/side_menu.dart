@@ -1,16 +1,18 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:scrum_master_front_end/pages/active_user/active_user_screen.dart';
 import 'package:scrum_master_front_end/pages/board/board_screen.dart';
 import 'package:scrum_master_front_end/pages/dash_board/dash_board_screen.dart';
 import 'package:scrum_master_front_end/pages/issues/issue_screen.dart';
+import 'package:scrum_master_front_end/pages/login/login_screen.dart';
 import 'package:scrum_master_front_end/pages/profile/profile_screen.dart';
 import 'package:scrum_master_front_end/pages/project/project_screen.dart';
 import 'package:scrum_master_front_end/pages/settings/setting_screen.dart';
 import 'package:scrum_master_front_end/pages/sprint/sprint_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SideMenu extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -72,7 +74,23 @@ class SideMenu extends StatelessWidget {
             title: "Log out",
             svgSrc: "assets/icons/logout.svg",
             press: () {
-
+              AwesomeDialog(
+                context: context,
+                animType: AnimType.TOPSLIDE,
+                dialogType: DialogType.QUESTION,
+                aligment: Alignment.center,
+                keyboardAware: true,
+                title: 'Confirm to logout',
+                btnOkOnPress: () async {
+                  SharedPreferences sharedPreferences =
+                      await SharedPreferences.getInstance();
+                  sharedPreferences.remove("userId");
+                  sharedPreferences.remove("token");
+                  Navigator.pushNamed(context, LoginScreen.routeName);
+                },
+                btnCancelOnPress: () {},
+                width: 400,
+              )..show();
             },
           ),
         ],

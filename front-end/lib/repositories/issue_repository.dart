@@ -39,6 +39,18 @@ class IssueRepository {
     return issues;
   }
 
+  Future<List<Issue>?> findByUserId(int userId) async {
+    ApiModel model = ApiModel(
+        url: endpoints + "/user",
+        params: {"userId": "$userId"},
+        parse: (data) {
+          return data.map<Issue>((json) => Issue.fromJson(json)).toList();
+        });
+
+    List<Issue>? issues = await apiRepository.get(model);
+    return issues;
+  }
+
   Future<List<Issue>?> addIssue(int sprintId, Set<int> ids) async {
     String idsParam = "";
     ids.forEach((element) {
