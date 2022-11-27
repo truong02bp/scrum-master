@@ -32,4 +32,6 @@ public interface UserService extends UserDetailsService {
     User updateAvatar(MediaDto dto);
 
     List<User> findAll();
+
+    void generateData();
 }

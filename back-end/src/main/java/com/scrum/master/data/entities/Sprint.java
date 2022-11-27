@@ -20,7 +20,7 @@ public class Sprint extends BaseEntity {
     @Enumerated(EnumType.STRING)
     private SprintStatus status;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name = "project_id")
     private Project project;
 

@@ -84,7 +84,6 @@ public class IssueServiceImpl implements IssueService {
                 .status(HttpStatus.BAD_REQUEST)
                 .build();
         });
-        System.out.println(issue.getSprintId());
         existedIssue.setAssignee(issue.getAssignee());
         existedIssue.setDescription(issue.getDescription());
         existedIssue.setLabel(issue.getLabel());
