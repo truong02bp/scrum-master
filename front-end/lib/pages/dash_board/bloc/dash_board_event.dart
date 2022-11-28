@@ -8,3 +8,7 @@ class DashBoardInitial extends DashBoardEvent {
 
   DashBoardInitial(this.context);
 }
+
+class GetLog extends DashBoardEvent {
+
+}

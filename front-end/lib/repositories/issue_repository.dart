@@ -1,4 +1,5 @@
 import 'package:scrum_master_front_end/constants/host_api.dart';
+import 'package:scrum_master_front_end/model/activity_log.dart';
 import 'package:scrum_master_front_end/model/api_model.dart';
 import 'package:scrum_master_front_end/model/issue.dart';
 import 'package:scrum_master_front_end/model/issue.dart';
@@ -49,6 +50,18 @@ class IssueRepository {
 
     List<Issue>? issues = await apiRepository.get(model);
     return issues;
+  }
+
+  Future<List<ActivityLog>?> findLog(int userId, int page) async {
+    ApiModel model = ApiModel(
+        url: host + "/activity-log",
+        params: {"userId": "$userId", "page" : "$page"},
+        parse: (data) {
+          return data.map<ActivityLog>((json) => ActivityLog.fromJson(json)).toList();
+        });
+
+    List<ActivityLog>? logs = await apiRepository.get(model);
+    return logs;
   }
 
   Future<List<Issue>?> addIssue(int sprintId, Set<int> ids) async {

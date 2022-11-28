@@ -8,6 +8,8 @@ class DashBoardState {
   List<Issue> issues = [];
   DashBoardStatus status = DashBoardStatus.initial;
   int? userId;
+  int page = 0;
+  List<ActivityLog> logs = [];
 
   DashBoardState clone(DashBoardStatus status) {
     DashBoardState state = DashBoardState();
@@ -15,6 +17,8 @@ class DashBoardState {
     state.context = this.context;
     state.status = this.status;
     state.userId = this.userId;
+    state.page = this.page;
+    state.logs = this.logs;
     return state;
   }
 }
