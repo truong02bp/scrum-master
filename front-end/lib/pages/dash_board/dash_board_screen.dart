@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scrum_master_front_end/constants/host_api.dart';
 import 'package:scrum_master_front_end/constants/theme.dart';
 import 'package:scrum_master_front_end/pages/dash_board/bloc/dash_board_bloc.dart';
+import 'package:scrum_master_front_end/pages/dash_board/components/pie_chart.dart';
 import 'package:scrum_master_front_end/time_ultil.dart';
 import 'package:scrum_master_front_end/widgets/base_screen.dart';
 
@@ -50,6 +52,22 @@ class DashBoardScreen extends StatelessWidget {
             ),
             const SizedBox(
               height: 20,
+            ),
+            Container(
+              height: 300,
+              width: 300,
+              child: Column(
+                children: [
+                  Text(
+                    'Issue statistics',
+                    style: TextStyle(fontSize: 20, color: Colors.black),
+                  ),
+                  IssuePieChart(),
+                ],
+              ),
+            ),
+            const SizedBox(
+              height: 50,
             ),
             Container(
                 width: double.infinity,
@@ -160,8 +178,7 @@ class DashBoardScreen extends StatelessWidget {
                                           ),
                                         ),
                                         Spacer(),
-                                        Text(getTimeOnlineString(
-                                            time: log.createdDate!))
+                                        Text(formatDate(time: log.createdDate!))
                                       ]),
                                     );
                                   }),

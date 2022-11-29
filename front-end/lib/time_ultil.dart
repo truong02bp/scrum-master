@@ -20,6 +20,9 @@ String getTimeOnlineString({DateTime? time}) {
     if (hours > 6) {
       return "";
     }
+    if (hours > 24) {
+
+    }
     return "$hours hour ago";
   }
   return "$minute minute ago";

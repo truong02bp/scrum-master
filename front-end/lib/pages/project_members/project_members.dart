@@ -1,6 +1,7 @@
 import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dropdown_search/dropdown_search.dart';
+import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_form_builder/flutter_form_builder.dart';
@@ -9,6 +10,7 @@ import 'package:scrum_master_front_end/constants/theme.dart';
 import 'package:scrum_master_front_end/model/project.dart';
 import 'package:scrum_master_front_end/model/user.dart';
 import 'package:scrum_master_front_end/pages/project_members/bloc/project_member_bloc.dart';
+import 'package:scrum_master_front_end/pages/project_members/components/bar_chart.dart';
 import 'package:scrum_master_front_end/widgets/base_screen.dart';
 import 'package:scrum_master_front_end/widgets/loading_icon.dart';
 
@@ -32,89 +34,98 @@ class ProjectMembers extends StatelessWidget {
 
   Widget _buildView(BuildContext context) {
     final bloc = BlocProvider.of<ProjectMemberBloc>(context);
-    return Padding(
-      padding: const EdgeInsets.all(defaultPadding),
-      child: Column(
-        children: [
-          _buildTitle(context),
-          const SizedBox(
-            height: 20,
-          ),
-          Container(
-            height: 1,
-            color: Colors.grey.withOpacity(0.5),
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            children: [
-              Text(
-                'Members',
-                style: TextStyle(fontSize: 25),
-              ),
-              Spacer(),
-              InkWell(
-                onTap: () {
-                  AwesomeDialog(
-                      context: context,
-                      animType: AnimType.SCALE,
-                      dialogType: DialogType.NO_HEADER,
-                      width: 500,
-                      padding: EdgeInsets.only(
-                          top: 40, bottom: 40, left: 40, right: 40),
-                      btnOkOnPress: () {
+    return SingleChildScrollView(
+      child: Padding(
+        padding: const EdgeInsets.all(defaultPadding),
+        child: Column(
+          children: [
+            _buildTitle(context),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 1,
+              color: Colors.grey.withOpacity(0.5),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+                child: BarChartSample7()
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            Row(
+              children: [
+                Text(
+                  'Members',
+                  style: TextStyle(fontSize: 25),
+                ),
+                Spacer(),
+                InkWell(
+                  onTap: () {
+                    AwesomeDialog(
+                        context: context,
+                        animType: AnimType.SCALE,
+                        dialogType: DialogType.NO_HEADER,
+                        width: 500,
+                        padding: EdgeInsets.only(
+                            top: 40, bottom: 40, left: 40, right: 40),
+                        btnOkOnPress: () {
                           bloc.add(RemoveProject(project));
-                      },
-                      body: SizedBox(
-                        height: 50,
-                        child: Text(
-                          'Are you sure to delete this project?',
+                        },
+                        body: SizedBox(
+                          height: 50,
+                          child: Text(
+                            'Are you sure to delete this project?',
+                          ),
                         ),
-                      ),
-                      btnOkText: 'Confirm',
-                      btnCancelOnPress: () {})
-                    ..show();
-                },
-                child: Container(
-                  height: 40,
-                  width: 80,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7),
-                      color: Colors.red),
-                  child: Center(
-                    child: Text('Delete'),
+                        btnOkText: 'Confirm',
+                        btnCancelOnPress: () {})
+                      ..show();
+                  },
+                  child: Container(
+                    height: 40,
+                    width: 80,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(7),
+                        color: Colors.red),
+                    child: Center(
+                      child: Text('Delete'),
+                    ),
                   ),
                 ),
-              ),
-              const SizedBox(
-                width: 40,
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Expanded(
-            child: BlocBuilder<ProjectMemberBloc, ProjectMemberState>(
-              bloc: bloc,
-              builder: (context, state) {
-                return ListView(
-                  padding: const EdgeInsets.all(5),
-                  children: List.generate(
-                      project.members!.length,
-                      (index) => InkWell(
-                          onTap: () {},
-                          borderRadius: BorderRadius.circular(15),
-                          child: _buildItem(
-                              context: context,
-                              user: project.members![index].user!,
-                              role: project.members![index].role!))),
-                );
-              },
+                const SizedBox(
+                  width: 40,
+                )
+              ],
             ),
-          ),
-        ],
+            const SizedBox(
+              height: 20,
+            ),
+            Container(
+              height: 400,
+              child: BlocBuilder<ProjectMemberBloc, ProjectMemberState>(
+                bloc: bloc,
+                builder: (context, state) {
+                  return ListView(
+                    padding: const EdgeInsets.all(5),
+                    children: List.generate(
+                        project.members!.length,
+                        (index) => InkWell(
+                            onTap: () {},
+                            borderRadius: BorderRadius.circular(15),
+                            child: _buildItem(
+                                context: context,
+                                user: project.members![index].user!,
+                                role: project.members![index].role!))),
+                  );
+                },
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
