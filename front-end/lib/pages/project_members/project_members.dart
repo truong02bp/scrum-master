@@ -50,9 +50,7 @@ class ProjectMembers extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Container(
-                child: BarChartSample7()
-            ),
+            Container(height: 600, width: 600, child: BarChartSample7()),
             const SizedBox(
               height: 40,
             ),
