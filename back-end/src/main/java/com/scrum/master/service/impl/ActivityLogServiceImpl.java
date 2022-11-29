@@ -1,7 +1,9 @@
 package com.scrum.master.service.impl;
 
+import com.scrum.master.common.utils.SecurityUtils;
 import com.scrum.master.data.entities.ActivityLog;
 import com.scrum.master.data.entities.ProjectMember;
+import com.scrum.master.data.entities.User;
 import com.scrum.master.data.repositories.ActivityLogRepository;
 import com.scrum.master.data.repositories.ProjectMemberRepository;
 import com.scrum.master.service.ActivityLogService;
@@ -28,6 +30,8 @@ public class ActivityLogServiceImpl implements ActivityLogService {
 
     @Override
     public ActivityLog create(ActivityLog activityLog) {
+        User user = SecurityUtils.getCurrentUser();
+        activityLog.setUser(user);
         return activityLogRepository.save(activityLog);
     }
 }

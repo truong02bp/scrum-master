@@ -24,6 +24,6 @@ public class ActivityLog extends BaseEntity {
     private User user;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
+    @JoinColumn(name = "issue_id")
     private Issue issue;
 }

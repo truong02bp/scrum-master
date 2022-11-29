@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.Query;
 import java.util.List;
 
 public interface ProjectMemberRepository extends JpaRepository<ProjectMember, Long> {
-    @Query(value = "SELECT member FROM ProjectMember member WHERE member.user.id = ?1")
+    @Query(value = "SELECT projectMember FROM ProjectMember projectMember WHERE projectMember.user.id = ?1")
     List<ProjectMember> findByUserId(Long userId);
 }

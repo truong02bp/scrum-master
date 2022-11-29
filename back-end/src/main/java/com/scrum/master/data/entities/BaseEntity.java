@@ -37,7 +37,6 @@ public class BaseEntity implements Serializable {
     @CreatedDate
     @Column(name = "created_date", columnDefinition = "timestamp with time zone")
     @Schema(hidden = true)
-    @JsonIgnore
     private LocalDateTime createdDate;
 
     @LastModifiedDate

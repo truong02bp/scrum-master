@@ -86,6 +86,11 @@ public class IssueServiceImpl implements IssueService {
                 .build();
         });
         issue.setStatus(status);
+        ActivityLog log = new ActivityLog();
+        log.setProject(issue.getProject());
+        log.setIssue(issue);
+        log.setDescription("updated status to " + status);
+        activityLogService.create(log);
         return issueRepository.save(issue);
     }
 
