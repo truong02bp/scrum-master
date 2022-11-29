@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:scrum_master_front_end/constants/host_api.dart';
 import 'package:scrum_master_front_end/constants/theme.dart';
 import 'package:scrum_master_front_end/pages/dash_board/bloc/dash_board_bloc.dart';
+import 'package:scrum_master_front_end/pages/dash_board/components/performance_pie_chart.dart';
 import 'package:scrum_master_front_end/pages/dash_board/components/project_bar_chart.dart';
 import 'package:scrum_master_front_end/pages/dash_board/components/issue_pie_chart.dart';
 import 'package:scrum_master_front_end/time_ultil.dart';
@@ -66,7 +67,15 @@ class DashBoardScreen extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        IssuePieChart(),
+                        BlocBuilder<DashBoardBloc, DashBoardState>(
+                          bloc: bloc,
+                          builder: (context, state) {
+                            if (state.issueStatics == null) {
+                              return Container();
+                            }
+                            return IssuePieChart(state.issueStatics!);
+                          },
+                        ),
                       ],
                     ),
                   ),
@@ -82,7 +91,7 @@ class DashBoardScreen extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        IssuePieChart(),
+                        PerformancePieChart(),
                       ],
                     ),
                   ),

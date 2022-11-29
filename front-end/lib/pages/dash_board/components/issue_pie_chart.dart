@@ -1,14 +1,17 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:scrum_master_front_end/model/issue_statics.dart';
 
 class IssuePieChart extends StatefulWidget {
-  const IssuePieChart({super.key});
+  final IssueStatics issueStatics;
+
+  IssuePieChart(this.issueStatics);
 
   @override
   State<StatefulWidget> createState() => IssuePieChartState();
 }
 
-class IssuePieChartState extends State {
+class IssuePieChartState extends State<IssuePieChart> {
   int touchedIndex = 0;
 
   @override
@@ -49,18 +52,34 @@ class IssuePieChartState extends State {
   }
 
   List<PieChartSectionData> showingSections() {
+    int bugTotal = widget.issueStatics.bugTotal!;
+    int taskTotal = widget.issueStatics.taskTotal!;
+    int storyTotal = widget.issueStatics.storyTotal!;
+
+    int total = bugTotal + taskTotal + storyTotal;
+
+    String storyPercent =
+        (storyTotal.toDouble() * 100 / total).toStringAsFixed(2);
+    String taskPercent =
+        (taskTotal.toDouble() * 100 / total).toStringAsFixed(2);
+    String bugPercent =
+        (100 - double.parse(storyPercent) - double.parse(taskPercent))
+            .toStringAsFixed(2);
     return List.generate(3, (i) {
       final isTouched = i == touchedIndex;
       final fontSize = isTouched ? 20.0 : 16.0;
       final radius = isTouched ? 110.0 : 100.0;
       final widgetSize = isTouched ? 45.0 : 30.0;
 
+      final storyTitle = isTouched ? '$storyTotal' : '${storyPercent}%';
+      final bugTitle = isTouched ? '$bugTotal' : '${bugPercent}%';
+      final taskTitle = isTouched ? '$taskTotal' : '${taskPercent}%';
       switch (i) {
         case 0:
           return PieChartSectionData(
             color: const Color(0xff0293ee),
-            value: 40,
-            title: '40%',
+            value: storyTotal.toDouble(),
+            title: storyTitle,
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
@@ -77,8 +96,8 @@ class IssuePieChartState extends State {
         case 1:
           return PieChartSectionData(
             color: const Color(0xfff8b250),
-            value: 30,
-            title: '30%',
+            value: bugTotal.toDouble(),
+            title: bugTitle,
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,
@@ -95,8 +114,8 @@ class IssuePieChartState extends State {
         case 2:
           return PieChartSectionData(
             color: const Color(0xff845bef),
-            value: 16,
-            title: '16%',
+            value: taskTotal.toDouble(),
+            title: taskTitle,
             radius: radius,
             titleStyle: TextStyle(
               fontSize: fontSize,

@@ -24,12 +24,7 @@ class DashBoardBloc extends Bloc<DashBoardEvent, DashBoardState> {
       SharedPreferences sharedPreferences =
           await SharedPreferences.getInstance();
       state.userId = sharedPreferences.getInt("userId");
-      List<Issue>? issues = await issueRepository.findByUserId(state.userId!);
-      if (issues != null) {
-        state.issues = issues;
-      }
-      emit(state.clone(DashBoardStatus.getIssuesSuccess));
-      add(GetLog());
+
       IssueStatics? issueStatics =
           await staticRepository.exportIssueStatics(state.userId!);
       if (issueStatics != null) {
@@ -50,6 +45,12 @@ class DashBoardBloc extends Bloc<DashBoardEvent, DashBoardState> {
         state.projectStatics = projectStatics;
         emit(state.clone(DashBoardStatus.getStaticsSuccess));
       }
+      List<Issue>? issues = await issueRepository.findByUserId(state.userId!);
+      if (issues != null) {
+        state.issues = issues;
+      }
+      emit(state.clone(DashBoardStatus.getIssuesSuccess));
+      add(GetLog());
     });
 
     on<GetLog>((event, emit) async {
