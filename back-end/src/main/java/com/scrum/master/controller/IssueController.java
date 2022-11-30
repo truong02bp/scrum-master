@@ -28,8 +28,9 @@ public class IssueController {
     }
 
     @GetMapping("/issue/user")
-    public ResponseEntity<List<Issue>> getByUserId(@RequestParam("userId") Long userId) {
-        return ResponseEntity.ok(issueService.findByUserId(userId));
+    public ResponseEntity<List<Issue>> getByUserId(@RequestParam("userId") Long userId,
+                                                   @RequestParam(value = "isDone", required = false) Boolean isDone) {
+        return ResponseEntity.ok(issueService.findByUserId(userId, isDone));
     }
 
     @PostMapping("/issue")

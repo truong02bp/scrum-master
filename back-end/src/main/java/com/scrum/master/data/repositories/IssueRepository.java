@@ -1,5 +1,6 @@
 package com.scrum.master.data.repositories;
 
+import com.scrum.master.common.enums.IssueStatus;
 import com.scrum.master.data.entities.Issue;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -21,4 +22,7 @@ public interface IssueRepository extends JpaRepository<Issue, Long> {
 
     @Query(value = "SELECT issue FROM Issue issue WHERE issue.assignee.id = ?1 AND ( issue.status <> 'Done' or (issue.sprint.status <> 'Completed' AND issue.status = 'Done')) ORDER BY issue.priority ASC")
     List<Issue> findByUserId(Long userId);
+
+    @Query(value = "SELECT issue FROM Issue issue WHERE issue.assignee.id = ?1 AND issue.status <> ?2 ORDER BY issue.priority ASC")
+    List<Issue> findByUserIdAndExcludeStatus(Long userId, IssueStatus status);
 }

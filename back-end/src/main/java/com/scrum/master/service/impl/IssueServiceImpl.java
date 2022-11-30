@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -41,8 +42,11 @@ public class IssueServiceImpl implements IssueService {
     }
 
     @Override
-    public List<Issue> findByUserId(Long userId) {
-        return issueRepository.findByUserId(userId);
+    public List<Issue> findByUserId(Long userId, Boolean isDone) {
+        if (isDone == null || isDone) {
+            return issueRepository.findByUserId(userId);
+        }
+        return issueRepository.findByUserIdAndExcludeStatus(userId, IssueStatus.Done);
     }
 
     @Override
@@ -85,6 +89,14 @@ public class IssueServiceImpl implements IssueService {
                 .status(HttpStatus.BAD_REQUEST)
                 .build();
         });
+        if (issue.getStartDate() == null) {
+            issue.setStartDate(LocalDateTime.now());
+        }
+        if (status.equals(IssueStatus.Done)) {
+            issue.setEndDate(LocalDateTime.now());
+        } else {
+            issue.setEstimate(null);
+        }
         issue.setStatus(status);
         ActivityLog log = new ActivityLog();
         log.setProject(issue.getProject());

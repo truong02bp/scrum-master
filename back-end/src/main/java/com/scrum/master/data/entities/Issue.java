@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Entity
@@ -25,6 +26,9 @@ public class Issue extends BaseEntity {
     private Integer estimate;
     @Enumerated(EnumType.STRING)
     private IssueStatus status = IssueStatus.Todo;
+
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
 
 
     @OneToMany
