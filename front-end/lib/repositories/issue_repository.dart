@@ -43,7 +43,7 @@ class IssueRepository {
   Future<List<Issue>?> findByUserId(int userId) async {
     ApiModel model = ApiModel(
         url: endpoints + "/user",
-        params: {"userId": "$userId"},
+        params: {"userId": "$userId", "isDone": "false"},
         parse: (data) {
           return data.map<Issue>((json) => Issue.fromJson(json)).toList();
         });
