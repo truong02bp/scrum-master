@@ -68,7 +68,7 @@ class IssuePieChartState extends State<IssuePieChart> {
                   height: 4,
                 ),
                 Indicator(
-                  color: Color(0xfff8b250),
+                  color: Colors.orange,
                   text: 'Bug',
                   isSquare: true,
                 ),
@@ -141,7 +141,7 @@ class IssuePieChartState extends State<IssuePieChart> {
           );
         case 1:
           return PieChartSectionData(
-            color: const Color(0xfff8b250),
+            color: Colors.orange,
             value: bugTotal.toDouble(),
             title: bugTitle,
             radius: radius,
@@ -153,7 +153,7 @@ class IssuePieChartState extends State<IssuePieChart> {
             badgeWidget: _Badge(
               'assets/icons/bug.png',
               size: widgetSize,
-              borderColor: const Color(0xfff8b250),
+              borderColor: Colors.orange,
             ),
             badgePositionPercentageOffset: .98,
           );

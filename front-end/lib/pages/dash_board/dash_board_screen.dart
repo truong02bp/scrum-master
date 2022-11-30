@@ -91,7 +91,16 @@ class DashBoardScreen extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        PerformancePieChart(),
+                        BlocBuilder<DashBoardBloc, DashBoardState>(
+                          bloc: bloc,
+                          builder: (context, state) {
+                            if (state.performanceStatics == null) {
+                              return Container();
+                            }
+                            return PerformancePieChart(
+                                state.performanceStatics!);
+                          },
+                        ),
                       ],
                     ),
                   ),
