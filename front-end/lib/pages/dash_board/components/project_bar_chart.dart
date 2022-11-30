@@ -2,34 +2,41 @@ import 'dart:math' as math;
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:scrum_master_front_end/model/project_statics.dart';
 
 class ProjectBarChart extends StatefulWidget {
-  const ProjectBarChart({super.key});
-
   static const shadowColor = Color(0xFFCCCCCC);
-  static const dataList = [
-    _BarData(Color(0xFFecb206), 18, 18),
-    _BarData(Color(0xFFa8bd1a), 17, 8),
-    _BarData(Color(0xFF17987b), 10, 15),
-    _BarData(Color(0xFFb87d46), 2.5, 5),
-    _BarData(Color(0xFF295ab5), 2, 2.5),
-    _BarData(Color(0xFFea0107), 2, 2),
-    _BarData(Color(0xFFea0107), 2, 2),
-    _BarData(Color(0xFFea0107), 2, 2),
-    _BarData(Color(0xFFea0107), 2, 2),
-    _BarData(Color(0xFFea0107), 2, 2),
-  ];
+
+  final ProjectStatics projectStatics;
+
+  ProjectBarChart(this.projectStatics);
 
   @override
   State<ProjectBarChart> createState() => _ProjectBarChartState();
 }
 
 class _ProjectBarChartState extends State<ProjectBarChart> {
+  List<_BarData> dataList = [];
+  int max = 10;
+
+  @override
+  void initState() {
+    dataList = widget.projectStatics.projectIssues!
+        .map((e) => _BarData(
+            Color(0xFFecb206), e.totalIssue!.toDouble(), e.project!.name!))
+        .toList();
+
+    widget.projectStatics.projectIssues!.forEach((element) {
+      if (element.totalIssue! * 2 > max) {
+        max = element.totalIssue! * 2;
+      }
+    });
+  }
+
   BarChartGroupData generateBarGroup(
     int x,
     Color color,
     double value,
-    double shadowValue,
   ) {
     return BarChartGroupData(
       x: x,
@@ -37,12 +44,7 @@ class _ProjectBarChartState extends State<ProjectBarChart> {
         BarChartRodData(
           toY: value,
           color: color,
-          width: 6,
-        ),
-        BarChartRodData(
-          toY: shadowValue,
-          color: ProjectBarChart.shadowColor,
-          width: 6,
+          width: 20,
         ),
       ],
       showingTooltipIndicators: touchedGroupIndex == x ? [0] : [],
@@ -101,8 +103,9 @@ class _ProjectBarChartState extends State<ProjectBarChart> {
                           return SideTitleWidget(
                             axisSide: meta.axisSide,
                             child: _IconWidget(
-                              color: ProjectBarChart.dataList[index].color,
+                              color: dataList[index].color,
                               isSelected: touchedGroupIndex == index,
+                              name: dataList[index].name,
                             ),
                           );
                         },
@@ -119,17 +122,16 @@ class _ProjectBarChartState extends State<ProjectBarChart> {
                       strokeWidth: 1,
                     ),
                   ),
-                  barGroups: ProjectBarChart.dataList.asMap().entries.map((e) {
+                  barGroups: dataList.asMap().entries.map((e) {
                     final index = e.key;
                     final data = e.value;
                     return generateBarGroup(
                       index,
                       data.color,
                       data.value,
-                      data.shadowValue,
                     );
                   }).toList(),
-                  maxY: 20,
+                  maxY: max.toDouble(),
                   barTouchData: BarTouchData(
                     enabled: true,
                     handleBuiltInTouches: false,
@@ -184,20 +186,22 @@ class _ProjectBarChartState extends State<ProjectBarChart> {
 }
 
 class _BarData {
-  const _BarData(this.color, this.value, this.shadowValue);
+  const _BarData(this.color, this.value, this.name);
 
   final Color color;
   final double value;
-  final double shadowValue;
+  final String name;
 }
 
 class _IconWidget extends ImplicitlyAnimatedWidget {
   const _IconWidget({
     required this.color,
     required this.isSelected,
+    required this.name,
   }) : super(duration: const Duration(milliseconds: 300));
   final Color color;
   final bool isSelected;
+  final String name;
 
   @override
   ImplicitlyAnimatedWidgetState<ImplicitlyAnimatedWidget> createState() =>
@@ -212,14 +216,11 @@ class _IconWidgetState extends AnimatedWidgetBaseState<_IconWidget> {
     final rotation = math.pi * 4 * _rotationTween!.evaluate(animation);
     final scale = 1 + _rotationTween!.evaluate(animation) * 0.5;
     return Transform(
-      transform: Matrix4.rotationZ(rotation).scaled(scale, scale),
-      origin: const Offset(14, 14),
-      child: Icon(
-        widget.isSelected ? Icons.face_retouching_natural : Icons.face,
-        color: widget.color,
-        size: 28,
-      ),
-    );
+        transform: Matrix4.rotationZ(rotation).scaled(scale, scale),
+        origin: const Offset(14, 14),
+        child: widget.isSelected
+            ? Text('${widget.name}')
+            : Text('${widget.name}'));
   }
 
   @override

@@ -116,7 +116,15 @@ class DashBoardScreen extends StatelessWidget {
                         const SizedBox(
                           height: 10,
                         ),
-                        ProjectBarChart()
+                        BlocBuilder<DashBoardBloc, DashBoardState>(
+                          bloc: bloc,
+                          builder: (context, state) {
+                            if (state.projectStatics == null) {
+                              return Container();
+                            }
+                            return ProjectBarChart(state.projectStatics!);
+                          },
+                        )
                       ],
                     ),
                   ),
