@@ -2,6 +2,7 @@ import 'package:scrum_master_front_end/constants/host_api.dart';
 import 'package:scrum_master_front_end/model/api_model.dart';
 import 'package:scrum_master_front_end/model/issue_statics.dart';
 import 'package:scrum_master_front_end/model/performance_statics.dart';
+import 'package:scrum_master_front_end/model/project_member_statics.dart';
 import 'package:scrum_master_front_end/model/project_statics.dart';
 import 'package:scrum_master_front_end/repositories/api_repository.dart';
 
@@ -37,6 +38,16 @@ class StaticsRepository {
         params: {"userId": "$userId"},
         parse: (json) => ProjectStatics.fromJson(json));
     ProjectStatics? statics = await apiRepository.get(model);
+    return statics;
+  }
+
+  Future<ProjectMemberStatics?> exportProjectMemberStatics(int projectId) async {
+    String url = endpoints + "/project/member";
+    ApiModel model = ApiModel(
+        url: url,
+        params: {"projectId": "$projectId"},
+        parse: (json) => ProjectMemberStatics.fromJson(json));
+    ProjectMemberStatics? statics = await apiRepository.get(model);
     return statics;
   }
 

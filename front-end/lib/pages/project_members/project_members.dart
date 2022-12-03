@@ -10,7 +10,7 @@ import 'package:scrum_master_front_end/constants/theme.dart';
 import 'package:scrum_master_front_end/model/project.dart';
 import 'package:scrum_master_front_end/model/user.dart';
 import 'package:scrum_master_front_end/pages/project_members/bloc/project_member_bloc.dart';
-import 'package:scrum_master_front_end/pages/project_members/components/bar_chart.dart';
+import 'package:scrum_master_front_end/pages/project_members/components/project_member_bar_chart.dart';
 import 'package:scrum_master_front_end/widgets/base_screen.dart';
 import 'package:scrum_master_front_end/widgets/loading_icon.dart';
 
@@ -50,7 +50,26 @@ class ProjectMembers extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            Container(height: 600, width: 600, child: BarChartSample7()),
+            Row(
+              children: [
+                Text(
+                  'Issue statics',
+                  style: TextStyle(fontSize: 20),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            BlocBuilder<ProjectMemberBloc, ProjectMemberState>(
+              bloc: bloc,
+              builder: (context, state) {
+                if (state.statics == null) {
+                  return Container();
+                }
+                return Container(child: ProjectMemberBarChart(state.statics!));
+              },
+            ),
             const SizedBox(
               height: 40,
             ),
@@ -58,45 +77,8 @@ class ProjectMembers extends StatelessWidget {
               children: [
                 Text(
                   'Members',
-                  style: TextStyle(fontSize: 25),
+                  style: TextStyle(fontSize: 20),
                 ),
-                Spacer(),
-                InkWell(
-                  onTap: () {
-                    AwesomeDialog(
-                        context: context,
-                        animType: AnimType.SCALE,
-                        dialogType: DialogType.NO_HEADER,
-                        width: 500,
-                        padding: EdgeInsets.only(
-                            top: 40, bottom: 40, left: 40, right: 40),
-                        btnOkOnPress: () {
-                          bloc.add(RemoveProject(project));
-                        },
-                        body: SizedBox(
-                          height: 50,
-                          child: Text(
-                            'Are you sure to delete this project?',
-                          ),
-                        ),
-                        btnOkText: 'Confirm',
-                        btnCancelOnPress: () {})
-                      ..show();
-                  },
-                  child: Container(
-                    height: 40,
-                    width: 80,
-                    decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(7),
-                        color: Colors.red),
-                    child: Center(
-                      child: Text('Delete'),
-                    ),
-                  ),
-                ),
-                const SizedBox(
-                  width: 40,
-                )
               ],
             ),
             const SizedBox(
@@ -245,6 +227,7 @@ class ProjectMembers extends StatelessWidget {
   }
 
   Widget _buildTitle(BuildContext context) {
+    final bloc = BlocProvider.of<ProjectMemberBloc>(context);
     return Row(
       children: [
         Text(
@@ -253,6 +236,41 @@ class ProjectMembers extends StatelessWidget {
         ),
         Spacer(),
         _buildAddButton(context),
+        const SizedBox(
+          width: 40,
+        ),
+        InkWell(
+          onTap: () {
+            AwesomeDialog(
+                context: context,
+                animType: AnimType.SCALE,
+                dialogType: DialogType.NO_HEADER,
+                width: 500,
+                padding:
+                    EdgeInsets.only(top: 40, bottom: 40, left: 40, right: 40),
+                btnOkOnPress: () {
+                  bloc.add(RemoveProject(project));
+                },
+                body: SizedBox(
+                  height: 50,
+                  child: Text(
+                    'Are you sure to delete this project?',
+                  ),
+                ),
+                btnOkText: 'Confirm',
+                btnCancelOnPress: () {})
+              ..show();
+          },
+          child: Container(
+            height: 40,
+            width: 80,
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(7), color: Colors.red),
+            child: Center(
+              child: Text('Delete'),
+            ),
+          ),
+        ),
         const SizedBox(
           width: 40,
         ),

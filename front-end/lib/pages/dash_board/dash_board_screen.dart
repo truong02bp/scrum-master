@@ -147,7 +147,7 @@ class DashBoardScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Current my issues',
-                        style: TextStyle(fontSize: 21, color: Colors.black),
+                        style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                       const SizedBox(
                         height: 15,
@@ -182,7 +182,7 @@ class DashBoardScreen extends StatelessWidget {
                     children: [
                       Text(
                         'Recent activity',
-                        style: TextStyle(fontSize: 21, color: Colors.black),
+                        style: TextStyle(fontSize: 18, color: Colors.black),
                       ),
                       const SizedBox(
                         height: 15,

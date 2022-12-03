@@ -25,8 +25,7 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
       if (users != null) {
         state.users = users;
         state.organization = users[0].organization;
-      }
-      else {
+      } else {
         showErrorAlert("Get users failure!", state.context!);
       }
       emit(state.clone(SettingStatus.initial));
@@ -43,6 +42,17 @@ class SettingBloc extends Bloc<SettingEvent, SettingState> {
         showSuccessAlert("Invite user success!", state.context!);
       } catch (e) {
         showErrorAlert(e.toString(), state.context!);
+      }
+    });
+
+    on<RemoveMemberEvent>((event, emit) async {
+      try {
+        await userRepository.delete(event.userId);
+        state.users!.removeWhere((element) => element.id == event.userId);
+        emit(state.clone(SettingStatus.inviteSuccess));
+        showSuccessAlert("Remove user success", state.context!);
+      } catch (e) {
+        showErrorAlert("Remove user failure", state.context!);
       }
     });
   }

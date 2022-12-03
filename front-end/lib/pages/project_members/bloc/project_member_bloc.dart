@@ -6,11 +6,13 @@ import 'package:meta/meta.dart';
 import 'package:scrum_master_front_end/alert.dart';
 import 'package:scrum_master_front_end/model/project.dart';
 import 'package:scrum_master_front_end/model/project_member.dart';
+import 'package:scrum_master_front_end/model/project_member_statics.dart';
 import 'package:scrum_master_front_end/model/user.dart';
 import 'package:scrum_master_front_end/pages/profile/profile_screen.dart';
 import 'package:scrum_master_front_end/pages/project/bloc/project_bloc.dart';
 import 'package:scrum_master_front_end/pages/project/project_screen.dart';
 import 'package:scrum_master_front_end/repositories/project_repository.dart';
+import 'package:scrum_master_front_end/repositories/statics_repository.dart';
 import 'package:scrum_master_front_end/repositories/user_repository.dart';
 
 part 'project_member_event.dart';
@@ -20,15 +22,20 @@ part 'project_member_state.dart';
 class ProjectMemberBloc extends Bloc<ProjectMemberEvent, ProjectMemberState> {
   UserRepository userRepository = UserRepository();
   ProjectRepository projectRepository = ProjectRepository();
+  StaticsRepository staticRepository = StaticsRepository();
 
   ProjectMemberBloc() : super(ProjectMemberState()) {
     on<ProjectMemberInitialEvent>((event, emit) async {
       // TODO: implement event handler
       state.context = event.context;
       state.project = event.project;
+      ProjectMemberStatics? statics =
+          await staticRepository.exportProjectMemberStatics(state.project!.id!);
+      if (statics != null) {
+        state.statics = statics;
+        emit(state.clone(ProjectMemberStatus.initial));
+      }
       add(GetListUser());
-
-      emit(state.clone(ProjectMemberStatus.initial));
     });
 
     on<GetListUser>((event, emit) async {

@@ -12,3 +12,9 @@ class SettingInitialEvent extends SettingEvent {
 class InviteMemberEvent extends SettingEvent  {
 
 }
+
+class RemoveMemberEvent extends SettingEvent  {
+  int userId;
+
+  RemoveMemberEvent(this.userId);
+}

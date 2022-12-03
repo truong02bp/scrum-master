@@ -1,3 +1,4 @@
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -24,13 +25,15 @@ class Users extends StatelessWidget {
               (index) => InkWell(
                   onTap: () {},
                   borderRadius: BorderRadius.circular(15),
-                  child: _buildItem(user: state.users![index]))),
+                  child:
+                      _buildItem(user: state.users![index], context: context))),
         );
       },
     );
   }
 
-  Container _buildItem({required User user}) {
+  Container _buildItem({required User user, required BuildContext context}) {
+    final bloc = BlocProvider.of<SettingBloc>(context);
     return Container(
       height: 70,
       margin: const EdgeInsets.only(top: 15),
@@ -103,7 +106,27 @@ class Users extends StatelessWidget {
           ),
           const Spacer(),
           InkWell(
-            onTap: () {},
+            onTap: () {
+              AwesomeDialog(
+                  context: context,
+                  animType: AnimType.SCALE,
+                  dialogType: DialogType.NO_HEADER,
+                  width: 500,
+                  padding:
+                      EdgeInsets.only(top: 40, bottom: 40, left: 40, right: 40),
+                  btnOkOnPress: () {
+                    bloc.add(RemoveMemberEvent(user.id));
+                  },
+                  body: SizedBox(
+                    height: 50,
+                    child: Text(
+                      'Are you sure to delete this user?',
+                    ),
+                  ),
+                  btnOkText: 'Confirm',
+                  btnCancelOnPress: () {})
+                ..show();
+            },
             child: const Icon(
               Icons.delete,
               color: Colors.red,

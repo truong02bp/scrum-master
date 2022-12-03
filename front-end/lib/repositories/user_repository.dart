@@ -43,6 +43,11 @@ class UserRepository {
     return user;
   }
 
+  Future<void> delete(int id) async {
+    ApiModel model = new ApiModel(url: endpoints, params: {"id": "$id"});
+    await apiRepository.delete(model);
+  }
+
   Future<User?> update(User user, Uint8List? bytes) async {
     ApiModel model = new ApiModel(
         url: endpoints,

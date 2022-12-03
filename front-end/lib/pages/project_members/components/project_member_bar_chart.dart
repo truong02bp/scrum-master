@@ -2,33 +2,34 @@ import 'dart:math' as math;
 
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:scrum_master_front_end/model/project_member_statics.dart';
 import 'package:scrum_master_front_end/model/project_statics.dart';
 
-class ProjectBarChart extends StatefulWidget {
+class ProjectMemberBarChart extends StatefulWidget {
   static const shadowColor = Color(0xFFCCCCCC);
 
-  final ProjectStatics projectStatics;
+  final ProjectMemberStatics projectStatics;
 
-  ProjectBarChart(this.projectStatics);
+  ProjectMemberBarChart(this.projectStatics);
 
   @override
-  State<ProjectBarChart> createState() => _ProjectBarChartState();
+  State<ProjectMemberBarChart> createState() => _ProjectMemberBarChartState();
 }
 
-class _ProjectBarChartState extends State<ProjectBarChart> {
+class _ProjectMemberBarChartState extends State<ProjectMemberBarChart> {
   List<_BarData> dataList = [];
   int max = 10;
 
   @override
   void initState() {
-    dataList = widget.projectStatics.projectIssues!
-        .map((e) => _BarData(
-            Color(0xFFecb206), e.totalIssue!.toDouble(), e.project!.name!))
+    dataList = widget.projectStatics.members
+        .map((e) =>
+            _BarData(Color(0xFFecb206), e.totalIssue.toDouble(), e.user.name!))
         .toList();
 
-    widget.projectStatics.projectIssues!.forEach((element) {
-      if (element.totalIssue! + 10 > max) {
-        max = element.totalIssue! + 10;
+    widget.projectStatics.members.forEach((element) {
+      if (element.totalIssue + 10 > max) {
+        max = element.totalIssue + 10;
       }
     });
   }
@@ -44,7 +45,7 @@ class _ProjectBarChartState extends State<ProjectBarChart> {
         BarChartRodData(
           toY: value,
           color: color,
-          width: 20,
+          width: 15,
         ),
       ],
       showingTooltipIndicators: touchedGroupIndex == x ? [0] : [],
@@ -64,7 +65,7 @@ class _ProjectBarChartState extends State<ProjectBarChart> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AspectRatio(
-              aspectRatio: 1.4,
+              aspectRatio: 3,
               child: BarChart(
                 BarChartData(
                   alignment: BarChartAlignment.spaceBetween,
@@ -218,7 +219,10 @@ class _IconWidgetState extends AnimatedWidgetBaseState<_IconWidget> {
             '${widget.name}',
             style: TextStyle(fontSize: 16),
           )
-        : Text('${widget.name}', style: TextStyle(fontSize: 11),);
+        : Text(
+            '${widget.name}',
+            style: TextStyle(fontSize: 11),
+          );
   }
 
   @override
