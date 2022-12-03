@@ -2,6 +2,7 @@ package com.scrum.master.service.impl;
 
 import com.scrum.master.common.enums.IssueStatus;
 import com.scrum.master.common.enums.IssueType;
+import com.scrum.master.common.enums.ProjectRole;
 import com.scrum.master.common.exceptions.BusinessException;
 import com.scrum.master.data.dto.IssueStatics;
 import com.scrum.master.data.dto.PerformanceStatics;
@@ -21,9 +22,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -103,7 +102,7 @@ public class StaticsServiceImpl implements StaticsService {
             throw BusinessException.builder().message("Project not available").status(HttpStatus.BAD_REQUEST).build();
         });
         List<ProjectMember> projectMembers = project.getMembers();
-        List<ProjectMemberStatics.MemberStatics> memberStatics = projectMembers.stream().map(projectMember -> {
+        List<ProjectMemberStatics.MemberStatics> memberStatics = projectMembers.stream().filter(projectMember -> projectMember.getRole() != ProjectRole.OWNER).map(projectMember -> {
             ProjectMemberStatics.MemberStatics statics = new ProjectMemberStatics.MemberStatics();
             statics.setUser(projectMember.getUser());
             statics.setTotalIssue(issueRepository.countByUserIdAndProjectId(projectMember.getUser().getId(), projectId));

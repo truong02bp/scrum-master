@@ -102,6 +102,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public void delete(Long id) {
+        User user = userRepository.findById(id).orElse(new User());
+        user.setActive(false);
+        userRepository.save(user);
+    }
+
+    @Override
     public List<User> findAll() {
         Organization organization = SecurityUtils.getCurrentOrganization();
         return userRepository.findByOrganization(organization.getId());

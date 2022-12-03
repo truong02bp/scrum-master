@@ -31,6 +31,8 @@ public interface UserService extends UserDetailsService {
     User updatePassword(UserDto userDto);
     User updateAvatar(MediaDto dto);
 
+    void delete(Long id);
+
     List<User> findAll();
 
     void generateData();

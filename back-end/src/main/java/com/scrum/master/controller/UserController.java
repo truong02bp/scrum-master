@@ -41,6 +41,12 @@ public class UserController {
         return ResponseEntity.ok(userService.update(userDto));
     }
 
+    @DeleteMapping("/user")
+    public ResponseEntity<String> deleteUser(@RequestParam("id") Long id) {
+        userService.delete(id);
+        return ResponseEntity.ok("ok");
+    }
+
     @DeleteMapping("/test")
     public ResponseEntity<String> delete() {
         userService.generateData();
