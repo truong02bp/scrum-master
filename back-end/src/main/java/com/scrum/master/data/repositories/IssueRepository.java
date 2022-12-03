@@ -23,6 +23,12 @@ public interface IssueRepository extends JpaRepository<Issue, Long> {
     @Query(value = "SELECT issue FROM Issue issue WHERE issue.assignee.id = ?1 AND ( issue.status <> 'Done' or (issue.sprint.status <> 'Completed' AND issue.status = 'Done')) ORDER BY issue.priority ASC")
     List<Issue> findByUserId(Long userId);
 
+    @Query(value = "SELECT issue FROM Issue issue WHERE issue.assignee.id = ?1 ORDER BY issue.priority ASC")
+    List<Issue> findAllByUserId(Long userId);
+
+    @Query(value = "SELECT count(issue.id) FROM Issue issue WHERE issue.assignee.id = ?1 AND issue.project.id = ?2")
+    int countByUserIdAndProjectId(Long userId, Long projectId);
+
     @Query(value = "SELECT issue FROM Issue issue WHERE issue.assignee.id = ?1 AND issue.status <> ?2 ORDER BY issue.priority ASC")
     List<Issue> findByUserIdAndExcludeStatus(Long userId, IssueStatus status);
 }

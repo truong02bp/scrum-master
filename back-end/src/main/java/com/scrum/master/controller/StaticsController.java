@@ -29,4 +29,9 @@ public class StaticsController {
     public ResponseEntity<Object> exportPerformanceStatics(@RequestParam("userId") Long userId) {
         return ResponseEntity.ok(staticsService.exportPerformanceStatics(userId));
     }
+
+    @GetMapping("/statics/project/member")
+    public ResponseEntity<Object> exportProjectMember(@RequestParam("projectId") Long projectId) {
+        return ResponseEntity.ok(staticsService.exportProjectMemberStatics(projectId));
+    }
 }
