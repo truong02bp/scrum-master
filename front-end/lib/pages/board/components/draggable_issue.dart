@@ -166,7 +166,7 @@ class _DraggableIssueState extends State<DraggableIssue> {
             issue.assignee != null
                 ? Positioned(
                     right: 0,
-                    top: 0,
+                    bottom: 0,
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(35),
                       child: CachedNetworkImage(
