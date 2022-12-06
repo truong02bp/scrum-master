@@ -1,3 +1,4 @@
+#!/bin/bash
 # Stage 1 - Install dependencies and build the app
 FROM ubuntu:20.04 AS builder
 
@@ -17,6 +18,7 @@ RUN flutter channel stable
 
 # Enable web capabilities
 RUN flutter config --enable-web
+RUN flutter doctor -v
 RUN flutter upgrade
 RUN flutter pub global activate webdev
 
@@ -28,7 +30,6 @@ COPY . /app
 WORKDIR /app
 RUN flutter pub get
 RUN flutter build web --web-renderer html
-
 EXPOSE 5173
 # make server startup script executable and start the web server
 RUN ["chmod", "+x", "/app/server/server.sh"]
