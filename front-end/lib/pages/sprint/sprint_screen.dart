@@ -156,8 +156,10 @@ class SprintScreen extends StatelessWidget {
                                 BlocBuilder<SprintBloc, SprintState>(
                                   bloc: bloc,
                                   builder: (context, state) {
-                                    if (state.selectedSprint == null ||
-                                        state.selectedSprint!.status ==
+                                    if (state.selectedSprint == null) {
+                                      return Container();
+                                    }
+                                    if (state.selectedSprint!.status ==
                                             "ACTIVE") {
                                       return Container(
                                         child: Text(

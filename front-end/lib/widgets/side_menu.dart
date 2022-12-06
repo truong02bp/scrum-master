@@ -23,56 +23,56 @@ class SideMenu extends StatelessWidget {
           ),
           DrawerListTile(
             title: "Dashboard",
-            svgSrc: "assets/icons/menu_dashbord.svg",
+            pngSrc: "assets/icons/menu_dashbord.png",
             press: () {
               Navigator.pushNamed(context, DashBoardScreen.routeName);
             },
           ),
           DrawerListTile(
             title: "Projects",
-            svgSrc: "assets/icons/menu_tran.svg",
+            pngSrc: "assets/icons/menu_tran.png",
             press: () {
               Navigator.pushNamed(context, ProjectScreen.routeName);
             },
           ),
           DrawerListTile(
             title: "Boards",
-            svgSrc: "assets/icons/menu_doc.svg",
+            pngSrc: "assets/icons/menu_doc.png",
             press: () {
               Navigator.pushNamed(context, BoardScreen.routeName);
             },
           ),
           DrawerListTile(
             title: "Sprints",
-            svgSrc: "assets/icons/sprint.svg",
+            pngSrc: "assets/icons/sprint.png",
             press: () {
               Navigator.pushNamed(context, SprintScreen.routeName);
             },
           ),
           DrawerListTile(
             title: "Issues",
-            svgSrc: "assets/icons/menu_task.svg",
+            pngSrc: "assets/icons/menu_task.png",
             press: () {
               Navigator.pushNamed(context, IssueScreen.routeName);
             },
           ),
           DrawerListTile(
             title: "Profile",
-            svgSrc: "assets/icons/menu_profile.svg",
+            pngSrc: "assets/icons/menu_profile.png",
             press: () {
               Navigator.pushNamed(context, ProfileScreen.routeName);
             },
           ),
           DrawerListTile(
-            title: "Settings",
-            svgSrc: "assets/icons/menu_setting.svg",
+            title: "Members",
+            pngSrc: "assets/icons/menu_setting.png",
             press: () {
               Navigator.pushNamed(context, SettingScreen.routeName);
             },
           ),
           DrawerListTile(
             title: "Log out",
-            svgSrc: "assets/icons/logout.svg",
+            pngSrc: "assets/icons/logout.png",
             press: () {
               AwesomeDialog(
                 context: context,
@@ -104,11 +104,11 @@ class DrawerListTile extends StatelessWidget {
     Key? key,
     // For selecting those three line once press "Command+D"
     required this.title,
-    required this.svgSrc,
+    required this.pngSrc,
     required this.press,
   }) : super(key: key);
 
-  final String title, svgSrc;
+  final String title, pngSrc;
   final VoidCallback press;
 
   @override
@@ -116,9 +116,9 @@ class DrawerListTile extends StatelessWidget {
     return ListTile(
       onTap: press,
       horizontalTitleGap: 0.0,
-      leading: Image.network(
-        svgSrc,
-        color: Colors.white54,
+      leading: Image.asset(
+        pngSrc,
+        color: Colors.white,
         height: 16,
       ),
       title: Text(

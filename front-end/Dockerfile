@@ -1,41 +1,36 @@
-# Flutter Web Docker Example Dockerfile
+# Stage 1 - Install dependencies and build the app
+FROM ubuntu:20.04 AS builder
 
-# Install dependencies
-FROM debian:latest AS build-env
 RUN apt-get update
-RUN apt-get install git
-RUN Y
+RUN apt-get install -y bash curl file git unzip xz-utils zip libglu1-mesa python3
 RUN apt-get clean
 
 # Clone the flutter repo
 RUN git clone https://github.com/flutter/flutter.git /usr/local/flutter
 
 # Set flutter path
+# RUN /usr/local/flutter/bin/flutter doctor -v
 ENV PATH="/usr/local/flutter/bin:/usr/local/flutter/bin/cache/dart-sdk/bin:${PATH}"
 
-# Enable flutter web
-RUN flutter channel master
-RUN flutter upgrade
+# Change stable channel
+RUN flutter channel stable
+
+# Enable web capabilities
 RUN flutter config --enable-web
+RUN flutter upgrade
+RUN flutter pub global activate webdev
 
-# Run flutter doctor
-RUN flutter doctor -v
+# RUN flutter doctor -v
 
-# Copy the app files
-COPY . /usr/local/bin/app
-WORKDIR /usr/local/bin/app
-
-# Get App Dependencies
+# Copy files to container and build
+RUN mkdir /app
+COPY . /app
+WORKDIR /app
 RUN flutter pub get
+RUN flutter build web --web-renderer html
 
-# Build the app for the web
-RUN flutter build web
+EXPOSE 5173
+# make server startup script executable and start the web server
+RUN ["chmod", "+x", "/app/server/server.sh"]
 
-# Document the exposed port
-EXPOSE 4040
-
-# Set the server startup script as executable
-RUN ["chmod", "+x", "/usr/local/bin/app/server/server.sh"]
-
-# Start the web server
-ENTRYPOINT [ "/usr/local/bin/app/server/server.sh" ]
+ENTRYPOINT [ "/app/server/server.sh"]

@@ -151,7 +151,7 @@ class IssuePieChartState extends State<IssuePieChart> {
               color: const Color(0xffffffff),
             ),
             badgeWidget: _Badge(
-              'assets/icons/bug.png',
+              'assets/icons/Bug.png',
               size: widgetSize,
               borderColor: Colors.orange,
             ),
