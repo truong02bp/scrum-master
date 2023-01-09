@@ -9,5 +9,5 @@ public interface ActivityLogService {
 
     List<ActivityLog> getByUserId(Long userId, Pageable pageable);
     ActivityLog create(ActivityLog activityLog);
-
+    void deleteByIssueId(Long issueId);
 }

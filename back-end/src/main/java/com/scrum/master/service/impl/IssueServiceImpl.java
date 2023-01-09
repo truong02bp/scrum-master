@@ -139,6 +139,7 @@ public class IssueServiceImpl implements IssueService {
         ActivityLog log = new ActivityLog();
         log.setProject(issue.getProject());
         log.setDescription("delete issue " + issue.getCode() + ": " + issue.getTitle());
+        activityLogService.deleteByIssueId(issueId);
         activityLogService.create(log);
         issueRepository.deleteById(issueId);
     }

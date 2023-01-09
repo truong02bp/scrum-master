@@ -34,4 +34,9 @@ public class ActivityLogServiceImpl implements ActivityLogService {
         activityLog.setUser(user);
         return activityLogRepository.save(activityLog);
     }
+
+    @Override
+    public void deleteByIssueId(Long issueId) {
+        activityLogRepository.deleteByIssueId(issueId);
+    }
 }

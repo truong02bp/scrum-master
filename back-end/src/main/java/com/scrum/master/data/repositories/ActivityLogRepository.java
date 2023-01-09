@@ -11,4 +11,6 @@ public interface ActivityLogRepository extends JpaRepository<ActivityLog, Long> 
 
     @Query(value = "SELECT log FROM ActivityLog log WHERE log.project.id in ?1 ORDER BY log.createdDate DESC ")
     List<ActivityLog> findByProjectIds(List<Long> projectIds, Pageable pageable);
+    @Query(value = "DELETE FROM ActivityLog log WHERE log.issue.id = ?1")
+    void deleteByIssueId(Long issueId);
 }
