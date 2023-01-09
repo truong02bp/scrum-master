@@ -122,6 +122,14 @@ class IssueRepository {
     return issue;
   }
 
+  Future<void> delete(int issueId) async {
+    ApiModel model = ApiModel(
+        url: endpoints,
+        params: {"issueId": "$issueId"});
+
+    await apiRepository.delete(model);
+  }
+
   Future<Issue?> update(
       int? id,
       String? type,

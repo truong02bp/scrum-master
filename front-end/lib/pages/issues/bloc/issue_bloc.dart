@@ -108,5 +108,17 @@ class IssueBloc extends Bloc<IssueEvent, IssueState> {
         showErrorAlert("Update issue failure", state.context!);
       }
     });
+
+    on<DeleteIssue>((event, emit) async {
+      try {
+        await issueRepository.delete(event.id);
+        state.issues.removeWhere((element) => element.id == event.id);
+        showSuccessAlert("Delete issue success", state.context!);
+        emit(state.clone(IssueStatus.assignToMeSuccess));
+      }
+      catch (exception) {
+        showErrorAlert("Delete issue failure", state.context!);
+      }
+    });
   }
 }

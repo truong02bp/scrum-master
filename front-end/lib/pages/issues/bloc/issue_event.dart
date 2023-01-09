@@ -57,4 +57,10 @@ class UpdateIssueEvent extends IssueEvent {
   Sprint? sprint;
 }
 
+class DeleteIssue extends IssueEvent {
+  int id;
+
+  DeleteIssue(this.id);
+}
+
 

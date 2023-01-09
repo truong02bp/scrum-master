@@ -127,9 +127,44 @@ class _ReorderListState extends State<ReorderList> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  'Update issue: ${issue.code}',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                Row(
+                  children: [
+                    Text(
+                      'Update issue: ${issue.code}',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
+                    ),
+                    Spacer(),
+                    InkWell(
+                      onTap: () {
+                        AwesomeDialog(
+                          context: context,
+                          animType: AnimType.TOPSLIDE,
+                          dialogType: DialogType.QUESTION,
+                          aligment: Alignment.center,
+                          keyboardAware: true,
+                          title: 'Confirm to delete this issue',
+                          btnOkOnPress: () async {
+                            Navigator.pop(context);
+                            bloc.add(DeleteIssue(issue.id!));
+                          },
+                          btnCancelOnPress: () {},
+                          width: 400,
+                        )..show();
+                      },
+                      child: Container(
+                        height: 40,
+                        width: 90,
+                        decoration: BoxDecoration(
+                            color: Colors.red,
+                            borderRadius: BorderRadius.circular(7)),
+                        child: Center(child: Text('Delete')),
+                      ),
+                    ),
+                    const SizedBox(
+                      width: 20,
+                    )
+                  ],
                 ),
                 const SizedBox(
                   height: 20,
